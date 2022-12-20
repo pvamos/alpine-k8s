@@ -1,0 +1,27 @@
+---
+
+# Alpine linux kernel parameters configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Set net forwarding kernel params
+  copy:
+    dest: /etc/sysctl.d/forwarding.conf
+    content: |
+      net.ipv4.ip_forward = 1
+      net.ipv6.conf.all.forwarding = 1
+      net.bridge.bridge-nf-call-iptables = 1
+      net.bridge.bridge-nf-call-ip6tables = 1
+
+- name: Apply kernel parameter changes
+  command: /sbin/sysctl -p
+
+- name: Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf
+  copy:
+    dest: /etc/modules-load.d/br_netfilter.conf
+    content: |
+      br_netfilter
+
+- name: Modprobe br_netfilter
+  command: /sbin/modprobe br_netfilter

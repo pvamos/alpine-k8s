@@ -1,0 +1,47 @@
+---
+
+# Alpine linux floating ipv4 configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Set host variables for lb1.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ lb1_fqdn }}"
+    hostnamefromip: "{{ lb1_hostname }}"
+    domainfromip: "{{ lb1_domain }}"
+    ipv4addr: "{{ lb1_ipv4addr }}"
+    ipv6addr: "{{ lb1_ipv6addr }}"
+    ipv6mask: "{{ lb1_ipv6mask }}"
+    ipv6_defaultgw: "{{ lb1_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ lb1_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == lb1_ipv4addr
+
+- name: Set host variables for lb2.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ lb2_fqdn }}"
+    hostnamefromip: "{{ lb2_hostname }}"
+    domainfromip: "{{ lb2_domain }}"
+    ipv4addr: "{{ lb2_ipv4addr }}"
+    ipv6addr: "{{ lb2_ipv6addr }}"
+    ipv6mask: "{{ lb2_ipv6mask }}"
+    ipv6_defaultgw: "{{ lb2_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ lb2_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == lb2_ipv4addr
+
+- name: Print host variables
+  debug:
+    msg: "fqdnfromip: {{fqdnfromip}} hostnamefromip: {{hostnamefromip}} domainfromip: {{domainfromip}} city: {{city}} macaddress: {{macaddress}} ipv4addr: {{ipv4addr}} ipv6addr: {{ipv6addr}} ipv6_defaultgw: {{ipv6_defaultgw}}"
+
+- name: Create /etc/network/interfaces containing LB floating IPv4 as 'eth0:0'
+  template:
+    src: templates/interfaces.lb.j2
+    dest: /etc/network/interfaces
+
+- name: Restart networking service with new /etc/network/interfaces
+  raw: /sbin/service networking restart
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:

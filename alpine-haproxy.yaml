@@ -1,0 +1,9 @@
+---
+
+- name: Alpine linux haproxy install
+  hosts: haproxy
+  gather_facts: true
+  roles:
+    - role: alpine_apkrepo
+    - role: alpine_floating_ipv4
+    - role: alpine_haproxy

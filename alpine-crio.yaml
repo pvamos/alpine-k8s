@@ -1,0 +1,9 @@
+---
+
+- name: Alpine linux cri-o install
+  hosts: workers
+  gather_facts: true
+  roles:
+    - role: alpine_apkrepo
+    - role: alpine_kernelparams
+    - role: alpine_crio

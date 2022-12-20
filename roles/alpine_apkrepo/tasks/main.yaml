@@ -1,0 +1,32 @@
+---
+
+# Alpine linux APK repo configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Set /etc/apk/repositories to edge/main, edge/community and edge/testing 
+  copy:
+    dest: /etc/apk/repositories
+    content: |
+      #http://dl-cdn.alpinelinux.org/alpine/v3.17/main
+      #http://dl-cdn.alpinelinux.org/alpine/v3.17/community
+      http://dl-cdn.alpinelinux.org/alpine/edge/main
+      http://dl-cdn.alpinelinux.org/alpine/edge/community
+      http://dl-cdn.alpinelinux.org/alpine/edge/testing
+
+- name: Upgrade all installed apk packages to the latest versions
+  community.general.apk:
+    upgrade: true
+    update_cache: true
+
+- name: Reboot the host after apk upgrade
+  reboot:
+    msg: "Rebooting after apk upgrade"
+    connect_timeout: 15
+    reboot_timeout: 600
+    test_command: whoami
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+

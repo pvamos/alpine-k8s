@@ -1,0 +1,99 @@
+---
+# The variables file used by the playbooks on all hosts.
+# These don't have to be explicitly imported by vars_files: they are autopopulated.
+
+ansible_python_interpreter: /usr/bin/python3
+timeout: 120
+ansible-ssh-timeout: 120
+ansible_connection: ssh
+ansible_become: yes
+ansible_become_method: sudo
+ansible_port: 31212
+ansible_user: p
+ansible_add_port: 31212
+ansible_add_user: p
+ansible_add_user_uid: 1001
+ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+ansible_user_publickey: ~/.ssh/id_ed25519.pub
+
+dns1: 8.8.8.8
+dns2: 8.8.4.4
+dns3: 2001:4860:4860::8888
+dns4: 2001:4860:4860::8844
+
+vm_swappiness: 0
+vm_vfs_cache_pressure: 100
+
+loadbalancer_ipv4: 141.95.37.233
+
+c1_fqdn: control1.pvamos.net
+c1_hostname: control1
+c1_domain: pvamos.net
+c1_ipv4addr: 51.195.116.80
+c1_ipv6addr: 2001:41d0:701:1100::5901
+c1_ipv6mask: /128
+c1_ipv6_defaultgw: 2001:41d0:701:1100::1
+c1_city: Frankfurt
+
+c2_fqdn: control2.vamos.net
+c2_hostname: control2
+c2_domain: pvamos.net
+c2_ipv4addr: 51.195.116.87
+c2_ipv6addr: 2001:41d0:701:1100::5c3f
+c2_ipv6mask: /128
+c2_ipv6_defaultgw: 2001:41d0:701:1100::1
+c2_city: Frankfurt
+
+c3_fqdn: control3.pvamos.net
+c3_hostname: control3
+c3_domain: pvamos.net
+c3_ipv4addr: 51.195.117.170
+c3_ipv6addr: 2001:41d0:701:1100::7912
+c3_ipv6mask: /128
+c3_ipv6_defaultgw: 2001:41d0:701:1100::1
+c3_city: Frankfurt
+
+w1_fqdn: worker1.pvamos.net
+w1_hostname: worker1
+w1_domain: pvamos.net
+w1_ipv4addr: 51.195.116.254
+w1_ipv6addr: 2001:41d0:701:1100::5fa8
+w1_ipv6mask: /128
+w1_ipv6_defaultgw: 2001:41d0:701:1100::1
+w1_city: Frankfurt
+
+w2_fqdn: worker2.pvamos.net
+w2_hostname: worker2
+w2_domain: pvamos.net
+w2_ipv4addr: 51.195.118.45
+w2_ipv6addr: 2001:41d0:701:1100::5fa4
+w2_ipv6mask: /128
+w2_ipv6_defaultgw: 2001:41d0:701:1100::1
+w2_city: Frankfurt
+
+w3_fqdn: worker3.pvamos.net
+w3_hostname: worker3
+w3_domain: pvamos.net
+w3_ipv4addr: 51.195.119.241
+w3_ipv6addr: 2001:41d0:701:1100::1996
+w3_ipv6mask: /128
+w3_ipv6_defaultgw: 2001:41d0:701:1100::1
+w3_city: Frankfurt
+
+lb1_fqdn: lb1.pvamos.net
+lb1_hostname: lb1
+lb1_domain: pvamos.net
+lb1_ipv4addr: 51.195.45.52
+lb1_ipv6addr: 2001:41d0:701:1100::1611
+lb1_ipv6mask: /128
+lb1_ipv6_defaultgw: 2001:41d0:701:1100::1
+lb1_city: Frankfurt
+
+lb2_fqdn: lb2.pvamos.net
+lb2_hostname: lb2
+lb2_domain: pvamos.net
+lb2_ipv4addr: 51.89.23.76
+lb2_ipv6addr: 2001:41d0:701:1100::2701
+lb2_ipv6mask: /128
+lb2_ipv6_defaultgw: 2001:41d0:701:1100::1
+lb2_city: Frankfurt

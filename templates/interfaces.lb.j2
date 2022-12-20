@@ -1,0 +1,18 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+    hostname {{ fqdnfromip }}
+
+iface eth0 inet6 static
+    address {{ ipv6addr }}{{ ipv6mask }}
+    post-up /sbin/ip -6 route add {{ ipv6_defaultgw }} dev eth0 || true
+    post-up /sbin/ip -6 route add default via {{ ipv6_defaultgw }} dev eth0 || true
+    pre-down /sbin/ip -6 route del default via {{ ipv6_defaultgw }} dev eth0 || true
+    pre-down /sbin/ip -6 route del {{ ipv6_defaultgw }} dev eth0 || ture
+
+auto eth0:0
+iface eth0:0 inet static
+    address {{ loadbalancer_ipv4 }}/32
+

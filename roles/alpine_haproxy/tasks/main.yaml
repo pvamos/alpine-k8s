@@ -1,0 +1,12 @@
+---
+
+# Alpine linux haproxy configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Install packages haproxy, haproxy-doc and haproxy-openrc
+  community.general.apk:
+    name: haproxy,haproxy-doc,haproxy-openrc
+    state: present
+

@@ -1,0 +1,51 @@
+---
+
+# Alpine linux cri-o configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cri-o-contrib-cni, cni-plugins, cni-plugins-doc, ip6tables and uuidgen
+  community.general.apk:
+    name: cri-o cri-o-doc,cri-o-bash-completion,cri-o-openrc,cri-o-contrib-cni,cni-plugins,cni-plugins-doc,ip6tables,uuidgen
+    state: present
+
+- name: Remove unused IPv4 only CNI config file /etc/cni/net.d/11-crio-ipv4-bridge.conf
+  ansible.builtin.file:
+    path: /etc/cni/net.d/11-crio-ipv4-bridge.conf
+    state: absent
+
+- name: Create /etc/machine-id
+  ansible.builtin.command: /usr/bin/uuidgen > /etc/machine-id
+
+# Start CRI-O first, creates /var/lib/crio/version
+- name: Start CRI-O service
+  ansible.builtin.command: /etc/init.d/crio start
+
+# Restart CRI-O with /var/lib/crio/version present
+- name: Restart CRI-O service
+  command: /etc/init.d/crio restart
+
+- name: Get CRI-O service status
+  ansible.builtin.command: /etc/init.d/crio status
+  register: get_crio_status
+
+- name: Print CRI-O service status
+  ansible.builtin.debug:
+    var: get_crio_status.stdout_lines
+
+- name: Get CRI-O service version
+  ansible.builtin.command: /usr/bin/crio version
+  register: get_crio_version
+
+- name: Print CRI-O service version
+  ansible.builtin.debug:
+    var: get_crio_version.stdout_lines
+
+- name: Get CRI-O socket listing
+  ansible.builtin.command: ls -la /run/crio/crio.sock
+  register: get_crio_socket
+
+- name: Print CRI-O socket listing
+  ansible.builtin.debug:
+    var: get_crio_socket.stdout_lines
