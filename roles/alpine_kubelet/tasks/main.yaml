@@ -1,0 +1,26 @@
+---
+
+# Alpine linux kubelet configuration
+
+- name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
+  ping:
+
+- name: Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion 
+  community.general.apk:
+    name: kubelet,kubelet-openrc,kubeadm,kubeadm-bash-completion,kubectl,kubectl-bash-completion
+    state: present
+
+- name: Enable kubelet service
+  ansible.builtin.command: /sbin/rc-update add kubelet
+
+- name: Start kubelet service
+  ansible.builtin.command: /etc/init.d/kubelet start
+
+- name: Get kubelet service status
+  ansible.builtin.command: /etc/init.d/kubelet status
+  register: get_kubelet_status
+
+- name: Print kubelet service status
+  ansible.builtin.debug:
+    var: get_kubelet_status.stdout_lines
+

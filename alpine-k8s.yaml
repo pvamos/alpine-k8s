@@ -1,0 +1,7 @@
+---
+
+- name: Alpine linux k8s install
+  hosts: workers:controlplane
+  gather_facts: true
+  roles:
+    - role: alpine_kubelet

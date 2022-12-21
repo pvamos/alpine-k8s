@@ -18,6 +18,9 @@
 - name: Create /etc/machine-id
   ansible.builtin.command: /usr/bin/uuidgen > /etc/machine-id
 
+- name: Enable CRI-O service
+  ansible.builtin.command: /sbin/rc-update add crio
+
 # Start CRI-O first, creates /var/lib/crio/version
 - name: Start CRI-O service
   ansible.builtin.command: /etc/init.d/crio start
