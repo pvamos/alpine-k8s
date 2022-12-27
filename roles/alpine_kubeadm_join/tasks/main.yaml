@@ -1,0 +1,36 @@
+---
+# Fedora CoreOS Kubernetes kubeadm join
+
+- name: Test connection with ping
+  ansible.builtin.ping:
+
+- name: Get kubeadm join command with tokens from local file
+  ansible.builtin.set_fact:
+    kubeadm_join_command: "{{ lookup('file', '/home/p/alpine-k8s/kubeadm-join-command.sh') }}"
+  when: inventory_hostname in groups.workers
+
+- name: Print kubeadm join command with tokens
+  ansible.builtin.debug:
+    msg: "{{ kubeadm_join_command }}"
+  when: inventory_hostname in groups.workers
+
+- name: Execute kubeadm join
+  ansible.builtin.command: "{{ kubeadm_join_command }}"
+  environment:
+    PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
+  args:
+    executable: /bin/bash
+  register: kubeadm_join_output
+  when: inventory_hostname in groups.workers
+
+- name: Print kubeadm join output
+  ansible.builtin.debug:
+    var: kubeadm_join_output.stdout_lines
+  when: inventory_hostname in groups.workers
+
+- name: Reboot all nodes
+  ansible.builtin.reboot:
+    post_reboot_delay: 10
+    reboot_timeout: 600
+
+

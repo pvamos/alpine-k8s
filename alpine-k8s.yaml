@@ -1,7 +1,26 @@
 ---
 
-- name: Alpine linux k8s install
+- name: Alpine linux install kubelet
   hosts: workers:controlplane
   gather_facts: true
   roles:
     - role: alpine_kubelet
+
+- name: Alpine linux kubeadm init
+  hosts: controlplane
+  gather_facts: true
+  roles:
+    - role: alpine_kubeadm_init
+
+- name: Alpine linux kubeadm join
+  hosts: workers
+  gather_facts: true
+  roles:
+    - role: alpine_kubeadm_join
+
+- name: Alpine linux after kubeadm join
+  hosts: workers:controlplane
+  gather_facts: true
+  roles:
+    - role: alpine_kubeadm_afterjoin
+#    - role: alpine_calico

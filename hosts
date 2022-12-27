@@ -1,7 +1,7 @@
 [controlplane]
 ipv4.control1.pvamos.net
-ipv4.control2.pvamos.net
-ipv4.control3.pvamos.net
+#ipv4.control2.pvamos.net
+#ipv4.control3.pvamos.net
 
 [workers]
 ipv4.worker1.pvamos.net
@@ -9,5 +9,5 @@ ipv4.worker2.pvamos.net
 ipv4.worker3.pvamos.net
 
 [haproxy]
-ipv4.lb1.pvamos.net
-ipv4.lb2.pvamos.net
+#ipv4.lb1.pvamos.net
+#ipv4.lb2.pvamos.net

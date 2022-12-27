@@ -5,15 +5,10 @@
 - name: Test connection with user {{ ansible_user }} on port {{ ansible_port }}
   ping:
 
-- name: Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cri-o-contrib-cni, cni-plugins, cni-plugins-doc, ip6tables and uuidgen
+- name: Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen
   community.general.apk:
-    name: cri-o cri-o-doc,cri-o-bash-completion,cri-o-openrc,cri-o-contrib-cni,cni-plugins,cni-plugins-doc,ip6tables,uuidgen
+    name: cri-o cri-o-doc,cri-o-bash-completion,cri-o-openrc,cni-plugins,cni-plugins-doc,ip6tables,uuidgen
     state: present
-
-- name: Remove unused IPv4 only CNI config file /etc/cni/net.d/11-crio-ipv4-bridge.conf
-  ansible.builtin.file:
-    path: /etc/cni/net.d/11-crio-ipv4-bridge.conf
-    state: absent
 
 - name: Create /etc/machine-id
   ansible.builtin.command: /usr/bin/uuidgen > /etc/machine-id

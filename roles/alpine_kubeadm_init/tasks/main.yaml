@@ -1,0 +1,98 @@
+---
+# Fedora CoreOS Kubernetes init with kubeadm
+
+- name: Test connection with ping
+  ansible.builtin.ping:
+
+- name: Copy clusterconfig.yaml
+  ansible.builtin.copy:
+    src: files/clusterconfig.yaml
+    dest: /root/clusterconfig.yaml
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: Execute kubeadm init
+  ansible.builtin.command: '/usr/bin/kubeadm init --ignore-preflight-errors=NumCPU --config /root/clusterconfig.yaml'
+  environment:
+    PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
+  args:
+    executable: /bin/bash
+  register: kubeadm_init_output
+
+- name: Print kubeadm init output
+  ansible.builtin.debug:
+    var: kubeadm_init_output.stdout_lines
+
+# this is working if the last 2 lines of kubeadm init output is formatted like below
+# if format changes, adjustments are needed
+#
+#kubeadm join 192.168.1.201:6443 --token b0n35n.ypc22pqnfhw60r9f \
+#        --discovery-token-ca-cert-hash sha256:e06939370cda901ecd4324fe061b78867576020d5b8fd503e1c48e93c7e0cf05
+- name: Get kubeadm join command with tokens
+  ansible.builtin.set_fact:
+    kubeadm_join_command: "{{ kubeadm_init_output.stdout_lines[-2][:-1] }}{{ kubeadm_init_output.stdout_lines[-1] | trim }}"
+
+- name: Print kubeadm join command with tokens
+  ansible.builtin.debug:
+    var: kubeadm_join_command
+
+- name: Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.copy:
+    dest: /home/p/alpine-k8s/kubeadm-join-command.sh
+    content: "{{ kubeadm_join_command }}"
+    owner: p
+    group: p
+    mode: '0644'
+
+- name: Create /home/p/.kube directory on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.file:
+    path: /home/p/.kube
+    state: directory
+    mode: '0700'
+
+- name: Copy /etc/kubernetes/admin.conf from control1 to /home/p/.kube locally
+  ansible.builtin.fetch:
+    src: /etc/kubernetes/admin.conf
+    dest: /home/p/.kube
+
+- name: Move /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf to /home/p/.kube/config on ansible node
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.command:
+    cmd: mv /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf /home/p/.kube/config
+
+#- name: Fetch remote to local.
+#  fetch:
+#   src: /root/devops/target.txt
+#   dest: /root/jboss/
+
+- name: Do chmod 700 /home/p/.kube/config on ansible node
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.command:
+    cmd: chmod 700 /home/p/.kube/config
+
+- name: Get ~/.kube/config from local file
+  ansible.builtin.set_fact:
+    kube_config: "{{ lookup('file', '/home/p/.kube/config') }}"
+
+- name: Print ~/.kube/config from local file
+  ansible.builtin.debug:
+    var: kube_config
+
+- name: Delete with rm -rf /home/p/.kube/ipv4.control1.pvamos.net on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.command:
+    cmd: rm -rf /home/p/.kube/ipv4.control1.pvamos.net
+

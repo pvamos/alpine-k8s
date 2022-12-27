@@ -15,7 +15,7 @@
       net.bridge.bridge-nf-call-ip6tables = 1
 
 - name: Apply kernel parameter changes
-  command: /sbin/sysctl -p
+  command: /sbin/sysctl -p /etc/sysctl.d/forwarding.conf
 
 - name: Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf
   copy:
