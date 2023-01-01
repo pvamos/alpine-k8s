@@ -25,6 +25,7 @@ vm_swappiness: 0
 vm_vfs_cache_pressure: 100
 
 loadbalancer_ipv4: 141.95.37.233
+apiserver_endpoint: 51.195.116.80
 
 c1_fqdn: control1.pvamos.net
 c1_hostname: control1

@@ -4,9 +4,97 @@
 - name: Test connection with ping
   ansible.builtin.ping:
 
+- name: Set host variables for c1.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ c1_fqdn }}"
+    hostnamefromip: "{{ c1_hostname }}"
+    domainfromip: "{{ c1_domain }}"
+    ipv4addr: "{{ c1_ipv4addr }}"
+    ipv6addr: "{{ c1_ipv6addr }}"
+    ipv6mask: "{{ c1_ipv6mask }}"
+    ipv6_defaultgw: "{{ c1_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ c1_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == c1_ipv4addr
+
+- name: Set host variables for c2.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ c2_fqdn }}"
+    hostnamefromip: "{{ c2_hostname }}"
+    domainfromip: "{{ c2_domain }}"
+    ipv4addr: "{{ c2_ipv4addr }}"
+    ipv6addr: "{{ c2_ipv6addr }}"
+    ipv6mask: "{{ c2_ipv6mask }}"
+    ipv6_defaultgw: "{{ c2_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ c2_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == c2_ipv4addr
+
+- name: Set host variables for c3.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ c3_fqdn }}"
+    hostnamefromip: "{{ c3_hostname }}"
+    domainfromip: "{{ c3_domain }}"
+    ipv4addr: "{{ c3_ipv4addr }}"
+    ipv6addr: "{{ c3_ipv6addr }}"
+    ipv6mask: "{{ c3_ipv6mask }}"
+    ipv6_defaultgw: "{{ c3_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ c3_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == c3_ipv4addr
+
+- name: Set host variables for w1.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ w1_fqdn }}"
+    hostnamefromip: "{{ w1_hostname }}"
+    domainfromip: "{{ w1_domain }}"
+    ipv4addr: "{{ w1_ipv4addr }}"
+    ipv6addr: "{{ w1_ipv6addr }}"
+    ipv6mask: "{{ w1_ipv6mask }}"
+    ipv6_defaultgw: "{{ w1_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ w1_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == w1_ipv4addr
+
+- name: Set host variables for w2.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ w2_fqdn }}"
+    hostnamefromip: "{{ w2_hostname }}"
+    domainfromip: "{{ w2_domain }}"
+    ipv4addr: "{{ w2_ipv4addr }}"
+    ipv6addr: "{{ w2_ipv6addr }}"
+    ipv6mask: "{{ w2_ipv6mask }}"
+    ipv6_defaultgw: "{{ w2_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ w2_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == w2_ipv4addr
+
+- name: Set host variables for w3.pvamos.net
+  set_fact:
+    fqdnfromip: "{{ w3_fqdn }}"
+    hostnamefromip: "{{ w3_hostname }}"
+    domainfromip: "{{ w3_domain }}"
+    ipv4addr: "{{ w3_ipv4addr }}"
+    ipv6addr: "{{  w3_ipv6addr }}"
+    ipv6mask: "{{ w3_ipv6mask }}"
+    ipv6_defaultgw: "{{ w3_ipv6_defaultgw }}"
+    macaddress: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    city: "{{ w3_city }}"
+  when: hostvars[inventory_hostname].ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) == w3_ipv4addr
+
 - name: Get kubeadm join command with tokens from local file
   ansible.builtin.set_fact:
     kubeadm_join_command: "{{ lookup('file', '/home/p/alpine-k8s/kubeadm-join-command.sh') }}"
+  when: inventory_hostname in groups.workers
+
+- name: Get kubeadm join token from local file
+  ansible.builtin.set_fact:
+    kubeadm_join_token: "{{ lookup('file', '/home/p/alpine-k8s/kubeadm-join-token') }}"
+  when: inventory_hostname in groups.workers
+
+- name: Get kubeadm join cacert from local file
+  ansible.builtin.set_fact:
+    kubeadm_join_cacert: "{{ lookup('file', '/home/p/alpine-k8s/kubeadm-join-cacert') }}"
   when: inventory_hostname in groups.workers
 
 - name: Print kubeadm join command with tokens
@@ -14,8 +102,24 @@
     msg: "{{ kubeadm_join_command }}"
   when: inventory_hostname in groups.workers
 
+- name: Print kubeadm token
+  ansible.builtin.debug:
+    msg: "{{ kubeadm_join_token }}"
+  when: inventory_hostname in groups.workers
+
+- name: Print kubeadm join cacert
+  ansible.builtin.debug:
+    msg: "{{ kubeadm_join_cacert }}"
+  when: inventory_hostname in groups.workers
+
+- name: Create /root/kubeadm-config.yaml
+  template:
+    src: templates/kubeadm-config.yaml.worker.j2
+    dest: /root/kubeadm-config.yaml
+  when: inventory_hostname in groups.workers
+
 - name: Execute kubeadm join
-  ansible.builtin.command: "{{ kubeadm_join_command }}"
+  ansible.builtin.command: kubeadm join --config=/root/kubeadm-config.yaml
   environment:
     PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
   args:

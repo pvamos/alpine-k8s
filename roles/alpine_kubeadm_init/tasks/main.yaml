@@ -33,9 +33,25 @@
   ansible.builtin.set_fact:
     kubeadm_join_command: "{{ kubeadm_init_output.stdout_lines[-2][:-1] }}{{ kubeadm_init_output.stdout_lines[-1] | trim }}"
 
+- name: Get kubeadm join token
+  ansible.builtin.set_fact:
+    kubeadm_join_token: "{{ kubeadm_init_output.stdout_lines[-2][:-1] | trim | split(' ') | last }}"
+
+- name: Get kubeadm join cacert
+  ansible.builtin.set_fact:
+    kubeadm_join_cacert: "{{ kubeadm_init_output.stdout_lines[-1] | trim | split(' ') | last }}"
+
 - name: Print kubeadm join command with tokens
   ansible.builtin.debug:
     var: kubeadm_join_command
+
+- name: Print kubeadm join token
+  ansible.builtin.debug:
+    var: kubeadm_join_token
+
+- name: Print kubeadm join cacert
+  ansible.builtin.debug:
+    var: kubeadm_join_cacert
 
 - name: Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host
   remote_user: p
@@ -44,6 +60,28 @@
   ansible.builtin.copy:
     dest: /home/p/alpine-k8s/kubeadm-join-command.sh
     content: "{{ kubeadm_join_command }}"
+    owner: p
+    group: p
+    mode: '0644'
+
+- name: Create /home/p/alpine-k8s/kubeadm-join-token file on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.copy:
+    dest: /home/p/alpine-k8s/kubeadm-join-token
+    content: "{{ kubeadm_join_token }}"
+    owner: p
+    group: p
+    mode: '0644'
+
+- name: Create /home/p/alpine-k8s/kubeadm-join-cacert file on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.copy:
+    dest: /home/p/alpine-k8s/kubeadm-join-cacert
+    content: "{{ kubeadm_join_cacert }}"
     owner: p
     group: p
     mode: '0644'

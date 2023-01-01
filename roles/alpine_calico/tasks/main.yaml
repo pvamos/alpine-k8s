@@ -8,7 +8,8 @@
   become: no
   delegate_to: 127.0.0.1
   ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
+    url: https://raw.githubusercontent.com/projectcalico/calico/v3.25.0-0.dev/manifests/tigera-operator.yaml
+#    url: https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
     dest: /tmp/tigera-operator.yaml
     owner: p
     group: p

@@ -11,9 +11,14 @@ spec:
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
     - blockSize: 26
-      cidr: 10.100.0.0/16
+      cidr: 10.244.0.0/16
       encapsulation: VXLANCrossSubnet
-#      encapsulation: VXLAN
+      natOutgoing: Enabled
+      nodeSelector: all()
+      disableBGPExport: true
+    - blockSize: 122
+      cidr: 2001:db8:42:0::/56
+      encapsulation: VXLANCrossSubnet
       natOutgoing: Enabled
       nodeSelector: all()
       disableBGPExport: true
@@ -23,7 +28,7 @@ spec:
 # This section configures the Calico API server.
 # For more information, see: https://projectcalico.docs.tigera.io/master/reference/installation/api#operator.tigera.io/v1.APIServer
 apiVersion: operator.tigera.io/v1
-kind: APIServer 
-metadata: 
-  name: default 
+kind: APIServer
+metadata:
+  name: default
 spec: {}

@@ -1,0 +1,11 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: JoinConfiguration
+discovery:
+  bootstrapToken:
+    apiServerEndpoint: {{ apiserver_endpoint }}:6443
+    token: "{{ kubeadm_join_token }}"
+    caCertHashes:
+    - "{{ kubeadm_join_cacert }}"
+nodeRegistration:
+  kubeletExtraArgs:
+    node-ip: {{ ipv4addr }},{{ ipv6addr }}
