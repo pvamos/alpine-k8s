@@ -13,7 +13,7 @@
     mode: '0700'
 
 - name: Execute kubeadm init
-  ansible.builtin.command: '/usr/bin/kubeadm init --ignore-preflight-errors=NumCPU --config /root/clusterconfig.yaml'
+  ansible.builtin.command: "/usr/bin/kubeadm init --ignore-preflight-errors=NumCPU --upload-certs --config /root/clusterconfig.yaml"
   environment:
     PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
   args:
@@ -24,11 +24,21 @@
   ansible.builtin.debug:
     var: kubeadm_init_output.stdout_lines
 
-# this is working if the last 2 lines of kubeadm init output is formatted like below
+# this is working if the last 10 lines of kubeadm init output is formatted like below
 # if format changes, adjustments are needed
 #
-#kubeadm join 192.168.1.201:6443 --token b0n35n.ypc22pqnfhw60r9f \
-#        --discovery-token-ca-cert-hash sha256:e06939370cda901ecd4324fe061b78867576020d5b8fd503e1c48e93c7e0cf05
+#  kubeadm join 141.95.37.233:6443 --token 4qn1pr.n8u5aauqy2gmno6s \
+#        --discovery-token-ca-cert-hash sha256:9eea940e9ba091b8892faaafa4ddbfd5c2097ce4fa9098ee923316c03269b0aa \
+#        --control-plane --certificate-key 43e3fe2c13f2a38fb2bef60784220c90e130d1da1317603601bb188ef6e00c1f
+#
+#Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
+#As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
+#"kubeadm init phase upload-certs --upload-certs" to reload certs afterward.
+#
+#Then you can join any number of worker nodes by running the following on each as root:
+#
+#kubeadm join 141.95.37.233:6443 --token 4qn1pr.n8u5aauqy2gmno6s \
+#        --discovery-token-ca-cert-hash sha256:9eea940e9ba091b8892faaafa4ddbfd5c2097ce4fa9098ee923316c03269b0aa
 - name: Get kubeadm join command with tokens
   ansible.builtin.set_fact:
     kubeadm_join_command: "{{ kubeadm_init_output.stdout_lines[-2][:-1] }}{{ kubeadm_init_output.stdout_lines[-1] | trim }}"
@@ -41,6 +51,10 @@
   ansible.builtin.set_fact:
     kubeadm_join_cacert: "{{ kubeadm_init_output.stdout_lines[-1] | trim | split(' ') | last }}"
 
+- name: Get kubeadm join cacert
+  ansible.builtin.set_fact:
+    kubeadm_join_certkey: "{{ kubeadm_init_output.stdout_lines[-10] | trim | split(' ') | last }}"
+
 - name: Print kubeadm join command with tokens
   ansible.builtin.debug:
     var: kubeadm_join_command
@@ -52,6 +66,10 @@
 - name: Print kubeadm join cacert
   ansible.builtin.debug:
     var: kubeadm_join_cacert
+
+- name: Print kubeadm join certkey
+  ansible.builtin.debug:
+    var: kubeadm_join_certkey
 
 - name: Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host
   remote_user: p
@@ -86,6 +104,17 @@
     group: p
     mode: '0644'
 
+- name: Create /home/p/alpine-k8s/kubeadm-join-certkey file on ansible host
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.copy:
+    dest: /home/p/alpine-k8s/kubeadm-join-certkey
+    content: "{{ kubeadm_join_certkey }}"
+    owner: p
+    group: p
+    mode: '0644'
+
 - name: Create /home/p/.kube directory on ansible host
   remote_user: p
   become: no
@@ -106,11 +135,6 @@
   delegate_to: 127.0.0.1
   ansible.builtin.command:
     cmd: mv /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf /home/p/.kube/config
-
-#- name: Fetch remote to local.
-#  fetch:
-#   src: /root/devops/target.txt
-#   dest: /root/jboss/
 
 - name: Do chmod 700 /home/p/.kube/config on ansible node
   remote_user: p

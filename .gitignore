@@ -1,3 +1,4 @@
 kubeadm-join-command.sh
 kubeadm-join-token
 kubeadm-join-cacert
+kubeadm-join-certkey

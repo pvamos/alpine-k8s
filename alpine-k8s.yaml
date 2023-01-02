@@ -1,5 +1,13 @@
 ---
 
+- name: Alpine linux cri-o install
+  hosts: workers:controlplane
+  gather_facts: true
+  roles:
+    - role: alpine_apkrepo
+    - role: alpine_kernelparams
+    - role: alpine_crio
+
 - name: Alpine linux install kubelet
   hosts: workers:controlplane
   gather_facts: true
@@ -7,16 +15,22 @@
     - role: alpine_kubelet
 
 - name: Alpine linux kubeadm init
-  hosts: controlplane
+  hosts: control1
   gather_facts: true
   roles:
     - role: alpine_kubeadm_init
 
-- name: Alpine linux kubeadm join
+- name: Alpine linux kubeadm join controlplane
+  hosts: control23
+  gather_facts: true
+  roles:
+    - role: alpine_kubeadm_join_control
+
+- name: Alpine linux kubeadm join workers
   hosts: workers
   gather_facts: true
   roles:
-    - role: alpine_kubeadm_join
+    - role: alpine_kubeadm_join_workers
 
 - name: Alpine linux after kubeadm join
   hosts: workers:controlplane
@@ -24,3 +38,4 @@
   roles:
     - role: alpine_kubeadm_afterjoin
     - role: alpine_calico
+    - role: alpine_longhorn

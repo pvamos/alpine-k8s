@@ -14,7 +14,7 @@
     owner: p
     group: p
     mode: '0644'
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: kubectl create -f tigera-operator.yaml
   remote_user: p
@@ -23,12 +23,12 @@
   ansible.builtin.command:
     cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config create -f /tmp/tigera-operator.yaml
   register: kubectl_create_operator
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Print 'kubectl create -f tigera-operator.yaml' output
   ansible.builtin.debug:
     var: kubectl_create_operator.stdout_lines
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Pause for 10 seconds
   ansible.builtin.pause:
@@ -41,12 +41,12 @@
   ansible.builtin.command:
     cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config create -f /home/p/alpine-k8s/files/custom-resources.yaml
   register: kubectl_create_custom
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Print 'kubectl create -f custom-resources.yaml' output
   ansible.builtin.debug:
     var: kubectl_create_custom.stdout_lines
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Pause for 10 seconds
   ansible.builtin.pause:
@@ -59,33 +59,12 @@
   ansible.builtin.command:
     cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config get pod --all-namespaces -owide
   register: get_pods
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Print kubectl get po output
   ansible.builtin.debug:
     var: get_pods.stdout_lines
-  when: inventory_hostname in groups.controlplane
-
-#- name: mkdir /root/cni_backup
-#  ansible.builtin.command: mkdir /root/cni_backup
-
-#- name: mv /usr/libexec/cni/bandwidth /root/cni_backup
-#  ansible.builtin.command: mv /usr/libexec/cni/bandwidth /root/cni_backup
-
-#- name: mv /usr/libexec/cni/host-local /root/cni_backup
-#  ansible.builtin.command: mv /usr/libexec/cni/host-local /root/cni_backup
-
-#- name: mv /usr/libexec/cni/loopback /root/cni_backup
-#  ansible.builtin.command: mv /usr/libexec/cni/loopback /root/cni_backup
-
-#- name: mv /usr/libexec/cni/portmap /root/cni_backup
-#  ansible.builtin.command: mv /usr/libexec/cni/portmap /root/cni_backup
-
-#- name: mv /usr/libexec/cni/tuning /root/cni_backup
-#  ansible.builtin.command: mv /usr/libexec/cni/tuning /root/cni_backup
-
-#- name: ln -s /opt/cni/bin/bandwidth /usr/libexec/cni/bandwidth
-#  ansible.builtin.command: ln -s /opt/cni/bin/bandwidth /usr/libexec/cni/bandwidth
+  when: inventory_hostname in groups.control1
 
 - name: ln -s /opt/cni/bin/calico /usr/libexec/cni/calico
   ansible.builtin.command: ln -s /opt/cni/bin/calico /usr/libexec/cni/calico
@@ -95,18 +74,6 @@
 
 - name: ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel
   ansible.builtin.command: ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel
-
-#- name: ln -s /opt/cni/bin/host-local /usr/libexec/cni/host-local
-#  ansible.builtin.command: ln -s /opt/cni/bin/host-local /usr/libexec/cni/host-local
-
-#- name: ln -s /opt/cni/bin/loopback /usr/libexec/cni/loopback
-#  ansible.builtin.command: ln -s /opt/cni/bin/loopback /usr/libexec/cni/loopback
-
-#- name: ln -s /opt/cni/bin/portmap /usr/libexec/cni/portmap
-#  ansible.builtin.command: ln -s /opt/cni/bin/portmap /usr/libexec/cni/portmap
-
-#- name: ln -s /opt/cni/bin/tuning /usr/libexec/cni/tuning
-#  ansible.builtin.command: ln -s /opt/cni/bin/tuning /usr/libexec/cni/tuning
 
 - name: service crio restart
   ansible.builtin.command: /sbin/service crio restart
@@ -125,12 +92,12 @@
   ansible.builtin.command:
     cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config get no -owide
   register: kubectl_getno_output
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Print kubectl get no output
   ansible.builtin.debug:
     var: kubectl_getno_output.stdout_lines
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Get kubectl get pod
   remote_user: p
@@ -139,9 +106,9 @@
   ansible.builtin.command:
     cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config get pod --all-namespaces -owide
   register: get_pods
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1
 
 - name: Print kubectl get po output
   ansible.builtin.debug:
     var: get_pods.stdout_lines
-  when: inventory_hostname in groups.controlplane
+  when: inventory_hostname in groups.control1

@@ -36,7 +36,7 @@ c1_ipv6mask: /128
 c1_ipv6_defaultgw: 2001:41d0:701:1100::1
 c1_city: Frankfurt
 
-c2_fqdn: control2.vamos.net
+c2_fqdn: control2.pvamos.net
 c2_hostname: control2
 c2_domain: pvamos.net
 c2_ipv4addr: 51.195.116.87

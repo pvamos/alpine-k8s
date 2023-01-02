@@ -1,0 +1,38 @@
+---
+
+- name: Test connection with ping
+  ansible.builtin.ping:
+
+- name: Install open-iscsi package
+  community.general.apk:
+    name: open-iscsi
+    state: present
+
+- name: Set local.d script to 'mount --make-rshared /' on workers
+  when: inventory_hostname in groups.workers
+  copy:
+    dest: /etc/local.d/mount-make-rshared.start
+    content: |
+      #!/bin/bash
+      /bin/mount --make-rshared /
+
+- name: Execute /bin/mount --make-rshared / on workers
+  ansible.builtin.command: /bin/mount --make-rshared /
+  when: inventory_hostname in groups.workers
+
+- name: Execute kubectl apply -f longhorn.yaml
+  remote_user: p
+  become: no
+  delegate_to: 127.0.0.1
+  ansible.builtin.command:
+    cmd: /usr/bin/kubectl --kubeconfig /home/p/.kube/config apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.4.0/deploy/longhorn.yaml
+  register: kubectl_apply_longhorn
+  when: inventory_hostname in groups.control1
+
+- name: Print kubectl apply -f longhorn.yaml output
+  ansible.builtin.debug:
+    var: kubectl_apply_longhorn.stdout_lines
+  when: inventory_hostname in groups.control1
+
+
+
