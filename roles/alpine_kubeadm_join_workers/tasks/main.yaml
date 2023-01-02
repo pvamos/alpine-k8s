@@ -1,5 +1,7 @@
 ---
 
+# Alpine linux kubernetes join workers
+
 - name: Test connection with ping
   ansible.builtin.ping:
 
@@ -83,9 +85,9 @@
   ansible.builtin.debug:
     var: kubeadm_join_output.stdout_lines
 
-- name: Reboot all nodes
-  ansible.builtin.reboot:
-    post_reboot_delay: 10
-    reboot_timeout: 600
+#- name: Reboot all nodes
+#  ansible.builtin.reboot:
+#    post_reboot_delay: 10
+#    reboot_timeout: 600
 
 

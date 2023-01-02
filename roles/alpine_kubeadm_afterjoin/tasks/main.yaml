@@ -1,5 +1,7 @@
 ---
 
+# Alpine linux after kubadm init and join
+
 - name: Test connection with ping
   ansible.builtin.ping:
 

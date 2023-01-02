@@ -1,5 +1,7 @@
 ---
 
+# Alpine linux Kubernetes join additonal 2 controlplane nodes
+
 - name: Test connection with ping
   ansible.builtin.ping:
 

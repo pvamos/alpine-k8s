@@ -1,591 +1,404 @@
-[p@ansible alpine-k8s]$ ssh-keyscan -p 31212 ipv4.control1.pvamos.net >> ~/.ssh/known_hosts && ssh-keyscan -p 31212 ipv4.worker1.pvamos.net >> ~/.ssh/known_hosts && ssh-keyscan -p 31212 ipv4.worker2.pvamos.net >> ~/.ssh/known_hosts && ssh-keyscan -p 31212 ipv4.worker3.pvamos.net >> ~/.ssh/known_hosts
-# ipv4.control1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.control1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.control1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.control1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.control1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker1.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker2.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker2.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker2.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker2.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker2.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker3.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker3.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker3.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker3.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-# ipv4.worker3.pvamos.net:31212 SSH-2.0-dropbear_2022.83
-[p@ansible alpine-k8s]$ time ansible-playbook -i hosts alpine-crio.yaml
-
-PLAY [Alpine linux cri-o install] **************************************************************************************
-
-TASK [Gathering Facts] *************************************************************************************************
-Sunday 01 January 2023  14:53:48 +0000 (0:00:00.019)       0:00:00.019 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_apkrepo : Test connection with user p on port 31212] ******************************************************
-Sunday 01 January 2023  14:53:51 +0000 (0:00:02.628)       0:00:02.647 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing] ************************
-Sunday 01 January 2023  14:53:52 +0000 (0:00:01.338)       0:00:03.986 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_apkrepo : Upgrade all installed apk packages to the latest versions] **************************************
-Sunday 01 January 2023  14:53:55 +0000 (0:00:02.644)       0:00:06.630 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_apkrepo : Reboot the host after apk upgrade] **************************************************************
-Sunday 01 January 2023  14:54:21 +0000 (0:00:26.089)       0:00:32.719 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_apkrepo : Test connection with user p on port 31212] ******************************************************
-Sunday 01 January 2023  14:54:39 +0000 (0:00:17.719)       0:00:50.439 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kernelparams : Test connection with user p on port 31212] *************************************************
-Sunday 01 January 2023  14:54:40 +0000 (0:00:01.534)       0:00:51.974 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kernelparams : Set net forwarding kernel params] **********************************************************
-Sunday 01 January 2023  14:54:41 +0000 (0:00:01.149)       0:00:53.123 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-
-TASK [alpine_kernelparams : Apply kernel parameter changes] ************************************************************
-Sunday 01 January 2023  14:54:44 +0000 (0:00:02.300)       0:00:55.423 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-
-TASK [alpine_kernelparams : Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf] *******************
-Sunday 01 January 2023  14:54:45 +0000 (0:00:01.577)       0:00:57.000 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kernelparams : Modprobe br_netfilter] *********************************************************************
-Sunday 01 January 2023  14:54:48 +0000 (0:00:02.533)       0:00:59.534 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Test connection with user p on port 31212] *********************************************************
-Sunday 01 January 2023  14:54:50 +0000 (0:00:01.752)       0:01:01.286 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen] ***
-Sunday 01 January 2023  14:54:51 +0000 (0:00:01.382)       0:01:02.669 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_crio : Create /etc/machine-id] ****************************************************************************
-Sunday 01 January 2023  14:56:07 +0000 (0:01:15.783)       0:02:18.452 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_crio : Enable CRI-O service] ******************************************************************************
-Sunday 01 January 2023  14:56:08 +0000 (0:00:01.423)       0:02:19.875 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-
-TASK [alpine_crio : Start CRI-O service] *******************************************************************************
-Sunday 01 January 2023  14:56:09 +0000 (0:00:01.296)       0:02:21.171 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Restart CRI-O service] *****************************************************************************
-Sunday 01 January 2023  14:56:11 +0000 (0:00:01.792)       0:02:22.964 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Get CRI-O service status] **************************************************************************
-Sunday 01 January 2023  14:56:13 +0000 (0:00:01.438)       0:02:24.402 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Print CRI-O service status] ************************************************************************
-Sunday 01 January 2023  14:56:14 +0000 (0:00:01.601)       0:02:26.004 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "get_crio_status.stdout_lines": [
-        " * status: started"
-    ]
-}
-ok: [ipv4.worker2.pvamos.net] => {
-    "get_crio_status.stdout_lines": [
-        " * status: started"
-    ]
-}
-ok: [ipv4.worker3.pvamos.net] => {
-    "get_crio_status.stdout_lines": [
-        " * status: started"
-    ]
-}
-ok: [ipv4.control1.pvamos.net] => {
-    "get_crio_status.stdout_lines": [
-        " * status: started"
-    ]
-}
-
-TASK [alpine_crio : Get CRI-O service version] *************************************************************************
-Sunday 01 January 2023  14:56:14 +0000 (0:00:00.103)       0:02:26.108 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-
-TASK [alpine_crio : Print CRI-O service version] ***********************************************************************
-Sunday 01 January 2023  14:56:16 +0000 (0:00:01.323)       0:02:27.431 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "get_crio_version.stdout_lines": [
-        "Version:          1.24.1",
-        "GitCommit:        unknown",
-        "GitTreeState:     unknown",
-        "BuildDate:        2022-12-08T19:56:31Z",
-        "GoVersion:        go1.19.4",
-        "Compiler:         gc",
-        "Platform:         linux/amd64",
-        "Linkmode:         dynamic",
-        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
-        "SeccompEnabled:   true",
-        "AppArmorEnabled:  false"
-    ]
-}
-ok: [ipv4.worker2.pvamos.net] => {
-    "get_crio_version.stdout_lines": [
-        "Version:          1.24.1",
-        "GitCommit:        unknown",
-        "GitTreeState:     unknown",
-        "BuildDate:        2022-12-08T19:56:31Z",
-        "GoVersion:        go1.19.4",
-        "Compiler:         gc",
-        "Platform:         linux/amd64",
-        "Linkmode:         dynamic",
-        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
-        "SeccompEnabled:   true",
-        "AppArmorEnabled:  false"
-    ]
-}
-ok: [ipv4.worker3.pvamos.net] => {
-    "get_crio_version.stdout_lines": [
-        "Version:          1.24.1",
-        "GitCommit:        unknown",
-        "GitTreeState:     unknown",
-        "BuildDate:        2022-12-08T19:56:31Z",
-        "GoVersion:        go1.19.4",
-        "Compiler:         gc",
-        "Platform:         linux/amd64",
-        "Linkmode:         dynamic",
-        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
-        "SeccompEnabled:   true",
-        "AppArmorEnabled:  false"
-    ]
-}
-ok: [ipv4.control1.pvamos.net] => {
-    "get_crio_version.stdout_lines": [
-        "Version:          1.24.1",
-        "GitCommit:        unknown",
-        "GitTreeState:     unknown",
-        "BuildDate:        2022-12-08T19:56:31Z",
-        "GoVersion:        go1.19.4",
-        "Compiler:         gc",
-        "Platform:         linux/amd64",
-        "Linkmode:         dynamic",
-        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
-        "SeccompEnabled:   true",
-        "AppArmorEnabled:  false"
-    ]
-}
-
-TASK [alpine_crio : Get CRI-O socket listing] **************************************************************************
-Sunday 01 January 2023  14:56:16 +0000 (0:00:00.110)       0:02:27.542 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_crio : Print CRI-O socket listing] ************************************************************************
-Sunday 01 January 2023  14:56:17 +0000 (0:00:01.388)       0:02:28.930 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  1 14:56 /run/crio/crio.sock"
-    ]
-}
-ok: [ipv4.worker2.pvamos.net] => {
-    "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  1 14:56 /run/crio/crio.sock"
-    ]
-}
-ok: [ipv4.worker3.pvamos.net] => {
-    "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  1 14:56 /run/crio/crio.sock"
-    ]
-}
-ok: [ipv4.control1.pvamos.net] => {
-    "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  1 14:56 /run/crio/crio.sock"
-    ]
-}
-
-PLAY RECAP *************************************************************************************************************
-ipv4.control1.pvamos.net   : ok=23   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ipv4.worker1.pvamos.net    : ok=23   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ipv4.worker2.pvamos.net    : ok=23   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ipv4.worker3.pvamos.net    : ok=23   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-Sunday 01 January 2023  14:56:17 +0000 (0:00:00.192)       0:02:29.122 ********
-===============================================================================
-alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen -- 75.78s
-alpine_apkrepo : Upgrade all installed apk packages to the latest versions ------------------------------------- 26.09s
-alpine_apkrepo : Reboot the host after apk upgrade ------------------------------------------------------------- 17.72s
-alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing ------------------------ 2.64s
-Gathering Facts ------------------------------------------------------------------------------------------------- 2.63s
-alpine_kernelparams : Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf ------------------- 2.53s
-alpine_kernelparams : Set net forwarding kernel params ---------------------------------------------------------- 2.30s
-alpine_crio : Start CRI-O service ------------------------------------------------------------------------------- 1.79s
-alpine_kernelparams : Modprobe br_netfilter --------------------------------------------------------------------- 1.75s
-alpine_crio : Get CRI-O service status -------------------------------------------------------------------------- 1.60s
-alpine_kernelparams : Apply kernel parameter changes ------------------------------------------------------------ 1.58s
-alpine_apkrepo : Test connection with user p on port 31212 ------------------------------------------------------ 1.54s
-alpine_crio : Restart CRI-O service ----------------------------------------------------------------------------- 1.44s
-alpine_crio : Create /etc/machine-id ---------------------------------------------------------------------------- 1.42s
-alpine_crio : Get CRI-O socket listing -------------------------------------------------------------------------- 1.39s
-alpine_crio : Test connection with user p on port 31212 --------------------------------------------------------- 1.38s
-alpine_apkrepo : Test connection with user p on port 31212 ------------------------------------------------------ 1.34s
-alpine_crio : Get CRI-O service version ------------------------------------------------------------------------- 1.32s
-alpine_crio : Enable CRI-O service ------------------------------------------------------------------------------ 1.30s
-alpine_kernelparams : Test connection with user p on port 31212 ------------------------------------------------- 1.15s
-
-real    2m29.746s
-user    0m12.786s
-sys     0m5.255s
 [p@ansible alpine-k8s]$ time ansible-playbook -i hosts alpine-k8s.yaml
 
-PLAY [Alpine linux install kubelet] ************************************************************************************
+PLAY [Alpine linux cri-o install] ********************************************************************************************************************
 
-TASK [Gathering Facts] *************************************************************************************************
-Sunday 01 January 2023  14:56:27 +0000 (0:00:00.014)       0:00:00.014 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:32:42 +0000 (0:00:00.019)       0:00:00.019 ********
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net]
 ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubelet : Test connection with user p on port 31212] ******************************************************
-Sunday 01 January 2023  14:56:30 +0000 (0:00:02.538)       0:00:02.553 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************
+Monday 02 January 2023  23:32:45 +0000 (0:00:03.841)       0:00:03.860 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing] ******************************************************
+Monday 02 January 2023  23:32:47 +0000 (0:00:01.805)       0:00:05.666 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_apkrepo : Upgrade all installed apk packages to the latest versions] ********************************************************************
+Monday 02 January 2023  23:32:51 +0000 (0:00:03.393)       0:00:09.059 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_apkrepo : Reboot the host after apk upgrade] ********************************************************************************************
+Monday 02 January 2023  23:33:07 +0000 (0:00:16.122)       0:00:25.181 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************
+Monday 02 January 2023  23:33:32 +0000 (0:00:25.204)       0:00:50.386 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kernelparams : Test connection with user p on port 31212] *******************************************************************************
+Monday 02 January 2023  23:33:34 +0000 (0:00:01.792)       0:00:52.179 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kernelparams : Set net forwarding kernel params] ****************************************************************************************
+Monday 02 January 2023  23:33:35 +0000 (0:00:01.585)       0:00:53.765 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kernelparams : Apply kernel parameter changes] ******************************************************************************************
+Monday 02 January 2023  23:33:38 +0000 (0:00:03.097)       0:00:56.862 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kernelparams : Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf] *************************************************
+Monday 02 January 2023  23:33:40 +0000 (0:00:01.841)       0:00:58.704 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kernelparams : Modprobe br_netfilter] ***************************************************************************************************
+Monday 02 January 2023  23:33:43 +0000 (0:00:03.127)       0:01:01.831 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Test connection with user p on port 31212] ***************************************************************************************
+Monday 02 January 2023  23:33:45 +0000 (0:00:01.678)       0:01:03.510 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen] *****
+Monday 02 January 2023  23:33:47 +0000 (0:00:01.597)       0:01:05.107 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Create /etc/machine-id] **********************************************************************************************************
+Monday 02 January 2023  23:34:01 +0000 (0:00:14.133)       0:01:19.241 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Enable CRI-O service] ************************************************************************************************************
+Monday 02 January 2023  23:34:02 +0000 (0:00:01.642)       0:01:20.884 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Start CRI-O service] *************************************************************************************************************
+Monday 02 January 2023  23:34:04 +0000 (0:00:01.629)       0:01:22.513 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Restart CRI-O service] ***********************************************************************************************************
+Monday 02 January 2023  23:34:06 +0000 (0:00:01.897)       0:01:24.411 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Get CRI-O service status] ********************************************************************************************************
+Monday 02 January 2023  23:34:08 +0000 (0:00:01.854)       0:01:26.265 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Print CRI-O service status] ******************************************************************************************************
+Monday 02 January 2023  23:34:09 +0000 (0:00:01.634)       0:01:27.900 ********
+ok: [ipv4.worker1.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.worker2.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.worker3.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.control1.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.control2.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "get_crio_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+
+TASK [alpine_crio : Get CRI-O service version] *******************************************************************************************************
+Monday 02 January 2023  23:34:10 +0000 (0:00:00.157)       0:01:28.058 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Print CRI-O service version] *****************************************************************************************************
+Monday 02 January 2023  23:34:11 +0000 (0:00:01.730)       0:01:29.788 ********
+ok: [ipv4.worker1.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+ok: [ipv4.worker2.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+ok: [ipv4.worker3.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+ok: [ipv4.control1.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+ok: [ipv4.control2.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "get_crio_version.stdout_lines": [
+        "Version:          1.24.1",
+        "GitCommit:        unknown",
+        "GitTreeState:     unknown",
+        "BuildDate:        2022-12-08T19:56:31Z",
+        "GoVersion:        go1.19.4",
+        "Compiler:         gc",
+        "Platform:         linux/amd64",
+        "Linkmode:         dynamic",
+        "BuildTags:        containers_image_openpgp, containers_image_ostree_stub, seccomp, selinux",
+        "SeccompEnabled:   true",
+        "AppArmorEnabled:  false"
+    ]
+}
+
+TASK [alpine_crio : Get CRI-O socket listing] ********************************************************************************************************
+Monday 02 January 2023  23:34:11 +0000 (0:00:00.166)       0:01:29.955 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_crio : Print CRI-O socket listing] ******************************************************************************************************
+Monday 02 January 2023  23:34:13 +0000 (0:00:01.665)       0:01:31.621 ********
+ok: [ipv4.worker1.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+ok: [ipv4.worker2.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+ok: [ipv4.worker3.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+ok: [ipv4.control1.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+ok: [ipv4.control2.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "get_crio_socket.stdout_lines": [
+        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+    ]
+}
+
+PLAY [Alpine linux install kubelet] ******************************************************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:34:13 +0000 (0:00:00.298)       0:01:31.919 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubelet : Test connection with user p on port 31212] ************************************************************************************
+Monday 02 January 2023  23:34:16 +0000 (0:00:03.033)       0:01:34.952 ********
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion] ***
-Sunday 01 January 2023  14:56:31 +0000 (0:00:01.388)       0:00:03.942 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kubelet : Enable kubelet service] *************************************************************************
-Sunday 01 January 2023  14:56:50 +0000 (0:00:18.305)       0:00:22.248 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion] **************
+Monday 02 January 2023  23:34:18 +0000 (0:00:01.613)       0:01:36.566 ********
 changed: [ipv4.worker2.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kubelet : Start kubelet service] **************************************************************************
-Sunday 01 January 2023  14:56:51 +0000 (0:00:01.438)       0:00:23.686 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
 changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubelet : Get kubelet service status] *********************************************************************
-Sunday 01 January 2023  14:56:53 +0000 (0:00:01.951)       0:00:25.637 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubelet : Enable kubelet service] *******************************************************************************************************
+Monday 02 January 2023  23:34:33 +0000 (0:00:15.011)       0:01:51.578 ********
 changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubelet : Print kubelet service status] *******************************************************************
-Sunday 01 January 2023  14:56:54 +0000 (0:00:01.291)       0:00:26.929 ********
+TASK [alpine_kubelet : Start kubelet service] ********************************************************************************************************
+Monday 02 January 2023  23:34:35 +0000 (0:00:01.610)       0:01:53.189 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubelet : Get kubelet service status] ***************************************************************************************************
+Monday 02 January 2023  23:34:37 +0000 (0:00:02.192)       0:01:55.381 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubelet : Print kubelet service status] *************************************************************************************************
+Monday 02 January 2023  23:34:39 +0000 (0:00:01.622)       0:01:57.003 ********
 ok: [ipv4.worker1.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
@@ -606,41 +419,38 @@ ok: [ipv4.control1.pvamos.net] => {
         " * status: started"
     ]
 }
+ok: [ipv4.control2.pvamos.net] => {
+    "get_kubelet_status.stdout_lines": [
+        " * status: started"
+    ]
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "get_kubelet_status.stdout_lines": [
+        " * status: started"
+    ]
+}
 
-PLAY [Alpine linux kubeadm init] ***************************************************************************************
+PLAY [Alpine linux kubeadm init] *********************************************************************************************************************
 
-TASK [Gathering Facts] *************************************************************************************************
-Sunday 01 January 2023  14:56:54 +0000 (0:00:00.202)       0:00:27.132 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:34:39 +0000 (0:00:00.325)       0:01:57.329 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Test connection with ping] *****************************************************************
-Sunday 01 January 2023  14:56:56 +0000 (0:00:02.001)       0:00:29.133 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubeadm_init : Test connection with ping] ***********************************************************************************************
+Monday 02 January 2023  23:34:41 +0000 (0:00:01.658)       0:01:58.988 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Copy clusterconfig.yaml] *******************************************************************
-Sunday 01 January 2023  14:56:57 +0000 (0:00:00.988)       0:00:30.122 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubeadm_init : Copy clusterconfig.yaml] *************************************************************************************************
+Monday 02 January 2023  23:34:41 +0000 (0:00:00.907)       0:01:59.895 ********
 changed: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Execute kubeadm init] **********************************************************************
-Sunday 01 January 2023  14:57:00 +0000 (0:00:02.814)       0:00:32.937 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: As of Ansible 2.4, the parameter 'executable' is no longer supported with the 'command' module. Not using
-'/bin/bash'.
+TASK [alpine_kubeadm_init : Execute kubeadm init] ****************************************************************************************************
+Monday 02 January 2023  23:34:43 +0000 (0:00:02.046)       0:02:01.942 ********
+[WARNING]: As of Ansible 2.4, the parameter 'executable' is no longer supported with the 'command' module. Not using '/bin/bash'.
 changed: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print kubeadm init output] *****************************************************************
-Sunday 01 January 2023  14:59:05 +0000 (0:02:05.164)       0:02:38.101 ********
+TASK [alpine_kubeadm_init : Print kubeadm init output] ***********************************************************************************************
+Monday 02 January 2023  23:36:02 +0000 (0:01:18.903)       0:03:20.846 ********
 ok: [ipv4.control1.pvamos.net] => {
     "kubeadm_init_output.stdout_lines": [
         "[init] Using Kubernetes version: v1.25.0",
@@ -651,7 +461,7 @@ ok: [ipv4.control1.pvamos.net] => {
         "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
         "[certs] Generating \"ca\" certificate and key",
         "[certs] Generating \"apiserver\" certificate and key",
-        "[certs] apiserver serving cert is signed for DNS names [control1.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.80]",
+        "[certs] apiserver serving cert is signed for DNS names [control1.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.80 141.95.37.233]",
         "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
         "[certs] Generating \"front-proxy-ca\" certificate and key",
         "[certs] Generating \"front-proxy-client\" certificate and key",
@@ -677,13 +487,15 @@ ok: [ipv4.control1.pvamos.net] => {
         "[control-plane] Creating static Pod manifest for \"kube-scheduler\"",
         "[etcd] Creating static Pod manifest for local etcd in \"/etc/kubernetes/manifests\"",
         "[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory \"/etc/kubernetes/manifests\". This can take up to 4m0s",
-        "[apiclient] All control plane components are healthy after 25.012796 seconds",
+        "[apiclient] All control plane components are healthy after 17.051811 seconds",
         "[upload-config] Storing the configuration used in ConfigMap \"kubeadm-config\" in the \"kube-system\" Namespace",
         "[kubelet] Creating a ConfigMap \"kubelet-config\" in namespace kube-system with the configuration for the kubelets in the cluster",
-        "[upload-certs] Skipping phase. Please see --upload-certs",
+        "[upload-certs] Storing the certificates in Secret \"kubeadm-certs\" in the \"kube-system\" Namespace",
+        "[upload-certs] Using certificate key:",
+        "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b",
         "[mark-control-plane] Marking the node control1.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
         "[mark-control-plane] Marking the node control1.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
-        "[bootstrap-token] Using token: qb6kls.1r5zndgswtzf4b2x",
+        "[bootstrap-token] Using token: 334wu9.jdjpmgsyjil4z2ln",
         "[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles",
         "[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to get nodes",
         "[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials",
@@ -710,230 +522,427 @@ ok: [ipv4.control1.pvamos.net] => {
         "Run \"kubectl apply -f [podnetwork].yaml\" with one of the options listed at:",
         "  https://kubernetes.io/docs/concepts/cluster-administration/addons/",
         "",
+        "You can now join any number of the control-plane node running the following command on each as root:",
+        "",
+        "  kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln \\",
+        "\t--discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae \\",
+        "\t--control-plane --certificate-key fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b",
+        "",
+        "Please note that the certificate-key gives access to cluster sensitive data, keep it secret!",
+        "As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use",
+        "\"kubeadm init phase upload-certs --upload-certs\" to reload certs afterward.",
+        "",
         "Then you can join any number of worker nodes by running the following on each as root:",
         "",
-        "kubeadm join 51.195.116.80:6443 --token qb6kls.1r5zndgswtzf4b2x \\",
-        "\t--discovery-token-ca-cert-hash sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565 "
+        "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln \\",
+        "\t--discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae "
     ]
 }
 
-TASK [alpine_kubeadm_init : Get kubeadm join command with tokens] ******************************************************
-Sunday 01 January 2023  14:59:05 +0000 (0:00:00.032)       0:02:38.134 ********
+TASK [alpine_kubeadm_init : Get kubeadm join command with tokens] ************************************************************************************
+Monday 02 January 2023  23:36:02 +0000 (0:00:00.034)       0:03:20.880 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Get kubeadm join token] ********************************************************************
-Sunday 01 January 2023  14:59:05 +0000 (0:00:00.043)       0:02:38.178 ********
+TASK [alpine_kubeadm_init : Get kubeadm join token] **************************************************************************************************
+Monday 02 January 2023  23:36:02 +0000 (0:00:00.045)       0:03:20.925 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Get kubeadm join cacert] *******************************************************************
-Sunday 01 January 2023  14:59:05 +0000 (0:00:00.055)       0:02:38.233 ********
+TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.056)       0:03:20.981 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print kubeadm join command with tokens] ****************************************************
-Sunday 01 January 2023  14:59:06 +0000 (0:00:00.055)       0:02:38.289 ********
+TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.055)       0:03:21.037 ********
+ok: [ipv4.control1.pvamos.net]
+
+TASK [alpine_kubeadm_init : Print kubeadm join command with tokens] **********************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.055)       0:03:21.093 ********
 ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_command": "kubeadm join 51.195.116.80:6443 --token qb6kls.1r5zndgswtzf4b2x --discovery-token-ca-cert-hash sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "kubeadm_join_command": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 
-TASK [alpine_kubeadm_init : Print kubeadm join token] ******************************************************************
-Sunday 01 January 2023  14:59:06 +0000 (0:00:00.026)       0:02:38.316 ********
+TASK [alpine_kubeadm_init : Print kubeadm join token] ************************************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.026)       0:03:21.120 ********
 ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_token": "qb6kls.1r5zndgswtzf4b2x"
+    "kubeadm_join_token": "334wu9.jdjpmgsyjil4z2ln"
 }
 
-TASK [alpine_kubeadm_init : Print kubeadm join cacert] *****************************************************************
-Sunday 01 January 2023  14:59:06 +0000 (0:00:00.026)       0:02:38.342 ********
+TASK [alpine_kubeadm_init : Print kubeadm join cacert] ***********************************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.026)       0:03:21.147 ********
 ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_cacert": "sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "kubeadm_join_cacert": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host] ********************
-Sunday 01 January 2023  14:59:06 +0000 (0:00:00.028)       0:02:38.370 ********
+TASK [alpine_kubeadm_init : Print kubeadm join certkey] **********************************************************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.027)       0:03:21.174 ********
+ok: [ipv4.control1.pvamos.net] => {
+    "kubeadm_join_certkey": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
+}
+
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host] **************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.028)       0:03:21.203 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-token file on ansible host] *************************
-Sunday 01 January 2023  14:59:06 +0000 (0:00:00.474)       0:02:38.845 ********
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-token file on ansible host] *******************************************************
+Monday 02 January 2023  23:36:03 +0000 (0:00:00.493)       0:03:21.697 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-cacert file on ansible host] ************************
-Sunday 01 January 2023  14:59:07 +0000 (0:00:00.474)       0:02:39.319 ********
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-cacert file on ansible host] ******************************************************
+Monday 02 January 2023  23:36:04 +0000 (0:00:00.475)       0:03:22.172 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/.kube directory on ansible host] ********************************************
-Sunday 01 January 2023  14:59:07 +0000 (0:00:00.477)       0:02:39.797 ********
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-certkey file on ansible host] *****************************************************
+Monday 02 January 2023  23:36:04 +0000 (0:00:00.477)       0:03:22.649 ********
+changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+
+TASK [alpine_kubeadm_init : Create /home/p/.kube directory on ansible host] **************************************************************************
+Monday 02 January 2023  23:36:05 +0000 (0:00:00.475)       0:03:23.125 ********
 ok: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Copy /etc/kubernetes/admin.conf from control1 to /home/p/.kube locally] ********************
-Sunday 01 January 2023  14:59:07 +0000 (0:00:00.399)       0:02:40.196 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubeadm_init : Copy /etc/kubernetes/admin.conf from control1 to /home/p/.kube locally] **************************************************
+Monday 02 January 2023  23:36:05 +0000 (0:00:00.400)       0:03:23.525 ********
 changed: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Move /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf to /home/p/.kube/config on ansible node] ***
-Sunday 01 January 2023  14:59:09 +0000 (0:00:01.301)       0:02:41.498 ********
+TASK [alpine_kubeadm_init : Move /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf to /home/p/.kube/config on ansible node] ***********
+Monday 02 January 2023  23:36:06 +0000 (0:00:01.237)       0:03:24.763 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Do chmod 700 /home/p/.kube/config on ansible node] *****************************************
-Sunday 01 January 2023  14:59:09 +0000 (0:00:00.250)       0:02:41.748 ********
+TASK [alpine_kubeadm_init : Do chmod 700 /home/p/.kube/config on ansible node] ***********************************************************************
+Monday 02 January 2023  23:36:07 +0000 (0:00:00.249)       0:03:25.012 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Get ~/.kube/config from local file] ********************************************************
-Sunday 01 January 2023  14:59:09 +0000 (0:00:00.247)       0:02:41.996 ********
+TASK [alpine_kubeadm_init : Get ~/.kube/config from local file] **************************************************************************************
+Monday 02 January 2023  23:36:07 +0000 (0:00:00.247)       0:03:25.260 ********
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print ~/.kube/config from local file] ******************************************************
-Sunday 01 January 2023  14:59:09 +0000 (0:00:00.028)       0:02:42.025 ********
+TASK [alpine_kubeadm_init : Print ~/.kube/config from local file] ************************************************************************************
+Monday 02 January 2023  23:36:07 +0000 (0:00:00.029)       0:03:25.289 ********
 ok: [ipv4.control1.pvamos.net] => {
-    "kube_config": "apiVersion: v1\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1ERXdNVEUwTlRneU4xb1hEVE15TVRJeU9URTBOVGd5TjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTlJ2CkpCNHVoZ2FKUkNtckY0N0hGSzZQL0gyNTFDNnNkbjFxMVk5RmpSc2E4WDljM0NNQXlRNk5uazFCMnZqOU1hTFcKaW1sckxkSURwMVBHdVNZMkYzT1pTdDdnMXFmNVZhQ3JiUmR6Y0hqM1NtUTh0am4xLzZjUlR3VW9RU3NRNGxZRgpheHg2eEFBVkhFVlprOE5zSDB1dmJWNWFwd3pEWndjVzdmckI2dDVwZGtHTXlXWVZnNUt6OU05U2dOMzlNYUVGCmpod2VZTEJLVlVIQ21maERKUXJCckdxRkRwZm9yUUJVUlZaQTA5RDVjZXJjZ0UwcThpQ0Y4UkxTS0xzM0FOWDgKbmlmbkY1Wlg4TzYxUS9McllzZnpST0JMcFV6Sm55MDJ1WkR5NnFva2Z5bS9qWTc5SXFGRVVLbGd3empEaVBSdwpWY0NZSHVyaEs4UHBqU05GVnhVQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZMcE9zb3VPVHZJeWozOGhkZ3IrM0trMkFFeW9NQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBTFg3UG5PaGRmbUNNczhKQzRRNQpuSnNNVWhEZmdDTUdjd2RGdU4yeHdSMy92K2QwRkNFU1ZVQUloT0RyczZxQmt3bDNrYzZ3SXRVYS9RclRmV2Y0CldrYTJQUVZPbWVac3llSjJLdDZkbGZpUU5nbFYzQXVQaWh5RVlqWXZBWWo0c2JCYzlCUWY1QWFQUjZ1UEltdHAKajllM2NTSWFnTkw5Y0xjL2syajFxSXE2eDBEUDRsUDd1N1FjNGovZFpSeloxRkZwTmhIcDFHVXpXUXl1UXJkSQoyWGFOQnFtbHR1MlZaUXprUHNZQ0Q1SGhOTnVNWGF4THVtMnNYVFJiajNmTWhUOE9LdWh2enRYNGc5TlVwejZPCllRYVFIWWQzTVRDYWRWalJpbCtJcTJLeFlmSUtHSmw2QlhHNG01K0hSY2YwVXZhNGVFTWtWZ3Z0bU41b2ZFN0IKUGhJPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    server: https://51.195.116.80:6443\n  name: kubernetes\ncontexts:\n- context:\n    cluster: kubernetes\n    user: kubernetes-admin\n  name: kubernetes-admin@kubernetes\ncurrent-context: kubernetes-admin@kubernetes\nkind: Config\npreferences: {}\nusers:\n- name: kubernetes-admin\n  user:\n    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lJR3hHZGZ3Yk9naFF3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBeE1ERXhORFU0TWpkYUZ3MHlOREF4TURFeE5EVTRNekphTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTJVSnY5R1JUZDVvcDlDbzgKdmV3amk1aGUrMHhTMHdWajZ4MzRUZVlLNGFzdW9YR1pjYUlRbkVXeElnQlFDNmhDbGl2YXBCM3RyUlpxVTA5OApTNjh5R1NnWUZYb2dvd1BDcmp2YkpaS3NaanYyUjZGK2orZzFvV1hmRFlaTlNpZmU3U2ErcTN3VU1RM05zV2xYCmZKS2tLTmVOdkhxL1daTEc4WlV2TTFUVDhTSHJiNDZkTUQ5T1JsQjBjVG4wb3hMZ3pUd3hKOUpvOEswZGhGS2QKMWxsdllhaXJCZCs1OXp0d0VwRjR4SmZpd0JSSXNGMUZpM0hLVVg5UmpvbHVRZVpxdVB2ekxyaWhjZEE3VWU3ZgpYbUpMbForeEVpT2FHN1FlL1lpRHM1WXVJcEQzb1dWd2Vncm5OcGNCUisrVFhUUyt2WWhrOTZ1TTdYeUx1c0VxClhrT0IyUUlEQVFBQm8xWXdWREFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JTNlRyS0xqazd5TW85L0lYWUsvdHlwTmdCTQpxREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBZ2xBdVFYVnhsNXRTVWpRMHNaNURpeGI0OXEzak90dm11TGFFClZnUkJGaWhnNTJudmNRajVVRlZsS1Vkd242bXNYVHhKUHJMS2pOaHgyQTBpcWw0ZEpFSGpUR05hZGIzZzYxblcKaGF6Z25vVWhEMFpsUFpDRTNMa3QvcW5xa0ZPR1pwZk53MDdwZ2xoSFZnVWJRWklhd05kb3Myem1QcXRYMU9RMAo1cy85UHFxMjdDVFBIUmt6cTRKS1crWUlJWkZheHpMNGpQS1dHaVVwV0lObUdXdDlqb1R5eDV6cTRCbnFvN2svCkpqWWJwS2p2UE54Z0cxN29pRzhRREEvdUlTV2drQ1JqN2RVcmpqdGVSdzIzZm1IT3pTRjJUQk05cjJ3V0tZYkIKVkxvNlNkYSs3NVVsSDQzeGR2bmgrcC9WdTNuR05odlhpTFdnMGdtcDZTSUlrRS9kT2c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMlVKdjlHUlRkNW9wOUNvOHZld2ppNWhlKzB4UzB3Vmo2eDM0VGVZSzRhc3VvWEdaCmNhSVFuRVd4SWdCUUM2aENsaXZhcEIzdHJSWnFVMDk4UzY4eUdTZ1lGWG9nb3dQQ3JqdmJKWktzWmp2MlI2RisKaitnMW9XWGZEWVpOU2lmZTdTYStxM3dVTVEzTnNXbFhmSktrS05lTnZIcS9XWkxHOFpVdk0xVFQ4U0hyYjQ2ZApNRDlPUmxCMGNUbjBveExnelR3eEo5Sm84SzBkaEZLZDFsbHZZYWlyQmQrNTl6dHdFcEY0eEpmaXdCUklzRjFGCmkzSEtVWDlSam9sdVFlWnF1UHZ6THJpaGNkQTdVZTdmWG1KTGxaK3hFaU9hRzdRZS9ZaURzNVl1SXBEM29XVncKZWdybk5wY0JSKytUWFRTK3ZZaGs5NnVNN1h5THVzRXFYa09CMlFJREFRQUJBb0lCQUV1ZEJNdmc4dS9JVnR1awpxNWxLQ3lEMWVmRXFJaFZSWmZJWmJ5YmxibG9XTXRkN2F2VVNlNGQzOWVzb2dyTmI3empHc0lTMzZkVjQzSzU4CkZuMWN6eW5VTzNXV0dLL0Rpa2tMaWZ6c3JGVzBmc1YxWGxBRmVFemc0SjJiWldEdXVYWitLcFFTVGhDNGhpTTkKejNZS3IxbUxrOGZLVExpSERmaGNmSjMzNHYranMxcUh5VThNc0RRWnZ1Q2dJUGY1YWZDVHNhWTlIb0lGNEc0RgpNd0ViZ1c2UERYbWg3eEFnYWRCVmFtYVIvYjNXenBhWlpRdGZJODJJNU1nZC9pOTlzclpHMlZoc2F3WHlpN1J2CjBPUjBlYjFGV2gvMmNzZWRXTTE5OGNhVnBjcUFCM3drYzdwQzFaQVlnV1VhQUc2ZmIyUzIxUkt5MUlBV1NTSUMKRzFQT1gwVUNnWUVBNlNnR2lpVDR4NUZieEROUUo3OXpiZVRUT0JFTE5sbkJuRTBjVEpnc0tXemMxSVMxTXRlUwpEQ25LQnFsb0FRUkFjRTZMUkFEZDU3ZGhjb2NLa1dhVUhDYWxMYnhPcFVtSDdLbHc0Z056TVJhdHlSRE5UcEswCmRLZ3JYTk50ZlQvT1ZQQVVoZndCdFFVN1ZuRGNTQ1dtdEo0UHdoblN2OUdiWlB4YStjNEQySk1DZ1lFQTdvdXcKN2lSK3V6bUI4QzNETEZLV01MamU3bENtV1U4NjhNcUJFUWRzRmY4MDBzM2x4blUvY0pWb1JiSEZMTlUrTHpjQQptVzczS0FNOW5veWlCZUtLSkdwNlBnSWFDTE9IRzRCQ3drSjhHcG1JWUk0SHU0TkFNbFVFenIzZHNMejd5VlZ0CnlONlpDa3NtTkNIU0F0bm9BaEFNSThDK3ZOakdsLytKMnNzYjIyTUNnWUVBclhIeUUzaFhmWlo3cnFRQmYrQWoKVFdBSlpNOEJDVWlTQitVeEpTV2F6S0pJVU92OEk3dEwwVEtSTUkxN2FpNHdoWnRZYkprOGVyRG5sQnd6VjJENAowMHhJV3BLWDZzdWRpd2V0aXVUSUgzOWdmbys2T3paVmVlYlVnelJoWWVoQ1pOdElXVGZVU1VhQUV0allkZTlVCmFVNmdLR092YkxUUUpicTVMdFg3OUhNQ2dZQk12VDJXN3NDaVJGYkx5RDBBVmpVZ3lXaFdMRFhIaDFpRHUvR1gKWTliZW9MSUNtdUF2WHVxZ3NqL1FJK2MxakFnc01qcU1JWWw3SXNmQTZLYjYwNnp6R0JucE5zM2ZQTG5iSEFEZAo4M3R2SnpNYk5MWENHZkFlQVFIQjdJeVQzY2YyTmZoU1pXSEFVUHFpVExyOTFkSHdUKzlIMVNySEg4bUxmbFovCnYxVmYxd0tCZ1FDdTM3cUZhZzZjVzAxdDJxRlEwbUJVd3QvTDJLZ3hvTkxqK3c5MTFYZ25pV3kwdFFnU0lZT2cKUnJkZmhQako5Mjh3TkZvZUVrWFhQUGl0VGdyOHhEU1piT3FnSGhrS3hoNUhpZlVHZm4yWFJ4eTY2QTlSaS8yVApVa2dWT244ejhJSEVFbEZPTnlxMUd6TkcxdDRESkoxOHdpYXc2RFk5ZUJ1Y0Z0RkpCczFxcUE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
+    "kube_config": "apiVersion: v1\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1ERXdNakl6TXpVek1Gb1hEVE15TVRJek1ESXpNelV6TUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSjlQCkQ5Q3o3a1dzS3BXQ2NiZUdQNStEOStNVm96K2RlUlZTMllDaHdITXFrMmZTR1I4TE03NTJJaVc3cUZUQm00SzMKSVpUeUtPcW1VOWY1TFRsTWhRbXo0akg3MHZqL1libGJIYWZ0S3E4SWNtRjJYMEh2Skl6Vk51L0JVbGRHSE1HcAo2MzYrc2ZveXBEdjZVVmRaWUdMMzJYSFFZVkoyN3hxT084elk5bHorR0xpMTVjSUNraGs4d3M3MHlxamZQQVQ5ClEyUXprNFdmQjZqbS9jNXp1QU9qZjhmL0VmRElEajFsNEEwVE5QQnBHVzRPVXZUdlg2Q3dmK3FCck9wK21Pc2UKMHFRcW82UjV5bHlUcnpVNllGdFpsV2ZUaFhKR1BJcVZEakVoSlJ2K09TU2YwTmpCVlM3UTFzejduNE5iREN5TgpDS3RLM2ZYU3BZR2VSMTU4dkJzQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZHOFY2SUFidzd6TmJHWno3dUNsV1JYSnJ5WDJNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBRDV2VWpUWjdvRlFORWo2bU8xYQp5OG53bHVYYzcvbzBqZ2dtT3F0RC9id3RycWdQVkVrUHFSempTRFhSbGZhQTVVS2sxVjNOQUhwSGI5YkpSUEVkClBDWk1yVWwwM1Y5TWJSLzBNMVZqVmpNbHVlcCtQOHBBeklzMnRxYmZkaXFNaFFYUi9DSjgxUThZYWljR3hWTXoKQlBIMEhMTExYcWF6OHhob0pQL2xVbmhxdXJTeHN4c0JLVTA4TGpGVjNGNk81ekVYZnNkeWdXWTNRbExndjBXLwpTZ1ZVeEw1Y28vVVFHNVpiYU5XM3lUc3NPSUhpeUlGdWVhYXR3VFFnbmN6alNxaWRBdnBNZEFxTURUMFdCazBTCjVkOGd2QW5MSUNWRWl6QXY5anlYc3YyeFlTd3FuT282NE5rSTNOYmovSjVIdnhkYWU2Y3d2dnVzN2pkMGp2SlkKcWM4PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    server: https://141.95.37.233:6443\n  name: kubernetes\ncontexts:\n- context:\n    cluster: kubernetes\n    user: kubernetes-admin\n  name: kubernetes-admin@kubernetes\ncurrent-context: kubernetes-admin@kubernetes\nkind: Config\npreferences: {}\nusers:\n- name: kubernetes-admin\n  user:\n    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lJYkxvcmpIWTV0Z2d3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBeE1ESXlNek0xTXpCYUZ3MHlOREF4TURJeU16TTFNelJhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQWxxVSsyZ2prRklRbDhYdVEKZWhNQkQ3TVNlcFFVV3dOK21TSm5nYXlQZWIvYXdydkdKbk14UjZHLzI3T2xWQTZiM05FZWhsSG4vQTUxVnpxMwp2UTMrcVVmNlp6VDdzOVVzcWlybmQ4ZkdpdGYyWkhhQWlXWVUrVkYxbkd5UUMvcEtOSkI5TVJvdmQwdGdRaXVTCnhHUDNNcUFuNGZzR09nbmJ2SzdwODVqSFZwQS9mTitxa0xFbllqV3VNRmp6VzJIZlkzZnU1TkVqK3JhcmxyY1MKTHBFV0VRS05vekdRMG9BbUdENTFPNWRpUTdTbHdmT2xpdFNkeU9jTm1wekJZeVBmb0FHMzA3SzNCZnZEUjhIWAphOEd0YUZaM0tQNjZscXYwa1RsK2FsdWhIaVg1ZXphVGxzRlk3ZEVEWmMrM1R3QXlPRm9nZDhQUlVhU2tReElvCjVPUmZWUUlEQVFBQm8xWXdWREFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JSdkZlaUFHOE84eld4bWMrN2dwVmtWeWE4bAo5akFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBR3owUDFCeStFdTAvWkFYOEVQODV5bVdBbHkxb1ljUnQ4UWxlCkcrUzBOb2NibGxmWmhlTVZMeUNXMENoQlVMdEtPVFdDT2lEeHZROGtoNHdZRXM5bFl5UGJUaVladWVwRUdzbjYKMjUvSWhHOWx4RXRnT0tMZGFqc09BZkZXdG1PTzRhdGhGekZyeEZpK3ZwVk91cEhKTUt0MC95S0Z3WkZVenJBSgpUNEJXYmpERHJldExUZDRzTm81aUdYZ20zcGIxS2U5aE1IdmNmWEtlOG1WOUlVTWdmeUM3TmxRSjlvWkwxK3JVCm94aFcxTklnNUQzalpDYkhKWCs3TnUxNTI5VVdGeWlacktRVkdkaUdVSGxLQVd3N1dFWGxKL1ZFOStoRjhtSXQKaC9pMlhyaExuZGtFQ0tBaGJpRTVnWDR3Y0tOTlVHTHc2R1BBanJucmZJZjg3REJGVWc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBbHFVKzJnamtGSVFsOFh1UWVoTUJEN01TZXBRVVd3TittU0puZ2F5UGViL2F3cnZHCkpuTXhSNkcvMjdPbFZBNmIzTkVlaGxIbi9BNTFWenEzdlEzK3FVZjZaelQ3czlVc3Fpcm5kOGZHaXRmMlpIYUEKaVdZVStWRjFuR3lRQy9wS05KQjlNUm92ZDB0Z1FpdVN4R1AzTXFBbjRmc0dPZ25idks3cDg1akhWcEEvZk4rcQprTEVuWWpXdU1GanpXMkhmWTNmdTVORWorcmFybHJjU0xwRVdFUUtOb3pHUTBvQW1HRDUxTzVkaVE3U2x3Zk9sCml0U2R5T2NObXB6Qll5UGZvQUczMDdLM0JmdkRSOEhYYThHdGFGWjNLUDY2bHF2MGtUbCthbHVoSGlYNWV6YVQKbHNGWTdkRURaYyszVHdBeU9Gb2dkOFBSVWFTa1F4SW81T1JmVlFJREFRQUJBb0lCQUdOdFowRlM4dTZUbGROLwpRWWxBdDhlYjRrdGpKdGczUXp4aEY3M2ZuY2EybVBWRUovRkN3RGpPQ2lwQXRKTDVIV2d0NFo2M3VveURJbkZUClFPZ1hyNGdkQ0tsTHNBRXVaczlkaCs1bnZhUHdEQ0Nja2hPZGU2UmVYbWpDd29RVlN4ck1ic1NVeXRWS3U1cVEKMWNxblRBVnU3VVBhZ1c2WENSL010bjdmekZsVjBrTTUzcCt1blJBWHpHQkVMRWtQWjEzYTBVWnZ4c3hqT0xWNwpONWRkVkFSL2ozRkdnVllkMVoxcUNnY00zSzJqK1M5MldJVCtyQmxybWpLOTAxWmFGb1dWRXd3Z1FEL2JRZUJaCnpJSlJnZnVJeGpncWpPWjZIdUdiTGVZTVoybmZheHNUVHBvMzNiS3JBNFZVYVlIYVEvVmlzRjJHYXRBTTJjbHQKSnZTOC9JRUNnWUVBd21iTU5hdnBSaDIwSWN5Und1YmlwREdWU3lrM0tRN0xkekVxbWkrMC9sQUd5emY1L2x6MQorMldDMENhdUkvTkN6Y1d2VFlPRXNweWtkcmZmTVQ1SE1HRHBqUVg3NFBHVFlLQUdPdG9UeXpYM29USVA1TStQCkxHaFlRQzRZN0hhQ2ZOSkEvVW82emM1alQ3b1k0QVB6eDlHVkRkZnZyNmd5KzVWVmlrNGd4SFVDZ1lFQXhtRWEKU0FwMHNzOWFNYm05VFdPQjA2NUExNExscHJ6RjB0UHRXTENTWFhrNE1zclN0UTl2UTJ4NlVpb2NoeU1XbFVoVwp2UU1WMTBaVGs5TG9uT3UyS0JXT1BFRjIzamtJbnhpY1ByVm5ETzFqR3JzUVdidnJya2U1NVFnMDN5V3lCMUFwCnk0NHY5VGYyUXYwTkVxbzJMczRwQjZtR05UeTJtbXRyN1Fhb1UyRUNnWUVBZ1M2S2VRZjZCZXZyTGFLaEllRUgKcnBCOFl1dktpZkFZNk9XMUo2eVlHMzdXWk9pWHFaM2duK1ErMzA4MDNSTGp5NVdYL214dEc3dlgxa1F0ZnEyaAo1Tllobk9MakZBRzBLN3RyS0dTT1RyVllEcmdUczdyeHExTFRnaUtmMFZLWE41Y0lOTWpFOXNvMVdGK1Q5QmpzClFGWlhORkhRSnV3Z3BPb0JZOXl6RFprQ2dZRUFqTkk5VDhwc1VNbzBvbnZSVDNCRnByaFp1eUptVjFoRnJZVlgKUk5BQzltdW9ZeFhyUVRBMXNVejkvL2w0eXMwenFNRHpJYlZnK2JJb2ZoVUhudTBNSDZROWxiUjY1d0RoaDk1MgplMlZXUTZ6MzN1L1BpWU9HcCs2dW5WQ1lCNWZBcXNSVEJ2Wm1RTko2ODg2aVN3K2M2dGpaODJCNXJxenNpdTJhCmJXVitjOEVDZ1lBczZWSlJ0Sk9DMzN2NFBrcS82RXh6c3JSTUNjYi9tY0NKcVQ2M0Y3RUZodVcwUy9aSE9vcHUKemp2TUZQbjVmWkM5QkVmT0FWdVNxMitWbWdWYm9rbWd0RVc1YzE5NGlOUXJtMTdoMDUrUHgvd29icWVvWDBwOQpUSkE0SVcvYzBNaU9uL2lpNm44cDRCeFBTOU05dGZ5TWJiMThmSkZQNFNEY0xTZkpDTVFSNWc9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
 }
 
-TASK [alpine_kubeadm_init : Delete with rm -rf /home/p/.kube/ipv4.control1.pvamos.net on ansible host] *****************
-Sunday 01 January 2023  14:59:09 +0000 (0:00:00.028)       0:02:42.054 ********
+TASK [alpine_kubeadm_init : Delete with rm -rf /home/p/.kube/ipv4.control1.pvamos.net on ansible host] ***********************************************
+Monday 02 January 2023  23:36:07 +0000 (0:00:00.029)       0:03:25.319 ********
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-PLAY [Alpine linux kubeadm join] ***************************************************************************************
+PLAY [Alpine linux kubeadm join controlplane] ********************************************************************************************************
 
-TASK [Gathering Facts] *************************************************************************************************
-Sunday 01 January 2023  14:59:10 +0000 (0:00:00.280)       0:02:42.335 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:36:07 +0000 (0:00:00.279)       0:03:25.598 ********
+ok: [ipv4.control3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Test connection with ping] ***************************************************************************************
+Monday 02 January 2023  23:36:10 +0000 (0:00:02.903)       0:03:28.502 ********
+ok: [ipv4.control3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Set host variables for c1.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:36:11 +0000 (0:00:01.329)       0:03:29.831 ********
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Set host variables for c2.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:36:11 +0000 (0:00:00.096)       0:03:29.928 ********
+skipping: [ipv4.control3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Set host variables for c3.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.108)       0:03:30.036 ********
+skipping: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Get kubeadm join command with tokens from local file] ************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.108)       0:03:30.144 ********
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Get kubeadm join token from local file] **************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.203 ********
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.059)       0:03:30.262 ********
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.321 ********
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Print kubeadm join command with tokens] **************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.379 ********
+ok: [ipv4.control2.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+}
+
+TASK [alpine_kubeadm_join_control : Print kubeadm token] *********************************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.054)       0:03:30.433 ********
+ok: [ipv4.control2.pvamos.net] => {
+    "msg": "334wu9.jdjpmgsyjil4z2ln"
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "msg": "334wu9.jdjpmgsyjil4z2ln"
+}
+
+TASK [alpine_kubeadm_join_control : Print kubeadm join cacert] ***************************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.486 ********
+ok: [ipv4.control2.pvamos.net] => {
+    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+}
+
+TASK [alpine_kubeadm_join_control : Print kubeadm join certkey] **************************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.540 ********
+ok: [ipv4.control2.pvamos.net] => {
+    "msg": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "msg": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
+}
+
+TASK [alpine_kubeadm_join_control : Create /root/kubeadm-config.yaml] ********************************************************************************
+Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.593 ********
+changed: [ipv4.control3.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Execute kubeadm join] ********************************************************************************************
+Monday 02 January 2023  23:36:15 +0000 (0:00:02.469)       0:03:33.062 ********
+changed: [ipv4.control3.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Print kubeadm join output] ***************************************************************************************
+Monday 02 January 2023  23:38:26 +0000 (0:02:11.698)       0:05:44.761 ********
+ok: [ipv4.control2.pvamos.net] => {
+    "kubeadm_join_output.stdout_lines": [
+        "[preflight] Running pre-flight checks",
+        "[preflight] Reading configuration from the cluster...",
+        "[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'",
+        "[preflight] Running pre-flight checks before initializing the new control plane instance",
+        "[preflight] Pulling images required for setting up a Kubernetes cluster",
+        "[preflight] This might take a minute or two, depending on the speed of your internet connection",
+        "[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'",
+        "[download-certs] Downloading the certificates in Secret \"kubeadm-certs\" in the \"kube-system\" Namespace",
+        "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
+        "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
+        "[certs] Generating \"apiserver\" certificate and key",
+        "[certs] apiserver serving cert is signed for DNS names [control2.vamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.87 141.95.37.233]",
+        "[certs] Generating \"etcd/peer\" certificate and key",
+        "[certs] etcd/peer serving cert is signed for DNS names [control2.vamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
+        "[certs] Generating \"etcd/server\" certificate and key",
+        "[certs] etcd/server serving cert is signed for DNS names [control2.vamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
+        "[certs] Generating \"apiserver-etcd-client\" certificate and key",
+        "[certs] Generating \"front-proxy-client\" certificate and key",
+        "[certs] Valid certificates and keys now exist in \"/etc/kubernetes/pki\"",
+        "[certs] Using the existing \"sa\" key",
+        "[kubeconfig] Generating kubeconfig files",
+        "[kubeconfig] Using kubeconfig folder \"/etc/kubernetes\"",
+        "[kubeconfig] Writing \"admin.conf\" kubeconfig file",
+        "[kubeconfig] Writing \"controller-manager.conf\" kubeconfig file",
+        "[kubeconfig] Writing \"scheduler.conf\" kubeconfig file",
+        "[control-plane] Using manifest folder \"/etc/kubernetes/manifests\"",
+        "[control-plane] Creating static Pod manifest for \"kube-apiserver\"",
+        "[control-plane] Creating static Pod manifest for \"kube-controller-manager\"",
+        "[control-plane] Creating static Pod manifest for \"kube-scheduler\"",
+        "[check-etcd] Checking that the etcd cluster is healthy",
+        "[kubelet-start] Writing kubelet configuration to file \"/var/lib/kubelet/config.yaml\"",
+        "[kubelet-start] Writing kubelet environment file with flags to file \"/var/lib/kubelet/kubeadm-flags.env\"",
+        "[kubelet-start] Starting the kubelet",
+        "[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...",
+        "[etcd] Announced new etcd member joining to the existing etcd cluster",
+        "[etcd] Creating static Pod manifest for \"etcd\"",
+        "[etcd] Waiting for the new etcd member to join the cluster. This can take up to 40s",
+        "The 'update-status' phase is deprecated and will be removed in a future release. Currently it performs no operation",
+        "[mark-control-plane] Marking the node control2.vamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
+        "[mark-control-plane] Marking the node control2.vamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
+        "",
+        "This node has joined the cluster and a new control plane instance was created:",
+        "",
+        "* Certificate signing request was sent to apiserver and approval was received.",
+        "* The Kubelet was informed of the new secure connection details.",
+        "* Control plane label and taint were applied to the new node.",
+        "* The Kubernetes control plane instances scaled up.",
+        "* A new etcd member was added to the local/stacked etcd cluster.",
+        "",
+        "To start administering your cluster from this node, you need to run the following as a regular user:",
+        "",
+        "\tmkdir -p $HOME/.kube",
+        "\tsudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config",
+        "\tsudo chown $(id -u):$(id -g) $HOME/.kube/config",
+        "",
+        "Run 'kubectl get nodes' to see this node join the cluster."
+    ]
+}
+ok: [ipv4.control3.pvamos.net] => {
+    "kubeadm_join_output.stdout_lines": [
+        "[preflight] Running pre-flight checks",
+        "[preflight] Reading configuration from the cluster...",
+        "[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'",
+        "[preflight] Running pre-flight checks before initializing the new control plane instance",
+        "[preflight] Pulling images required for setting up a Kubernetes cluster",
+        "[preflight] This might take a minute or two, depending on the speed of your internet connection",
+        "[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'",
+        "[download-certs] Downloading the certificates in Secret \"kubeadm-certs\" in the \"kube-system\" Namespace",
+        "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
+        "[certs] Generating \"apiserver\" certificate and key",
+        "[certs] apiserver serving cert is signed for DNS names [control3.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.117.170 141.95.37.233]",
+        "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
+        "[certs] Generating \"front-proxy-client\" certificate and key",
+        "[certs] Generating \"etcd/server\" certificate and key",
+        "[certs] etcd/server serving cert is signed for DNS names [control3.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
+        "[certs] Generating \"apiserver-etcd-client\" certificate and key",
+        "[certs] Generating \"etcd/peer\" certificate and key",
+        "[certs] etcd/peer serving cert is signed for DNS names [control3.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
+        "[certs] Valid certificates and keys now exist in \"/etc/kubernetes/pki\"",
+        "[certs] Using the existing \"sa\" key",
+        "[kubeconfig] Generating kubeconfig files",
+        "[kubeconfig] Using kubeconfig folder \"/etc/kubernetes\"",
+        "[kubeconfig] Writing \"admin.conf\" kubeconfig file",
+        "[kubeconfig] Writing \"controller-manager.conf\" kubeconfig file",
+        "[kubeconfig] Writing \"scheduler.conf\" kubeconfig file",
+        "[control-plane] Using manifest folder \"/etc/kubernetes/manifests\"",
+        "[control-plane] Creating static Pod manifest for \"kube-apiserver\"",
+        "[control-plane] Creating static Pod manifest for \"kube-controller-manager\"",
+        "[control-plane] Creating static Pod manifest for \"kube-scheduler\"",
+        "[check-etcd] Checking that the etcd cluster is healthy",
+        "[kubelet-start] Writing kubelet configuration to file \"/var/lib/kubelet/config.yaml\"",
+        "[kubelet-start] Writing kubelet environment file with flags to file \"/var/lib/kubelet/kubeadm-flags.env\"",
+        "[kubelet-start] Starting the kubelet",
+        "[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...",
+        "[etcd] Announced new etcd member joining to the existing etcd cluster",
+        "[etcd] Creating static Pod manifest for \"etcd\"",
+        "[etcd] Waiting for the new etcd member to join the cluster. This can take up to 40s",
+        "The 'update-status' phase is deprecated and will be removed in a future release. Currently it performs no operation",
+        "[mark-control-plane] Marking the node control3.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
+        "[mark-control-plane] Marking the node control3.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
+        "",
+        "This node has joined the cluster and a new control plane instance was created:",
+        "",
+        "* Certificate signing request was sent to apiserver and approval was received.",
+        "* The Kubelet was informed of the new secure connection details.",
+        "* Control plane label and taint were applied to the new node.",
+        "* The Kubernetes control plane instances scaled up.",
+        "* A new etcd member was added to the local/stacked etcd cluster.",
+        "",
+        "To start administering your cluster from this node, you need to run the following as a regular user:",
+        "",
+        "\tmkdir -p $HOME/.kube",
+        "\tsudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config",
+        "\tsudo chown $(id -u):$(id -g) $HOME/.kube/config",
+        "",
+        "Run 'kubectl get nodes' to see this node join the cluster."
+    ]
+}
+
+PLAY [Alpine linux kubeadm join workers] *************************************************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:38:26 +0000 (0:00:00.119)       0:05:44.881 ********
 ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_kubeadm_join : Test connection with ping] *****************************************************************
-Sunday 01 January 2023  14:59:12 +0000 (0:00:02.489)       0:02:44.825 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubeadm_join_workers : Test connection with ping] ***************************************************************************************
+Monday 02 January 2023  23:38:29 +0000 (0:00:02.210)       0:05:47.091 ********
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_kubeadm_join : Set host variables for c1.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:13 +0000 (0:00:01.082)       0:02:45.907 ********
-skipping: [ipv4.worker1.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Set host variables for w1.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:01.001)       0:05:48.092 ********
 skipping: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 
-TASK [alpine_kubeadm_join : Set host variables for c2.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:13 +0000 (0:00:00.144)       0:02:46.052 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_kubeadm_join : Set host variables for c3.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:13 +0000 (0:00:00.143)       0:02:46.195 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_kubeadm_join : Set host variables for w1.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.142)       0:02:46.338 ********
-skipping: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_kubeadm_join : Set host variables for w2.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.159)       0:02:46.498 ********
+TASK [alpine_kubeadm_join_workers : Set host variables for w2.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.164)       0:05:48.256 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.worker2.pvamos.net]
 
-TASK [alpine_kubeadm_join : Set host variables for w3.pvamos.net] ******************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.155)       0:02:46.654 ********
+TASK [alpine_kubeadm_join_workers : Set host variables for w3.pvamos.net] ****************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.159)       0:05:48.416 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 
-TASK [alpine_kubeadm_join : Get kubeadm join command with tokens from local file] **************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.156)       0:02:46.810 ********
+TASK [alpine_kubeadm_join_workers : Get kubeadm join command with tokens from local file] ************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.157)       0:05:48.573 ********
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 
-TASK [alpine_kubeadm_join : Get kubeadm join token from local file] ****************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.091)       0:02:46.902 ********
+TASK [alpine_kubeadm_join_workers : Get kubeadm join token from local file] **************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.086)       0:05:48.660 ********
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 
-TASK [alpine_kubeadm_join : Get kubeadm join cacert from local file] ***************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.091)       0:02:46.994 ********
+TASK [alpine_kubeadm_join_workers : Get kubeadm join cacert from local file] *************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.087)       0:05:48.748 ********
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 
-TASK [alpine_kubeadm_join : Print kubeadm join command with tokens] ****************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.091)       0:02:47.085 ********
+TASK [alpine_kubeadm_join_workers : Print kubeadm join command with tokens] **************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.086)       0:05:48.834 ********
 ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "kubeadm join 51.195.116.80:6443 --token qb6kls.1r5zndgswtzf4b2x --discovery-token-ca-cert-hash sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "kubeadm join 51.195.116.80:6443 --token qb6kls.1r5zndgswtzf4b2x --discovery-token-ca-cert-hash sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "kubeadm join 51.195.116.80:6443 --token qb6kls.1r5zndgswtzf4b2x --discovery-token-ca-cert-hash sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 
-TASK [alpine_kubeadm_join : Print kubeadm token] ***********************************************************************
-Sunday 01 January 2023  14:59:14 +0000 (0:00:00.084)       0:02:47.169 ********
+TASK [alpine_kubeadm_join_workers : Print kubeadm token] *********************************************************************************************
+Monday 02 January 2023  23:38:30 +0000 (0:00:00.080)       0:05:48.915 ********
 ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "qb6kls.1r5zndgswtzf4b2x"
+    "msg": "334wu9.jdjpmgsyjil4z2ln"
 }
 ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "qb6kls.1r5zndgswtzf4b2x"
+    "msg": "334wu9.jdjpmgsyjil4z2ln"
 }
 ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "qb6kls.1r5zndgswtzf4b2x"
+    "msg": "334wu9.jdjpmgsyjil4z2ln"
 }
 
-TASK [alpine_kubeadm_join : Print kubeadm join cacert] *****************************************************************
-Sunday 01 January 2023  14:59:15 +0000 (0:00:00.086)       0:02:47.256 ********
+TASK [alpine_kubeadm_join_workers : Print kubeadm join cacert] ***************************************************************************************
+Monday 02 January 2023  23:38:31 +0000 (0:00:00.079)       0:05:48.994 ********
 ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "sha256:76f6f060b5d04619cbd77ce46671923a7271867983bfc50ae262839e80164565"
+    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
 }
 
-TASK [alpine_kubeadm_join : Create /root/kubeadm-config.yaml] **********************************************************
-Sunday 01 January 2023  14:59:15 +0000 (0:00:00.084)       0:02:47.340 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_kubeadm_join_workers : Create /root/kubeadm-config.yaml] ********************************************************************************
+Monday 02 January 2023  23:38:31 +0000 (0:00:00.079)       0:05:49.073 ********
 changed: [ipv4.worker2.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_kubeadm_join : Execute kubeadm join] **********************************************************************
-Sunday 01 January 2023  14:59:17 +0000 (0:00:02.866)       0:02:50.207 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Execute kubeadm join] ********************************************************************************************
+Monday 02 January 2023  23:38:33 +0000 (0:00:01.940)       0:05:51.014 ********
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker2.pvamos.net]
 
-TASK [alpine_kubeadm_join : Print kubeadm join output] *****************************************************************
-Sunday 01 January 2023  14:59:34 +0000 (0:00:16.613)       0:03:06.821 ********
+TASK [alpine_kubeadm_join_workers : Print kubeadm join output] ***************************************************************************************
+Monday 02 January 2023  23:38:59 +0000 (0:00:26.234)       0:06:17.248 ********
 ok: [ipv4.worker1.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
@@ -986,64 +995,37 @@ ok: [ipv4.worker3.pvamos.net] => {
     ]
 }
 
-TASK [alpine_kubeadm_join : Reboot all nodes] **************************************************************************
-Sunday 01 January 2023  14:59:34 +0000 (0:00:00.091)       0:03:06.913 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
+PLAY [Alpine linux after kubeadm join] ***************************************************************************************************************
 
-PLAY [Alpine linux after kubeadm join] *********************************************************************************
-
-TASK [Gathering Facts] *************************************************************************************************
-Sunday 01 January 2023  14:59:53 +0000 (0:00:18.568)       0:03:25.481 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-
-TASK [alpine_kubeadm_afterjoin : Test connection with ping] ************************************************************
-Sunday 01 January 2023  14:59:55 +0000 (0:00:02.703)       0:03:28.185 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [Gathering Facts] *******************************************************************************************************************************
+Monday 02 January 2023  23:38:59 +0000 (0:00:00.173)       0:06:17.422 ********
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Wait until port 6443 is listening on controlplane] ************************************
-Sunday 01 January 2023  14:59:57 +0000 (0:00:01.260)       0:03:29.445 ********
+TASK [alpine_kubeadm_afterjoin : Test connection with ping] ******************************************************************************************
+Monday 02 January 2023  23:39:03 +0000 (0:00:03.884)       0:06:21.307 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+
+TASK [alpine_kubeadm_afterjoin : Wait until port 6443 is listening on controlplane] ******************************************************************
+Monday 02 January 2023  23:39:05 +0000 (0:00:01.679)       0:06:22.987 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 ok: [ipv4.control1.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Print port 6443 check output] *********************************************************
-Sunday 01 January 2023  14:59:58 +0000 (0:00:01.396)       0:03:30.842 ********
+TASK [alpine_kubeadm_afterjoin : Print port 6443 check output] ***************************************************************************************
+Monday 02 January 2023  23:39:06 +0000 (0:00:01.377)       0:06:24.364 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
@@ -1061,95 +1043,113 @@ ok: [ipv4.control1.pvamos.net] => {
         "state": "started"
     }
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully)] ***
-Sunday 01 January 2023  14:59:58 +0000 (0:00:00.099)       0:03:30.942 ********
+TASK [alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully)] *******************************
+Monday 02 January 2023  23:39:06 +0000 (0:00:00.144)       0:06:24.509 ********
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
 ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Get kubectl get no] *******************************************************************
-Sunday 01 January 2023  15:00:08 +0000 (0:00:10.027)       0:03:40.969 ********
+TASK [alpine_kubeadm_afterjoin : Get kubectl get no] *************************************************************************************************
+Monday 02 January 2023  23:39:16 +0000 (0:00:10.027)       0:06:34.537 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_afterjoin : Print kubectl get no output] **********************************************************
-Sunday 01 January 2023  15:00:09 +0000 (0:00:00.485)       0:03:41.454 ********
+TASK [alpine_kubeadm_afterjoin : Print kubectl get no output] ****************************************************************************************
+Monday 02 January 2023  23:39:17 +0000 (0:00:00.586)       0:06:35.123 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net] => {
     "kubectl_getno_output.stdout_lines": [
-        "NAME                  STATUS     ROLES           AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
-        "control1.pvamos.net   NotReady   control-plane   67s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker1.pvamos.net    NotReady   <none>          35s   v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker2.pvamos.net    NotReady   <none>          36s   v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker3.pvamos.net    NotReady   <none>          36s   v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1"
+        "NAME                  STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
+        "control1.pvamos.net   NotReady   control-plane   3m16s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control2.vamos.net    NotReady   control-plane   53s     v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control3.pvamos.net   NotReady   control-plane   102s    v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker1.pvamos.net    NotReady   <none>          27s     v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker2.pvamos.net    NotReady   <none>          17s     v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker3.pvamos.net    NotReady   <none>          29s     v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Get kubectl get pod] ******************************************************************
-Sunday 01 January 2023  15:00:09 +0000 (0:00:00.099)       0:03:41.554 ********
+TASK [alpine_kubeadm_afterjoin : Get kubectl get pod] ************************************************************************************************
+Monday 02 January 2023  23:39:17 +0000 (0:00:00.146)       0:06:35.270 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_afterjoin : Print kubectl get po output] **********************************************************
-Sunday 01 January 2023  15:00:09 +0000 (0:00:00.509)       0:03:42.064 ********
+TASK [alpine_kubeadm_afterjoin : Print kubectl get po output] ****************************************************************************************
+Monday 02 January 2023  23:39:17 +0000 (0:00:00.614)       0:06:35.885 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE     NAME                                          READY   STATUS              RESTARTS   AGE   IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "kube-system   coredns-565d847f94-67tcn                      0/1     ContainerCreating   0          51s   <none>           worker2.pvamos.net    <none>           <none>",
-        "kube-system   coredns-565d847f94-rbqcf                      0/1     ContainerCreating   0          51s   <none>           worker2.pvamos.net    <none>           <none>",
-        "kube-system   etcd-control1.pvamos.net                      1/1     Running             0          63s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-apiserver-control1.pvamos.net            1/1     Running             0          63s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-controller-manager-control1.pvamos.net   1/1     Running             0          63s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-proxy-fhnpz                              1/1     Running             0          51s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-proxy-kvhdw                              1/1     Running             0          35s   51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system   kube-proxy-shblv                              1/1     Running             0          36s   51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system   kube-proxy-wmc2t                              1/1     Running             0          36s   51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system   kube-scheduler-control1.pvamos.net            1/1     Running             0          63s   51.195.116.80    control1.pvamos.net   <none>           <none>"
+        "NAMESPACE     NAME                                          READY   STATUS         RESTARTS      AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
+        "kube-system   coredns-565d847f94-ptpxx                      0/1     Pending        0             3m4s    <none>           <none>                <none>           <none>",
+        "kube-system   coredns-565d847f94-rzzjv                      0/1     Pending        0             3m4s    <none>           <none>                <none>           <none>",
+        "kube-system   etcd-control1.pvamos.net                      1/1     Running        0             3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system   etcd-control2.vamos.net                       1/1     Running        0             43s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system   etcd-control3.pvamos.net                      1/1     Running        0             92s     51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system   kube-apiserver-control1.pvamos.net            1/1     Running        0             3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system   kube-apiserver-control2.vamos.net             1/1     Running        1 (61s ago)   31s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system   kube-apiserver-control3.pvamos.net            1/1     Running        0             83s     51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system   kube-controller-manager-control1.pvamos.net   1/1     Running        1 (92s ago)   3m16s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system   kube-controller-manager-control2.vamos.net    1/1     Running        0             10s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system   kube-controller-manager-control3.pvamos.net   1/1     Running        0             15s     51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-6kmxm                              1/1     Running        0             55s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system   kube-proxy-7874w                              0/1     ErrImagePull   0             19s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "kube-system   kube-proxy-8dvbg                              1/1     Running        0             3m5s    51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-c7dbw                              1/1     Running        0             103s    51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-n27x4                              1/1     Running        0             29s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "kube-system   kube-proxy-tp76r                              1/1     Running        0             30s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "kube-system   kube-scheduler-control1.pvamos.net            1/1     Running        1 (93s ago)   3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system   kube-scheduler-control3.pvamos.net            1/1     Running        0             88s     51.195.117.170   control3.pvamos.net   <none>           <none>"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Test connection with ping] ***********************************************************************
-Sunday 01 January 2023  15:00:09 +0000 (0:00:00.119)       0:03:42.183 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_calico : Test connection with ping] *****************************************************************************************************
+Monday 02 January 2023  23:39:18 +0000 (0:00:00.178)       0:06:36.064 ********
 ok: [ipv4.worker2.pvamos.net]
 ok: [ipv4.worker3.pvamos.net]
 ok: [ipv4.worker1.pvamos.net]
 ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Download tigera-operator.yaml to ansible host] ***************************************************
-Sunday 01 January 2023  15:00:11 +0000 (0:00:01.184)       0:03:43.368 ********
+TASK [alpine_calico : Download tigera-operator.yaml to ansible host] *********************************************************************************
+Monday 02 January 2023  23:39:19 +0000 (0:00:01.679)       0:06:37.743 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 ok: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : kubectl create -f tigera-operator.yaml] **********************************************************
-Sunday 01 January 2023  15:00:12 +0000 (0:00:01.115)       0:03:44.484 ********
+TASK [alpine_calico : kubectl create -f tigera-operator.yaml] ****************************************************************************************
+Monday 02 January 2023  23:39:20 +0000 (0:00:01.209)       0:06:38.952 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print 'kubectl create -f tigera-operator.yaml' output] *******************************************
-Sunday 01 January 2023  15:00:23 +0000 (0:00:10.762)       0:03:55.247 ********
+TASK [alpine_calico : Print 'kubectl create -f tigera-operator.yaml' output] *************************************************************************
+Monday 02 January 2023  23:39:31 +0000 (0:00:10.560)       0:06:49.513 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
@@ -1183,22 +1183,26 @@ ok: [ipv4.control1.pvamos.net] => {
         "deployment.apps/tigera-operator created"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Pause for 10 seconds] ****************************************************************************
-Sunday 01 January 2023  15:00:23 +0000 (0:00:00.101)       0:03:55.348 ********
+TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************
+Monday 02 January 2023  23:39:31 +0000 (0:00:00.149)       0:06:49.662 ********
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
 ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_calico : kubectl create -f custom-resources.yaml] *********************************************************
-Sunday 01 January 2023  15:00:33 +0000 (0:00:10.026)       0:04:05.375 ********
+TASK [alpine_calico : kubectl create -f custom-resources.yaml] ***************************************************************************************
+Monday 02 January 2023  23:39:41 +0000 (0:00:10.027)       0:06:59.690 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print 'kubectl create -f custom-resources.yaml' output] ******************************************
-Sunday 01 January 2023  15:00:39 +0000 (0:00:06.293)       0:04:11.669 ********
+TASK [alpine_calico : Print 'kubectl create -f custom-resources.yaml' output] ************************************************************************
+Monday 02 January 2023  23:39:45 +0000 (0:00:03.309)       0:07:02.999 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
@@ -1208,222 +1212,328 @@ ok: [ipv4.control1.pvamos.net] => {
         "apiserver.operator.tigera.io/default created"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Pause for 10 seconds] ****************************************************************************
-Sunday 01 January 2023  15:00:39 +0000 (0:00:00.098)       0:04:11.768 ********
+TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************
+Monday 02 January 2023  23:39:45 +0000 (0:00:00.145)       0:07:03.144 ********
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
 ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get pod] *****************************************************************************
-Sunday 01 January 2023  15:00:49 +0000 (0:00:10.026)       0:04:21.794 ********
+TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************
+Monday 02 January 2023  23:39:55 +0000 (0:00:10.027)       0:07:13.172 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get po output] *********************************************************************
-Sunday 01 January 2023  15:00:50 +0000 (0:00:00.917)       0:04:22.712 ********
+TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************
+Monday 02 January 2023  23:39:55 +0000 (0:00:00.619)       0:07:13.792 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE         NAME                                          READY   STATUS              RESTARTS   AGE    IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "calico-system     calico-node-fgcxj                             0/1     Init:1/2            0          8s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-rt7h8                             0/1     Init:0/2            0          8s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-wtcn8                             0/1     Init:0/2            0          9s     51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-xx8zf                             0/1     Init:1/2            0          8s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-d79d7f48d-4gpkv                  0/1     ContainerCreating   0          1s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-d79d7f48d-vxwf4                  0/1     ContainerCreating   0          9s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-67tcn                      0/1     ContainerCreating   0          92s    <none>           worker2.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-rbqcf                      0/1     ContainerCreating   0          92s    <none>           worker2.pvamos.net    <none>           <none>",
-        "kube-system       etcd-control1.pvamos.net                      1/1     Running             0          104s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running             0          104s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running             0          104s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-fhnpz                              1/1     Running             0          92s    51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-kvhdw                              1/1     Running             0          76s    51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-shblv                              1/1     Running             0          77s    51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-wmc2t                              1/1     Running             0          77s    51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running             0          104s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "tigera-operator   tigera-operator-55dd57cddb-54c5p              1/1     Running             0          27s    51.195.119.241   worker3.pvamos.net    <none>           <none>"
+        "NAMESPACE         NAME                                          READY   STATUS              RESTARTS        AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
+        "calico-system     calico-node-8fdbf                             0/1     Init:0/2            0               9s      51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-9cbkn                             0/1     Init:0/2            0               9s      51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-b6f7m                             0/1     Init:0/2            0               9s      51.195.116.87    control2.vamos.net    <none>           <none>",
+        "calico-system     calico-node-b9gdt                             0/1     Init:1/2            0               8s      51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-dqr4t                             0/1     Init:0/2            0               8s      51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-wq4vs                             0/1     Init:1/2            0               8s      51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-9bcw8                 0/1     ContainerCreating   0               3s      51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-jmn9q                 0/1     ContainerCreating   0               9s      51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-lhqjj                 0/1     ContainerCreating   0               3s      51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "kube-system       coredns-565d847f94-ptpxx                      0/1     Pending             0               3m42s   <none>           <none>                <none>           <none>",
+        "kube-system       coredns-565d847f94-rzzjv                      0/1     Pending             0               3m42s   <none>           <none>                <none>           <none>",
+        "kube-system       etcd-control1.pvamos.net                      1/1     Running             0               3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control2.vamos.net                       1/1     Running             0               81s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       etcd-control3.pvamos.net                      1/1     Running             0               2m10s   51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running             0               3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control2.vamos.net             1/1     Running             1 (99s ago)     69s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-apiserver-control3.pvamos.net            1/1     Running             0               2m1s    51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running             1 (2m10s ago)   3m54s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control2.vamos.net    1/1     Running             0               48s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-controller-manager-control3.pvamos.net   1/1     Running             0               53s     51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-6kmxm                              1/1     Running             0               93s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-proxy-7874w                              1/1     Running             0               57s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-8dvbg                              1/1     Running             0               3m43s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-c7dbw                              1/1     Running             0               2m21s   51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-n27x4                              1/1     Running             0               67s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-tp76r                              1/1     Running             0               68s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running             1 (2m11s ago)   3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control2.vamos.net             1/1     Running             0               28s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-scheduler-control3.pvamos.net            1/1     Running             0               2m6s    51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "tigera-operator   tigera-operator-55dd57cddb-c245q              1/1     Running             0               24s     51.195.119.241   worker3.pvamos.net    <none>           <none>"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico] ***********************************************
-Sunday 01 January 2023  15:00:50 +0000 (0:00:00.207)       0:04:22.919 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-
-TASK [alpine_calico : ln -s /opt/cni/bin/calico-ipam /usr/libexec/cni/calico-ipam] *************************************
-Sunday 01 January 2023  15:00:53 +0000 (0:00:02.570)       0:04:25.490 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico] *****************************************************************************
+Monday 02 January 2023  23:39:55 +0000 (0:00:00.149)       0:07:13.941 ********
 changed: [ipv4.worker2.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
 changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
 
-TASK [alpine_calico : ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel] *********************************************
-Sunday 01 January 2023  15:00:55 +0000 (0:00:02.121)       0:04:27.611 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_calico : ln -s /opt/cni/bin/calico-ipam /usr/libexec/cni/calico-ipam] *******************************************************************
+Monday 02 January 2023  23:39:59 +0000 (0:00:03.623)       0:07:17.565 ********
 changed: [ipv4.worker2.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
 changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : service crio restart] ****************************************************************************
-Sunday 01 January 2023  15:00:57 +0000 (0:00:01.732)       0:04:29.343 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-
-TASK [alpine_calico : service kubelet restart] *************************************************************************
-Sunday 01 January 2023  15:01:03 +0000 (0:00:06.082)       0:04:35.426 ********
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker2.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker3.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: sftp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed
-information
-[WARNING]: scp transfer mechanism failed on [ipv4.worker1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
-[WARNING]: scp transfer mechanism failed on [ipv4.control1.pvamos.net]. Use ANSIBLE_DEBUG=1 to see detailed information
+TASK [alpine_calico : ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel] ***************************************************************************
+Monday 02 January 2023  23:40:02 +0000 (0:00:02.469)       0:07:20.035 ********
 changed: [ipv4.worker2.pvamos.net]
 changed: [ipv4.worker3.pvamos.net]
 changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
 changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Pause for 30 seconds] ****************************************************************************
-Sunday 01 January 2023  15:01:05 +0000 (0:00:02.020)       0:04:37.447 ********
+TASK [alpine_calico : service crio restart] **********************************************************************************************************
+Monday 02 January 2023  23:40:04 +0000 (0:00:02.752)       0:07:22.787 ********
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+
+TASK [alpine_calico : service kubelet restart] *******************************************************************************************************
+Monday 02 January 2023  23:40:09 +0000 (0:00:04.646)       0:07:27.434 ********
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+
+TASK [alpine_calico : Pause for 30 seconds] **********************************************************************************************************
+Monday 02 January 2023  23:40:12 +0000 (0:00:02.639)       0:07:30.074 ********
 Pausing for 30 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
 ok: [ipv4.worker1.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get no] ******************************************************************************
-Sunday 01 January 2023  15:01:35 +0000 (0:00:30.026)       0:05:07.474 ********
+TASK [alpine_calico : Get kubectl get no] ************************************************************************************************************
+Monday 02 January 2023  23:40:42 +0000 (0:00:30.027)       0:08:00.102 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get no output] *********************************************************************
-Sunday 01 January 2023  15:01:35 +0000 (0:00:00.486)       0:05:07.960 ********
+TASK [alpine_calico : Print kubectl get no output] ***************************************************************************************************
+Monday 02 January 2023  23:40:42 +0000 (0:00:00.606)       0:08:00.708 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net] => {
     "kubectl_getno_output.stdout_lines": [
         "NAME                  STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
-        "control1.pvamos.net   NotReady   control-plane   2m33s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker1.pvamos.net    Ready      <none>          2m1s    v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker2.pvamos.net    Ready      <none>          2m2s    v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1",
-        "worker3.pvamos.net    Ready      <none>          2m2s    v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.1-1-virt     cri-o://1.24.1"
+        "control1.pvamos.net   Ready      control-plane   4m41s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control2.vamos.net    NotReady   control-plane   2m18s   v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control3.pvamos.net   Ready      control-plane   3m7s    v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker1.pvamos.net    Ready      <none>          112s    v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker2.pvamos.net    Ready      <none>          102s    v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker3.pvamos.net    Ready      <none>          114s    v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get pod] *****************************************************************************
-Sunday 01 January 2023  15:01:35 +0000 (0:00:00.099)       0:05:08.059 ********
+TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************
+Monday 02 January 2023  23:40:42 +0000 (0:00:00.148)       0:08:00.857 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get po output] *********************************************************************
-Sunday 01 January 2023  15:01:36 +0000 (0:00:00.614)       0:05:08.674 ********
+TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************
+Monday 02 January 2023  23:40:43 +0000 (0:00:00.662)       0:08:01.519 ********
 skipping: [ipv4.worker1.pvamos.net]
 skipping: [ipv4.worker2.pvamos.net]
 skipping: [ipv4.worker3.pvamos.net]
 ok: [ipv4.control1.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE         NAME                                          READY   STATUS            RESTARTS   AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "calico-system     calico-node-fgcxj                             0/1     Running           0          54s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-rt7h8                             0/1     PodInitializing   0          54s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-wtcn8                             0/1     PodInitializing   0          55s     51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-xx8zf                             1/1     Running           0          54s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-d79d7f48d-4gpkv                  1/1     Running           0          47s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-d79d7f48d-vxwf4                  1/1     Running           0          55s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-67tcn                      1/1     Running           0          2m18s   10.244.159.66    worker2.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-rbqcf                      1/1     Running           0          2m18s   10.244.159.65    worker2.pvamos.net    <none>           <none>",
-        "kube-system       etcd-control1.pvamos.net                      1/1     Running           0          2m30s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running           0          2m30s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running           0          2m30s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-fhnpz                              1/1     Running           0          2m18s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-kvhdw                              1/1     Running           0          2m2s    51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-shblv                              1/1     Running           0          2m3s    51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-wmc2t                              1/1     Running           0          2m3s    51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running           0          2m30s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "tigera-operator   tigera-operator-55dd57cddb-54c5p              1/1     Running           0          73s     51.195.119.241   worker3.pvamos.net    <none>           <none>"
+        "NAMESPACE         NAME                                          READY   STATUS            RESTARTS        AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
+        "calico-system     calico-node-8fdbf                             0/1     PodInitializing   0               57s     51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-9cbkn                             0/1     PodInitializing   0               57s     51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-b6f7m                             0/1     PodInitializing   0               57s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "calico-system     calico-node-b9gdt                             1/1     Running           0               56s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-dqr4t                             1/1     Running           0               56s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-wq4vs                             1/1     Running           0               56s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-9bcw8                 1/1     Running           0               51s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-jmn9q                 1/1     Running           0               57s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-69bf4756d4-lhqjj                 1/1     Running           0               51s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "kube-system       coredns-565d847f94-ptpxx                      1/1     Running           0               4m30s   10.244.159.66    worker2.pvamos.net    <none>           <none>",
+        "kube-system       coredns-565d847f94-rzzjv                      1/1     Running           0               4m30s   10.244.159.65    worker2.pvamos.net    <none>           <none>",
+        "kube-system       etcd-control1.pvamos.net                      1/1     Running           0               4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control2.vamos.net                       1/1     Running           0               2m9s    51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       etcd-control3.pvamos.net                      1/1     Running           0               2m58s   51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running           0               4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control2.vamos.net             1/1     Running           1 (2m27s ago)   117s    51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-apiserver-control3.pvamos.net            1/1     Running           0               2m49s   51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running           1 (2m58s ago)   4m42s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control2.vamos.net    1/1     Running           0               96s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-controller-manager-control3.pvamos.net   1/1     Running           0               101s    51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-6kmxm                              1/1     Running           0               2m21s   51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-proxy-7874w                              1/1     Running           0               105s    51.195.118.45    worker2.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-8dvbg                              1/1     Running           0               4m31s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-c7dbw                              1/1     Running           0               3m9s    51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-n27x4                              1/1     Running           0               115s    51.195.116.254   worker1.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-tp76r                              1/1     Running           0               116s    51.195.119.241   worker3.pvamos.net    <none>           <none>",
+        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running           1 (2m59s ago)   4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control2.vamos.net             1/1     Running           0               76s     51.195.116.87    control2.vamos.net    <none>           <none>",
+        "kube-system       kube-scheduler-control3.pvamos.net            1/1     Running           0               2m54s   51.195.117.170   control3.pvamos.net   <none>           <none>",
+        "tigera-operator   tigera-operator-55dd57cddb-c245q              1/1     Running           0               72s     51.195.119.241   worker3.pvamos.net    <none>           <none>"
     ]
 }
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
 
-PLAY RECAP *************************************************************************************************************
-ipv4.control1.pvamos.net   : ok=53   changed=25   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ipv4.worker1.pvamos.net    : ok=32   changed=12   unreachable=0    failed=0    skipped=22   rescued=0    ignored=0
-ipv4.worker2.pvamos.net    : ok=28   changed=12   unreachable=0    failed=0    skipped=22   rescued=0    ignored=0
-ipv4.worker3.pvamos.net    : ok=28   changed=12   unreachable=0    failed=0    skipped=22   rescued=0    ignored=0
+TASK [alpine_longhorn : Test connection with ping] ***************************************************************************************************
+Monday 02 January 2023  23:40:43 +0000 (0:00:00.179)       0:08:01.699 ********
+ok: [ipv4.worker2.pvamos.net]
+ok: [ipv4.worker3.pvamos.net]
+ok: [ipv4.worker1.pvamos.net]
+ok: [ipv4.control1.pvamos.net]
+ok: [ipv4.control3.pvamos.net]
+ok: [ipv4.control2.pvamos.net]
 
-Sunday 01 January 2023  15:01:36 +0000 (0:00:00.192)       0:05:08.866 ********
+TASK [alpine_longhorn : Install open-iscsi package] **************************************************************************************************
+Monday 02 January 2023  23:40:45 +0000 (0:00:02.136)       0:08:03.835 ********
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.control3.pvamos.net]
+changed: [ipv4.control1.pvamos.net]
+changed: [ipv4.control2.pvamos.net]
+
+TASK [alpine_longhorn : Set local.d script to 'mount --make-rshared /' on workers] *******************************************************************
+Monday 02 January 2023  23:40:56 +0000 (0:00:10.190)       0:08:14.026 ********
+skipping: [ipv4.control1.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+
+TASK [alpine_longhorn : Execute /bin/mount --make-rshared / on workers] ******************************************************************************
+Monday 02 January 2023  23:40:58 +0000 (0:00:01.992)       0:08:16.018 ********
+skipping: [ipv4.control1.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
+changed: [ipv4.worker2.pvamos.net]
+changed: [ipv4.worker1.pvamos.net]
+changed: [ipv4.worker3.pvamos.net]
+
+TASK [alpine_longhorn : Execute kubectl apply -f longhorn.yaml] **************************************************************************************
+Monday 02 January 2023  23:40:59 +0000 (0:00:01.118)       0:08:17.137 ********
+skipping: [ipv4.worker1.pvamos.net]
+skipping: [ipv4.worker2.pvamos.net]
+skipping: [ipv4.worker3.pvamos.net]
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
+changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+
+TASK [alpine_longhorn : Print kubectl apply -f longhorn.yaml output] *********************************************************************************
+Monday 02 January 2023  23:41:25 +0000 (0:00:26.491)       0:08:43.628 ********
+skipping: [ipv4.worker1.pvamos.net]
+skipping: [ipv4.worker2.pvamos.net]
+skipping: [ipv4.worker3.pvamos.net]
+ok: [ipv4.control1.pvamos.net] => {
+    "kubectl_apply_longhorn.stdout_lines": [
+        "namespace/longhorn-system created",
+        "serviceaccount/longhorn-service-account created",
+        "serviceaccount/longhorn-support-bundle created",
+        "configmap/longhorn-default-setting created",
+        "configmap/longhorn-storageclass created",
+        "customresourcedefinition.apiextensions.k8s.io/backingimagedatasources.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/backingimagemanagers.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/backingimages.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/backups.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/backuptargets.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/backupvolumes.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/engineimages.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/engines.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/instancemanagers.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/nodes.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/orphans.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/recurringjobs.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/replicas.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/settings.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/sharemanagers.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/snapshots.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/supportbundles.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/systembackups.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/systemrestores.longhorn.io created",
+        "customresourcedefinition.apiextensions.k8s.io/volumes.longhorn.io created",
+        "clusterrole.rbac.authorization.k8s.io/longhorn-role created",
+        "clusterrolebinding.rbac.authorization.k8s.io/longhorn-bind created",
+        "clusterrolebinding.rbac.authorization.k8s.io/longhorn-support-bundle created",
+        "service/longhorn-backend created",
+        "service/longhorn-frontend created",
+        "service/longhorn-conversion-webhook created",
+        "service/longhorn-admission-webhook created",
+        "service/longhorn-recovery-backend created",
+        "service/longhorn-engine-manager created",
+        "service/longhorn-replica-manager created",
+        "daemonset.apps/longhorn-manager created",
+        "deployment.apps/longhorn-driver-deployer created",
+        "deployment.apps/longhorn-recovery-backend created",
+        "deployment.apps/longhorn-ui created",
+        "deployment.apps/longhorn-conversion-webhook created",
+        "deployment.apps/longhorn-admission-webhook created"
+    ]
+}
+skipping: [ipv4.control2.pvamos.net]
+skipping: [ipv4.control3.pvamos.net]
+
+PLAY RECAP *******************************************************************************************************************************************
+ipv4.control1.pvamos.net   : ok=83   changed=43   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+ipv4.control2.pvamos.net   : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
+ipv4.control3.pvamos.net   : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
+ipv4.worker1.pvamos.net    : ok=58   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+ipv4.worker2.pvamos.net    : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+ipv4.worker3.pvamos.net    : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+
+Monday 02 January 2023  23:41:25 +0000 (0:00:00.301)       0:08:43.930 ********
 ===============================================================================
-alpine_kubeadm_init : Execute kubeadm init -------------------------------------------------------------------- 125.16s
-alpine_calico : Pause for 30 seconds --------------------------------------------------------------------------- 30.03s
-alpine_kubeadm_join : Reboot all nodes ------------------------------------------------------------------------- 18.57s
-alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion -- 18.31s
-alpine_kubeadm_join : Execute kubeadm join --------------------------------------------------------------------- 16.61s
-alpine_calico : kubectl create -f tigera-operator.yaml --------------------------------------------------------- 10.76s
-alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully) -- 10.03s
-alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------- 10.03s
-alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------- 10.03s
-alpine_calico : kubectl create -f custom-resources.yaml --------------------------------------------------------- 6.29s
-alpine_calico : service crio restart ---------------------------------------------------------------------------- 6.08s
-alpine_kubeadm_join : Create /root/kubeadm-config.yaml ---------------------------------------------------------- 2.87s
-alpine_kubeadm_init : Copy clusterconfig.yaml ------------------------------------------------------------------- 2.82s
-Gathering Facts ------------------------------------------------------------------------------------------------- 2.70s
-alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico ----------------------------------------------- 2.57s
-Gathering Facts ------------------------------------------------------------------------------------------------- 2.54s
-Gathering Facts ------------------------------------------------------------------------------------------------- 2.49s
-alpine_calico : ln -s /opt/cni/bin/calico-ipam /usr/libexec/cni/calico-ipam ------------------------------------- 2.12s
-alpine_calico : service kubelet restart ------------------------------------------------------------------------- 2.02s
-Gathering Facts ------------------------------------------------------------------------------------------------- 2.00s
+alpine_kubeadm_join_control : Execute kubeadm join ------------------------------------------------------------------------------------------ 131.70s
+alpine_kubeadm_init : Execute kubeadm init --------------------------------------------------------------------------------------------------- 78.90s
+alpine_calico : Pause for 30 seconds --------------------------------------------------------------------------------------------------------- 30.03s
+alpine_longhorn : Execute kubectl apply -f longhorn.yaml ------------------------------------------------------------------------------------- 26.49s
+alpine_kubeadm_join_workers : Execute kubeadm join ------------------------------------------------------------------------------------------- 26.23s
+alpine_apkrepo : Reboot the host after apk upgrade ------------------------------------------------------------------------------------------- 25.20s
+alpine_apkrepo : Upgrade all installed apk packages to the latest versions ------------------------------------------------------------------- 16.12s
+alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion ------------- 15.01s
+alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen ---- 14.13s
+alpine_calico : kubectl create -f tigera-operator.yaml --------------------------------------------------------------------------------------- 10.56s
+alpine_longhorn : Install open-iscsi package ------------------------------------------------------------------------------------------------- 10.19s
+alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully) ------------------------------ 10.03s
+alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------- 10.03s
+alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------- 10.03s
+alpine_calico : service crio restart ---------------------------------------------------------------------------------------------------------- 4.65s
+Gathering Facts ------------------------------------------------------------------------------------------------------------------------------- 3.88s
+Gathering Facts ------------------------------------------------------------------------------------------------------------------------------- 3.84s
+alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico ----------------------------------------------------------------------------- 3.62s
+alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing ------------------------------------------------------ 3.39s
+alpine_calico : kubectl create -f custom-resources.yaml --------------------------------------------------------------------------------------- 3.31s
 
-real    5m9.532s
-user    0m25.839s
-sys     0m9.533s
+real    8m44.650s
+user    0m46.980s
+sys     0m23.757s
 [p@ansible alpine-k8s]$
-

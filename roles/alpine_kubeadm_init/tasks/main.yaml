@@ -1,5 +1,5 @@
 ---
-# Fedora CoreOS Kubernetes init with kubeadm
+# Alpine linux HA Kubernetes init with kubeadm
 
 - name: Test connection with ping
   ansible.builtin.ping:
