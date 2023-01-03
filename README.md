@@ -11,7 +11,7 @@
 
 ## Software versions used:
 - Alpine Linux v3.17
-  - Alpine Linux is a Linux distribution designed to be small, simple and secure. Alpine Linux uses musl C standard library, BusyBox and OpenRC instead of the more commonly used glibc, GNU Core Utilities and systemd respectively. For security, Alpine compiles all user-space binaries as position-independent executables with stack-smashing protection. 
+  - Alpine Linux is a Linux distribution designed to be small, simple and secure. Alpine Linux uses musl C standard library, BusyBox and OpenRC instead of the more commonly used glibc, GNU Core Utilities and systemd respectively. For security, Alpine compiles all user-space binaries as position-independent executables with stack-smashing protection. <https://www.alpinelinux.org>
     - musl C standard library 1.2.3-r4 <https://musl.libc.org>
     - BusyBox 1.35.0-r29 <https://busybox.net>
     - OpenRC init system 0.45.2-r7 <https://github.com/OpenRC/openrc>
