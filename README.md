@@ -159,7 +159,7 @@ You can simply run it by:
 time ansible-playbook -i hosts alpine-k8s.yaml
 ```
 
-The `fcos-k8s.yaml` playbook applies the below roles to the cluster nodes:
+The `alpine-k8s.yaml` playbook applies the below roles to the cluster nodes:
 
 ```yaml
 ---
@@ -203,8 +203,6 @@ The `fcos-k8s.yaml` playbook applies the below roles to the cluster nodes:
     - role: alpine_kubeadm_afterjoin
     - role: alpine_calico
     - role: alpine_longhorn
-
-      when: inventory_hostname in groups.controlplane
 ```
 
 Full output of a successful deployment run is available in `lastrun.log` at <https://github.com/pvamos/alpine-k8s/blob/main/lastrun.log>
