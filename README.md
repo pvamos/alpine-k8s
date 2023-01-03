@@ -5,7 +5,7 @@
 
 ## Install IPv4/IPv6 dual-stack HA Kubernetes 1.25 cluster with Calico network and Longhorn storage, on Alpine linux 3.17, automated with Ansible and Kubeadm
 
-***A simple "run only one playbook" solution to Highly Available IPv4/IPv6 dual-stack Kubernetes cluster on Alpine Linux, with Calico network and Longhorn storage, in a fully automated way using Ansible. The cluster has 3 controlplane nodes and any number of worker nodes.***
+***A simple "run only one playbook" solution deploying Highly Available IPv4/IPv6 dual-stack Kubernetes cluster on Alpine Linux, with Calico network and Longhorn storage, in a fully automated way using Ansible. The cluster has 3 controlplane nodes and any number of worker nodes.***
 
 ![kubeadm-join ansible output illustration](images/kubeadm-join-small.png)
 
