@@ -3,12 +3,11 @@
 <https://github.com/pvamos/alpine-k8s>
 
 
-## Install IPv4/IPv6 dual-stack HA Kubernetes 1.25 cluster with Calico network and Longhorn storage, on Alpine linux 3.17, automated with ansible and kubeadm
+## Install IPv4/IPv6 dual-stack HA Kubernetes 1.25 cluster with Calico network and Longhorn storage, on Alpine linux 3.17, automated with Ansible and Kubeadm
 
 ***A simple "run only one playbook" solution to install a Highly Available IPv4/IPv6 dual-stack cluster in a fully automated way, in minutes. The cluster has 3 controlplane nodes and any number of worker nodes.***
 
 ![kubeadm-join ansible output illustration](images/kubeadm-join-small.png)
-
 
 ## Software versions used:
 - Alpine Linux v3.17
@@ -207,6 +206,8 @@ The `fcos-k8s.yaml` playbook applies the below roles to the cluster nodes:
 
       when: inventory_hostname in groups.controlplane
 ```
+
+Full output of a successful deployment run is available in `lastrun.log` at <https://github.com/pvamos/alpine-k8s/blob/main/lastrun.log>
 
 ## Start using your cluster
 
