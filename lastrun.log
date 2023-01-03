@@ -1,214 +1,215 @@
+[p@ansible ovh-alpine]$
 [p@ansible alpine-k8s]$ time ansible-playbook -i hosts alpine-k8s.yaml
 
-PLAY [Alpine linux cri-o install] ********************************************************************************************************************
+PLAY [Alpine linux cri-o install] ********************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:32:42 +0000 (0:00:00.019)       0:00:00.019 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:11:21 +0000 (0:00:00.019)       0:00:00.019 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************
-Monday 02 January 2023  23:32:45 +0000 (0:00:03.841)       0:00:03.860 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************************************************************************
+Tuesday 03 January 2023  18:11:25 +0000 (0:00:04.514)       0:00:04.534 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing] ******************************************************
-Monday 02 January 2023  23:32:47 +0000 (0:00:01.805)       0:00:05.666 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing] ******************************************************************************************************************
+Tuesday 03 January 2023  18:11:27 +0000 (0:00:02.029)       0:00:06.563 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_apkrepo : Upgrade all installed apk packages to the latest versions] ********************************************************************
-Monday 02 January 2023  23:32:51 +0000 (0:00:03.393)       0:00:09.059 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_apkrepo : Upgrade all installed apk packages to the latest versions] ********************************************************************************************************************************
+Tuesday 03 January 2023  18:11:31 +0000 (0:00:03.529)       0:00:10.093 *******
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_apkrepo : Reboot the host after apk upgrade] ********************************************************************************************
-Monday 02 January 2023  23:33:07 +0000 (0:00:16.122)       0:00:25.181 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_apkrepo : Reboot the host after apk upgrade] ********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:12:33 +0000 (0:01:02.258)       0:01:12.351 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************
-Monday 02 January 2023  23:33:32 +0000 (0:00:25.204)       0:00:50.386 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_apkrepo : Test connection with user p on port 31212] ************************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:06 +0000 (0:00:32.701)       0:01:45.052 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kernelparams : Test connection with user p on port 31212] *******************************************************************************
-Monday 02 January 2023  23:33:34 +0000 (0:00:01.792)       0:00:52.179 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kernelparams : Test connection with user p on port 31212] *******************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:08 +0000 (0:00:02.072)       0:01:47.125 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kernelparams : Set net forwarding kernel params] ****************************************************************************************
-Monday 02 January 2023  23:33:35 +0000 (0:00:01.585)       0:00:53.765 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kernelparams : Set net forwarding kernel params] ****************************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:09 +0000 (0:00:01.618)       0:01:48.743 *******
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kernelparams : Apply kernel parameter changes] ******************************************************************************************
-Monday 02 January 2023  23:33:38 +0000 (0:00:03.097)       0:00:56.862 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kernelparams : Apply kernel parameter changes] ******************************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:14 +0000 (0:00:04.271)       0:01:53.015 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kernelparams : Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf] *************************************************
-Monday 02 January 2023  23:33:40 +0000 (0:00:01.841)       0:00:58.704 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kernelparams : Set br_netfilter kernel module in /etc/modules-load.d/br_netfilter.conf] *************************************************************************************************************
+Tuesday 03 January 2023  18:13:16 +0000 (0:00:01.937)       0:01:54.952 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kernelparams : Modprobe br_netfilter] ***************************************************************************************************
-Monday 02 January 2023  23:33:43 +0000 (0:00:03.127)       0:01:01.831 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kernelparams : Modprobe br_netfilter] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:19 +0000 (0:00:03.429)       0:01:58.382 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Test connection with user p on port 31212] ***************************************************************************************
-Monday 02 January 2023  23:33:45 +0000 (0:00:01.678)       0:01:03.510 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Test connection with user p on port 31212] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:13:21 +0000 (0:00:01.821)       0:02:00.203 *******
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [worker2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen] *****
-Monday 02 January 2023  23:33:47 +0000 (0:00:01.597)       0:01:05.107 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen] *****************************************************************
+Tuesday 03 January 2023  18:13:23 +0000 (0:00:01.915)       0:02:02.118 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Create /etc/machine-id] **********************************************************************************************************
-Monday 02 January 2023  23:34:01 +0000 (0:00:14.133)       0:01:19.241 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Create /etc/machine-id] **********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:15:50 +0000 (0:02:27.008)       0:04:29.127 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Enable CRI-O service] ************************************************************************************************************
-Monday 02 January 2023  23:34:02 +0000 (0:00:01.642)       0:01:20.884 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Enable CRI-O service] ************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:15:52 +0000 (0:00:02.114)       0:04:31.242 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Start CRI-O service] *************************************************************************************************************
-Monday 02 January 2023  23:34:04 +0000 (0:00:01.629)       0:01:22.513 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Start CRI-O service] *************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:15:54 +0000 (0:00:01.719)       0:04:32.962 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Restart CRI-O service] ***********************************************************************************************************
-Monday 02 January 2023  23:34:06 +0000 (0:00:01.897)       0:01:24.411 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Restart CRI-O service] ***********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:15:56 +0000 (0:00:01.927)       0:04:34.889 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Get CRI-O service status] ********************************************************************************************************
-Monday 02 January 2023  23:34:08 +0000 (0:00:01.854)       0:01:26.265 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Get CRI-O service status] ********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:15:58 +0000 (0:00:02.302)       0:04:37.191 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Print CRI-O service status] ******************************************************************************************************
-Monday 02 January 2023  23:34:09 +0000 (0:00:01.634)       0:01:27.900 ********
-ok: [ipv4.worker1.pvamos.net] => {
+TASK [alpine_crio : Print CRI-O service status] ******************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:00 +0000 (0:00:01.784)       0:04:38.976 *******
+ok: [worker1.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.worker2.pvamos.net] => {
+ok: [worker2.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.worker3.pvamos.net] => {
+ok: [worker3.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control1.pvamos.net] => {
+ok: [control1.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control2.pvamos.net] => {
+ok: [control2.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control3.pvamos.net] => {
+ok: [control3.frankfurt.pvamos.net] => {
     "get_crio_status.stdout_lines": [
         " * status: started"
     ]
 }
 
-TASK [alpine_crio : Get CRI-O service version] *******************************************************************************************************
-Monday 02 January 2023  23:34:10 +0000 (0:00:00.157)       0:01:28.058 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Get CRI-O service version] *******************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:00 +0000 (0:00:00.159)       0:04:39.135 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Print CRI-O service version] *****************************************************************************************************
-Monday 02 January 2023  23:34:11 +0000 (0:00:01.730)       0:01:29.788 ********
-ok: [ipv4.worker1.pvamos.net] => {
+TASK [alpine_crio : Print CRI-O service version] *****************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:02 +0000 (0:00:01.862)       0:04:40.998 *******
+ok: [worker1.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -223,7 +224,7 @@ ok: [ipv4.worker1.pvamos.net] => {
         "AppArmorEnabled:  false"
     ]
 }
-ok: [ipv4.worker2.pvamos.net] => {
+ok: [worker2.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -238,7 +239,7 @@ ok: [ipv4.worker2.pvamos.net] => {
         "AppArmorEnabled:  false"
     ]
 }
-ok: [ipv4.worker3.pvamos.net] => {
+ok: [worker3.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -253,7 +254,7 @@ ok: [ipv4.worker3.pvamos.net] => {
         "AppArmorEnabled:  false"
     ]
 }
-ok: [ipv4.control1.pvamos.net] => {
+ok: [control1.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -268,7 +269,7 @@ ok: [ipv4.control1.pvamos.net] => {
         "AppArmorEnabled:  false"
     ]
 }
-ok: [ipv4.control2.pvamos.net] => {
+ok: [control2.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -283,7 +284,7 @@ ok: [ipv4.control2.pvamos.net] => {
         "AppArmorEnabled:  false"
     ]
 }
-ok: [ipv4.control3.pvamos.net] => {
+ok: [control3.frankfurt.pvamos.net] => {
     "get_crio_version.stdout_lines": [
         "Version:          1.24.1",
         "GitCommit:        unknown",
@@ -299,159 +300,159 @@ ok: [ipv4.control3.pvamos.net] => {
     ]
 }
 
-TASK [alpine_crio : Get CRI-O socket listing] ********************************************************************************************************
-Monday 02 January 2023  23:34:11 +0000 (0:00:00.166)       0:01:29.955 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_crio : Get CRI-O socket listing] ********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:02 +0000 (0:00:00.166)       0:04:41.164 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_crio : Print CRI-O socket listing] ******************************************************************************************************
-Monday 02 January 2023  23:34:13 +0000 (0:00:01.665)       0:01:31.621 ********
-ok: [ipv4.worker1.pvamos.net] => {
+TASK [alpine_crio : Print CRI-O socket listing] ******************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:04 +0000 (0:00:01.726)       0:04:42.891 *******
+ok: [worker1.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
-ok: [ipv4.worker2.pvamos.net] => {
+ok: [worker2.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
-ok: [ipv4.worker3.pvamos.net] => {
+ok: [worker3.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
-ok: [ipv4.control1.pvamos.net] => {
+ok: [control1.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
-ok: [ipv4.control2.pvamos.net] => {
+ok: [control2.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
-ok: [ipv4.control3.pvamos.net] => {
+ok: [control3.frankfurt.pvamos.net] => {
     "get_crio_socket.stdout_lines": [
-        "srw-rw----    1 root     root             0 Jan  2 23:34 /run/crio/crio.sock"
+        "srw-rw----    1 root     root             0 Jan  3 18:15 /run/crio/crio.sock"
     ]
 }
 
-PLAY [Alpine linux install kubelet] ******************************************************************************************************************
+PLAY [Alpine linux install kubelet] ******************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:34:13 +0000 (0:00:00.298)       0:01:31.919 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:04 +0000 (0:00:00.299)       0:04:43.190 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Test connection with user p on port 31212] ************************************************************************************
-Monday 02 January 2023  23:34:16 +0000 (0:00:03.033)       0:01:34.952 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubelet : Test connection with user p on port 31212] ************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:07 +0000 (0:00:03.232)       0:04:46.422 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion] **************
-Monday 02 January 2023  23:34:18 +0000 (0:00:01.613)       0:01:36.566 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion] **************************************************************************
+Tuesday 03 January 2023  18:16:09 +0000 (0:00:02.300)       0:04:48.722 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Enable kubelet service] *******************************************************************************************************
-Monday 02 January 2023  23:34:33 +0000 (0:00:15.011)       0:01:51.578 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kubelet : Enable kubelet service] *******************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:41 +0000 (0:00:31.998)       0:05:20.721 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Start kubelet service] ********************************************************************************************************
-Monday 02 January 2023  23:34:35 +0000 (0:00:01.610)       0:01:53.189 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kubelet : Start kubelet service] ********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:43 +0000 (0:00:01.863)       0:05:22.585 *******
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Get kubelet service status] ***************************************************************************************************
-Monday 02 January 2023  23:34:37 +0000 (0:00:02.192)       0:01:55.381 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_kubelet : Get kubelet service status] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:46 +0000 (0:00:02.801)       0:05:25.386 *******
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_kubelet : Print kubelet service status] *************************************************************************************************
-Monday 02 January 2023  23:34:39 +0000 (0:00:01.622)       0:01:57.003 ********
-ok: [ipv4.worker1.pvamos.net] => {
+TASK [alpine_kubelet : Print kubelet service status] *************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:48 +0000 (0:00:02.189)       0:05:27.575 *******
+ok: [worker1.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.worker2.pvamos.net] => {
+ok: [worker2.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.worker3.pvamos.net] => {
+ok: [worker3.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control1.pvamos.net] => {
+ok: [control1.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control2.pvamos.net] => {
+ok: [control2.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
-ok: [ipv4.control3.pvamos.net] => {
+ok: [control3.frankfurt.pvamos.net] => {
     "get_kubelet_status.stdout_lines": [
         " * status: started"
     ]
 }
 
-PLAY [Alpine linux kubeadm init] *********************************************************************************************************************
+PLAY [Alpine linux kubeadm init] *********************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:34:39 +0000 (0:00:00.325)       0:01:57.329 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:49 +0000 (0:00:00.327)       0:05:27.903 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Test connection with ping] ***********************************************************************************************
-Monday 02 January 2023  23:34:41 +0000 (0:00:01.658)       0:01:58.988 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Test connection with ping] ***********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:51 +0000 (0:00:02.294)       0:05:30.197 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Copy clusterconfig.yaml] *************************************************************************************************
-Monday 02 January 2023  23:34:41 +0000 (0:00:00.907)       0:01:59.895 ********
-changed: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Copy clusterconfig.yaml] *************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:52 +0000 (0:00:01.155)       0:05:31.353 *******
+changed: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Execute kubeadm init] ****************************************************************************************************
-Monday 02 January 2023  23:34:43 +0000 (0:00:02.046)       0:02:01.942 ********
+TASK [alpine_kubeadm_init : Execute kubeadm init] ****************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:16:54 +0000 (0:00:02.164)       0:05:33.517 *******
 [WARNING]: As of Ansible 2.4, the parameter 'executable' is no longer supported with the 'command' module. Not using '/bin/bash'.
-changed: [ipv4.control1.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print kubeadm init output] ***********************************************************************************************
-Monday 02 January 2023  23:36:02 +0000 (0:01:18.903)       0:03:20.846 ********
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_kubeadm_init : Print kubeadm init output] ***********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:02:09.469)       0:07:42.986 *******
+ok: [control1.frankfurt.pvamos.net] => {
     "kubeadm_init_output.stdout_lines": [
         "[init] Using Kubernetes version: v1.25.0",
         "[preflight] Running pre-flight checks",
@@ -461,15 +462,15 @@ ok: [ipv4.control1.pvamos.net] => {
         "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
         "[certs] Generating \"ca\" certificate and key",
         "[certs] Generating \"apiserver\" certificate and key",
-        "[certs] apiserver serving cert is signed for DNS names [control1.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.80 141.95.37.233]",
+        "[certs] apiserver serving cert is signed for DNS names [control1.frankfurt.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.80 141.95.37.233]",
         "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
         "[certs] Generating \"front-proxy-ca\" certificate and key",
         "[certs] Generating \"front-proxy-client\" certificate and key",
         "[certs] Generating \"etcd/ca\" certificate and key",
         "[certs] Generating \"etcd/server\" certificate and key",
-        "[certs] etcd/server serving cert is signed for DNS names [control1.pvamos.net localhost] and IPs [51.195.116.80 127.0.0.1 ::1]",
+        "[certs] etcd/server serving cert is signed for DNS names [control1.frankfurt.pvamos.net localhost] and IPs [51.195.116.80 127.0.0.1 ::1]",
         "[certs] Generating \"etcd/peer\" certificate and key",
-        "[certs] etcd/peer serving cert is signed for DNS names [control1.pvamos.net localhost] and IPs [51.195.116.80 127.0.0.1 ::1]",
+        "[certs] etcd/peer serving cert is signed for DNS names [control1.frankfurt.pvamos.net localhost] and IPs [51.195.116.80 127.0.0.1 ::1]",
         "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
         "[certs] Generating \"apiserver-etcd-client\" certificate and key",
         "[certs] Generating \"sa\" key and public key",
@@ -487,15 +488,15 @@ ok: [ipv4.control1.pvamos.net] => {
         "[control-plane] Creating static Pod manifest for \"kube-scheduler\"",
         "[etcd] Creating static Pod manifest for local etcd in \"/etc/kubernetes/manifests\"",
         "[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory \"/etc/kubernetes/manifests\". This can take up to 4m0s",
-        "[apiclient] All control plane components are healthy after 17.051811 seconds",
+        "[apiclient] All control plane components are healthy after 25.035702 seconds",
         "[upload-config] Storing the configuration used in ConfigMap \"kubeadm-config\" in the \"kube-system\" Namespace",
         "[kubelet] Creating a ConfigMap \"kubelet-config\" in namespace kube-system with the configuration for the kubelets in the cluster",
         "[upload-certs] Storing the certificates in Secret \"kubeadm-certs\" in the \"kube-system\" Namespace",
         "[upload-certs] Using certificate key:",
-        "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b",
-        "[mark-control-plane] Marking the node control1.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
-        "[mark-control-plane] Marking the node control1.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
-        "[bootstrap-token] Using token: 334wu9.jdjpmgsyjil4z2ln",
+        "216f17dbeb6b3de1f3677ee8b64c379741a359ac9c8b127ea5d4e3e2e5ab0055",
+        "[mark-control-plane] Marking the node control1.frankfurt.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
+        "[mark-control-plane] Marking the node control1.frankfurt.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
+        "[bootstrap-token] Using token: op64od.wavr37ecgrie5afm",
         "[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles",
         "[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to get nodes",
         "[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials",
@@ -524,9 +525,9 @@ ok: [ipv4.control1.pvamos.net] => {
         "",
         "You can now join any number of the control-plane node running the following command on each as root:",
         "",
-        "  kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln \\",
-        "\t--discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae \\",
-        "\t--control-plane --certificate-key fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b",
+        "  kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm \\",
+        "\t--discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2 \\",
+        "\t--control-plane --certificate-key 216f17dbeb6b3de1f3677ee8b64c379741a359ac9c8b127ea5d4e3e2e5ab0055",
         "",
         "Please note that the certificate-key gives access to cluster sensitive data, keep it secret!",
         "As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use",
@@ -534,193 +535,193 @@ ok: [ipv4.control1.pvamos.net] => {
         "",
         "Then you can join any number of worker nodes by running the following on each as root:",
         "",
-        "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln \\",
-        "\t--discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae "
+        "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm \\",
+        "\t--discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2 "
     ]
 }
 
-TASK [alpine_kubeadm_init : Get kubeadm join command with tokens] ************************************************************************************
-Monday 02 January 2023  23:36:02 +0000 (0:00:00.034)       0:03:20.880 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Get kubeadm join command with tokens] ************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.034)       0:07:43.021 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Get kubeadm join token] **************************************************************************************************
-Monday 02 January 2023  23:36:02 +0000 (0:00:00.045)       0:03:20.925 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Get kubeadm join token] **************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.044)       0:07:43.065 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.056)       0:03:20.981 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.056)       0:07:43.121 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.055)       0:03:21.037 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Get kubeadm join cacert] *************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.056)       0:07:43.178 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print kubeadm join command with tokens] **********************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.055)       0:03:21.093 ********
-ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_command": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_init : Print kubeadm join command with tokens] **********************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.056)       0:07:43.235 *******
+ok: [control1.frankfurt.pvamos.net] => {
+    "kubeadm_join_command": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
 
-TASK [alpine_kubeadm_init : Print kubeadm join token] ************************************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.026)       0:03:21.120 ********
-ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_token": "334wu9.jdjpmgsyjil4z2ln"
+TASK [alpine_kubeadm_init : Print kubeadm join token] ************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.027)       0:07:43.262 *******
+ok: [control1.frankfurt.pvamos.net] => {
+    "kubeadm_join_token": "op64od.wavr37ecgrie5afm"
 }
 
-TASK [alpine_kubeadm_init : Print kubeadm join cacert] ***********************************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.026)       0:03:21.147 ********
-ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_cacert": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_init : Print kubeadm join cacert] ***********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.026)       0:07:43.289 *******
+ok: [control1.frankfurt.pvamos.net] => {
+    "kubeadm_join_cacert": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
 
-TASK [alpine_kubeadm_init : Print kubeadm join certkey] **********************************************************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.027)       0:03:21.174 ********
-ok: [ipv4.control1.pvamos.net] => {
-    "kubeadm_join_certkey": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
+TASK [alpine_kubeadm_init : Print kubeadm join certkey] **********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.026)       0:07:43.316 *******
+ok: [control1.frankfurt.pvamos.net] => {
+    "kubeadm_join_certkey": "216f17dbeb6b3de1f3677ee8b64c379741a359ac9c8b127ea5d4e3e2e5ab0055"
 }
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host] **************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.028)       0:03:21.203 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-command.sh file on ansible host] **************************************************************************************************************
+Tuesday 03 January 2023  18:19:04 +0000 (0:00:00.029)       0:07:43.345 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-token file on ansible host] *******************************************************
-Monday 02 January 2023  23:36:03 +0000 (0:00:00.493)       0:03:21.697 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-token file on ansible host] *******************************************************************************************************************
+Tuesday 03 January 2023  18:19:05 +0000 (0:00:00.478)       0:07:43.824 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-cacert file on ansible host] ******************************************************
-Monday 02 January 2023  23:36:04 +0000 (0:00:00.475)       0:03:22.172 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-cacert file on ansible host] ******************************************************************************************************************
+Tuesday 03 January 2023  18:19:05 +0000 (0:00:00.508)       0:07:44.332 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-certkey file on ansible host] *****************************************************
-Monday 02 January 2023  23:36:04 +0000 (0:00:00.477)       0:03:22.649 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Create /home/p/alpine-k8s/kubeadm-join-certkey file on ansible host] *****************************************************************************************************************
+Tuesday 03 January 2023  18:19:05 +0000 (0:00:00.475)       0:07:44.808 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Create /home/p/.kube directory on ansible host] **************************************************************************
-Monday 02 January 2023  23:36:05 +0000 (0:00:00.475)       0:03:23.125 ********
-ok: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Create /home/p/.kube directory on ansible host] **************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:06 +0000 (0:00:00.477)       0:07:45.286 *******
+ok: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Copy /etc/kubernetes/admin.conf from control1 to /home/p/.kube locally] **************************************************
-Monday 02 January 2023  23:36:05 +0000 (0:00:00.400)       0:03:23.525 ********
-changed: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Copy /etc/kubernetes/admin.conf from control1 to /home/p/.kube locally] **************************************************************************************************************
+Tuesday 03 January 2023  18:19:06 +0000 (0:00:00.368)       0:07:45.655 *******
+changed: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Move /home/p/.kube/ipv4.control1.pvamos.net/etc/kubernetes/admin.conf to /home/p/.kube/config on ansible node] ***********
-Monday 02 January 2023  23:36:06 +0000 (0:00:01.237)       0:03:24.763 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Move /home/p/.kube/control1.frankfurt.pvamos.net/etc/kubernetes/admin.conf to /home/p/.kube/config on ansible node] ******************************************************************
+Tuesday 03 January 2023  18:19:08 +0000 (0:00:01.426)       0:07:47.082 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Do chmod 700 /home/p/.kube/config on ansible node] ***********************************************************************
-Monday 02 January 2023  23:36:07 +0000 (0:00:00.249)       0:03:25.012 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Do chmod 700 /home/p/.kube/config on ansible node] ***********************************************************************************************************************************
+Tuesday 03 January 2023  18:19:08 +0000 (0:00:00.251)       0:07:47.333 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_init : Get ~/.kube/config from local file] **************************************************************************************
-Monday 02 January 2023  23:36:07 +0000 (0:00:00.247)       0:03:25.260 ********
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_init : Get ~/.kube/config from local file] **************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:08 +0000 (0:00:00.247)       0:07:47.581 *******
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_init : Print ~/.kube/config from local file] ************************************************************************************
-Monday 02 January 2023  23:36:07 +0000 (0:00:00.029)       0:03:25.289 ********
-ok: [ipv4.control1.pvamos.net] => {
-    "kube_config": "apiVersion: v1\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1ERXdNakl6TXpVek1Gb1hEVE15TVRJek1ESXpNelV6TUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSjlQCkQ5Q3o3a1dzS3BXQ2NiZUdQNStEOStNVm96K2RlUlZTMllDaHdITXFrMmZTR1I4TE03NTJJaVc3cUZUQm00SzMKSVpUeUtPcW1VOWY1TFRsTWhRbXo0akg3MHZqL1libGJIYWZ0S3E4SWNtRjJYMEh2Skl6Vk51L0JVbGRHSE1HcAo2MzYrc2ZveXBEdjZVVmRaWUdMMzJYSFFZVkoyN3hxT084elk5bHorR0xpMTVjSUNraGs4d3M3MHlxamZQQVQ5ClEyUXprNFdmQjZqbS9jNXp1QU9qZjhmL0VmRElEajFsNEEwVE5QQnBHVzRPVXZUdlg2Q3dmK3FCck9wK21Pc2UKMHFRcW82UjV5bHlUcnpVNllGdFpsV2ZUaFhKR1BJcVZEakVoSlJ2K09TU2YwTmpCVlM3UTFzejduNE5iREN5TgpDS3RLM2ZYU3BZR2VSMTU4dkJzQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZHOFY2SUFidzd6TmJHWno3dUNsV1JYSnJ5WDJNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBRDV2VWpUWjdvRlFORWo2bU8xYQp5OG53bHVYYzcvbzBqZ2dtT3F0RC9id3RycWdQVkVrUHFSempTRFhSbGZhQTVVS2sxVjNOQUhwSGI5YkpSUEVkClBDWk1yVWwwM1Y5TWJSLzBNMVZqVmpNbHVlcCtQOHBBeklzMnRxYmZkaXFNaFFYUi9DSjgxUThZYWljR3hWTXoKQlBIMEhMTExYcWF6OHhob0pQL2xVbmhxdXJTeHN4c0JLVTA4TGpGVjNGNk81ekVYZnNkeWdXWTNRbExndjBXLwpTZ1ZVeEw1Y28vVVFHNVpiYU5XM3lUc3NPSUhpeUlGdWVhYXR3VFFnbmN6alNxaWRBdnBNZEFxTURUMFdCazBTCjVkOGd2QW5MSUNWRWl6QXY5anlYc3YyeFlTd3FuT282NE5rSTNOYmovSjVIdnhkYWU2Y3d2dnVzN2pkMGp2SlkKcWM4PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    server: https://141.95.37.233:6443\n  name: kubernetes\ncontexts:\n- context:\n    cluster: kubernetes\n    user: kubernetes-admin\n  name: kubernetes-admin@kubernetes\ncurrent-context: kubernetes-admin@kubernetes\nkind: Config\npreferences: {}\nusers:\n- name: kubernetes-admin\n  user:\n    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lJYkxvcmpIWTV0Z2d3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBeE1ESXlNek0xTXpCYUZ3MHlOREF4TURJeU16TTFNelJhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQWxxVSsyZ2prRklRbDhYdVEKZWhNQkQ3TVNlcFFVV3dOK21TSm5nYXlQZWIvYXdydkdKbk14UjZHLzI3T2xWQTZiM05FZWhsSG4vQTUxVnpxMwp2UTMrcVVmNlp6VDdzOVVzcWlybmQ4ZkdpdGYyWkhhQWlXWVUrVkYxbkd5UUMvcEtOSkI5TVJvdmQwdGdRaXVTCnhHUDNNcUFuNGZzR09nbmJ2SzdwODVqSFZwQS9mTitxa0xFbllqV3VNRmp6VzJIZlkzZnU1TkVqK3JhcmxyY1MKTHBFV0VRS05vekdRMG9BbUdENTFPNWRpUTdTbHdmT2xpdFNkeU9jTm1wekJZeVBmb0FHMzA3SzNCZnZEUjhIWAphOEd0YUZaM0tQNjZscXYwa1RsK2FsdWhIaVg1ZXphVGxzRlk3ZEVEWmMrM1R3QXlPRm9nZDhQUlVhU2tReElvCjVPUmZWUUlEQVFBQm8xWXdWREFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JSdkZlaUFHOE84eld4bWMrN2dwVmtWeWE4bAo5akFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBR3owUDFCeStFdTAvWkFYOEVQODV5bVdBbHkxb1ljUnQ4UWxlCkcrUzBOb2NibGxmWmhlTVZMeUNXMENoQlVMdEtPVFdDT2lEeHZROGtoNHdZRXM5bFl5UGJUaVladWVwRUdzbjYKMjUvSWhHOWx4RXRnT0tMZGFqc09BZkZXdG1PTzRhdGhGekZyeEZpK3ZwVk91cEhKTUt0MC95S0Z3WkZVenJBSgpUNEJXYmpERHJldExUZDRzTm81aUdYZ20zcGIxS2U5aE1IdmNmWEtlOG1WOUlVTWdmeUM3TmxRSjlvWkwxK3JVCm94aFcxTklnNUQzalpDYkhKWCs3TnUxNTI5VVdGeWlacktRVkdkaUdVSGxLQVd3N1dFWGxKL1ZFOStoRjhtSXQKaC9pMlhyaExuZGtFQ0tBaGJpRTVnWDR3Y0tOTlVHTHc2R1BBanJucmZJZjg3REJGVWc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBbHFVKzJnamtGSVFsOFh1UWVoTUJEN01TZXBRVVd3TittU0puZ2F5UGViL2F3cnZHCkpuTXhSNkcvMjdPbFZBNmIzTkVlaGxIbi9BNTFWenEzdlEzK3FVZjZaelQ3czlVc3Fpcm5kOGZHaXRmMlpIYUEKaVdZVStWRjFuR3lRQy9wS05KQjlNUm92ZDB0Z1FpdVN4R1AzTXFBbjRmc0dPZ25idks3cDg1akhWcEEvZk4rcQprTEVuWWpXdU1GanpXMkhmWTNmdTVORWorcmFybHJjU0xwRVdFUUtOb3pHUTBvQW1HRDUxTzVkaVE3U2x3Zk9sCml0U2R5T2NObXB6Qll5UGZvQUczMDdLM0JmdkRSOEhYYThHdGFGWjNLUDY2bHF2MGtUbCthbHVoSGlYNWV6YVQKbHNGWTdkRURaYyszVHdBeU9Gb2dkOFBSVWFTa1F4SW81T1JmVlFJREFRQUJBb0lCQUdOdFowRlM4dTZUbGROLwpRWWxBdDhlYjRrdGpKdGczUXp4aEY3M2ZuY2EybVBWRUovRkN3RGpPQ2lwQXRKTDVIV2d0NFo2M3VveURJbkZUClFPZ1hyNGdkQ0tsTHNBRXVaczlkaCs1bnZhUHdEQ0Nja2hPZGU2UmVYbWpDd29RVlN4ck1ic1NVeXRWS3U1cVEKMWNxblRBVnU3VVBhZ1c2WENSL010bjdmekZsVjBrTTUzcCt1blJBWHpHQkVMRWtQWjEzYTBVWnZ4c3hqT0xWNwpONWRkVkFSL2ozRkdnVllkMVoxcUNnY00zSzJqK1M5MldJVCtyQmxybWpLOTAxWmFGb1dWRXd3Z1FEL2JRZUJaCnpJSlJnZnVJeGpncWpPWjZIdUdiTGVZTVoybmZheHNUVHBvMzNiS3JBNFZVYVlIYVEvVmlzRjJHYXRBTTJjbHQKSnZTOC9JRUNnWUVBd21iTU5hdnBSaDIwSWN5Und1YmlwREdWU3lrM0tRN0xkekVxbWkrMC9sQUd5emY1L2x6MQorMldDMENhdUkvTkN6Y1d2VFlPRXNweWtkcmZmTVQ1SE1HRHBqUVg3NFBHVFlLQUdPdG9UeXpYM29USVA1TStQCkxHaFlRQzRZN0hhQ2ZOSkEvVW82emM1alQ3b1k0QVB6eDlHVkRkZnZyNmd5KzVWVmlrNGd4SFVDZ1lFQXhtRWEKU0FwMHNzOWFNYm05VFdPQjA2NUExNExscHJ6RjB0UHRXTENTWFhrNE1zclN0UTl2UTJ4NlVpb2NoeU1XbFVoVwp2UU1WMTBaVGs5TG9uT3UyS0JXT1BFRjIzamtJbnhpY1ByVm5ETzFqR3JzUVdidnJya2U1NVFnMDN5V3lCMUFwCnk0NHY5VGYyUXYwTkVxbzJMczRwQjZtR05UeTJtbXRyN1Fhb1UyRUNnWUVBZ1M2S2VRZjZCZXZyTGFLaEllRUgKcnBCOFl1dktpZkFZNk9XMUo2eVlHMzdXWk9pWHFaM2duK1ErMzA4MDNSTGp5NVdYL214dEc3dlgxa1F0ZnEyaAo1Tllobk9MakZBRzBLN3RyS0dTT1RyVllEcmdUczdyeHExTFRnaUtmMFZLWE41Y0lOTWpFOXNvMVdGK1Q5QmpzClFGWlhORkhRSnV3Z3BPb0JZOXl6RFprQ2dZRUFqTkk5VDhwc1VNbzBvbnZSVDNCRnByaFp1eUptVjFoRnJZVlgKUk5BQzltdW9ZeFhyUVRBMXNVejkvL2w0eXMwenFNRHpJYlZnK2JJb2ZoVUhudTBNSDZROWxiUjY1d0RoaDk1MgplMlZXUTZ6MzN1L1BpWU9HcCs2dW5WQ1lCNWZBcXNSVEJ2Wm1RTko2ODg2aVN3K2M2dGpaODJCNXJxenNpdTJhCmJXVitjOEVDZ1lBczZWSlJ0Sk9DMzN2NFBrcS82RXh6c3JSTUNjYi9tY0NKcVQ2M0Y3RUZodVcwUy9aSE9vcHUKemp2TUZQbjVmWkM5QkVmT0FWdVNxMitWbWdWYm9rbWd0RVc1YzE5NGlOUXJtMTdoMDUrUHgvd29icWVvWDBwOQpUSkE0SVcvYzBNaU9uL2lpNm44cDRCeFBTOU05dGZ5TWJiMThmSkZQNFNEY0xTZkpDTVFSNWc9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
+TASK [alpine_kubeadm_init : Print ~/.kube/config from local file] ************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:08 +0000 (0:00:00.029)       0:07:47.610 *******
+ok: [control1.frankfurt.pvamos.net] => {
+    "kube_config": "apiVersion: v1\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1ERXdNekU0TVRneU5sb1hEVE15TVRJek1URTRNVGd5Tmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS2huCmRVcjFzMUo3OE5XckJjWkNwa2pSRFhpejNwdXd4OXJ1SFZqenBVUE9CaHdxOGVQRHppblZoQ3FwTUVIQytpdCsKeGZwMm5SbGpkalFlcjIvaXFPb0lNTi9oUGY4ZUNaQ0h3Uy9Ha3JTd0VGalV3RkVHRExRc0U1M3gzYVRHQVRnYgpBTUFaSFBIVnFzNGF0aTZGdzNpWlhzNGl1QVo2eUlmaFQyR2dQY3dlQmllMTllME1oS041ME9QbjQ5TmhFaThYCnhDSUY0Qzd0S1VVTDR6NHIzNW5FSzdHaVZKTmliNXNpL2krMllHNElERlc5OWV5NzI1YlpMYVltc2ZuWHZua08KZzRIWWY4KzZ4UkkvT1NrS3dWTmpEVTdEVXBMRVBFeFFyMHBneVU2SGxvS3YxcnBNOU9ESThLdnQyaHB4aGRlbgppK0d4VnM3d2wzWVY3MGZJR2NzQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZCejUwbjhtRlhBNFpTNmw3OXBRN1lBeUVNUXFNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBRjVYOC9Da25FbTlXQ1lJd0JaLwptMU9iK2ZWeEdMTlcrU1llUzZDaUh2eE53VXA5aW14QWMzNWJPZ3k4OWFzWDVnanRGKzBhNC9HdEFUUUxEZGxWCmRrcFZSL2YxdUJpbmErMFVKRWdXVDVBeUpaVE5NT1NUa3pRSk16VmxtdmRvYlRCSUZsMTZ3dVpZZkt6L3lxcjQKTG12Tkl0WDlub0FhMG45STE0VjFOS2dxNEdNSnp5RFJ1WTAvYVQ3WHR4aTY1K1I0SGtPeEkvVzE2N1ViVEVDWQpVRHJqT2cyRDFrcW1YSXlSaVpkY2l4dnpTaW9GdEVCRjBBMGNQUmh6akVxVDdZU3NQelF3SHpRSjVoblVpWHExCjVUeWRKbFI4bHJ4S3VBS2VRWTUrdGdOb3VLY0ltditlQlJxMXNYa3U2djJ6ZFA5UXIrRHdGYldkd0xVZFZTM0oKYVdVPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    server: https://141.95.37.233:6443\n  name: kubernetes\ncontexts:\n- context:\n    cluster: kubernetes\n    user: kubernetes-admin\n  name: kubernetes-admin@kubernetes\ncurrent-context: kubernetes-admin@kubernetes\nkind: Config\npreferences: {}\nusers:\n- name: kubernetes-admin\n  user:\n    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lJZFNBMUM2eXJMQUF3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBeE1ETXhPREU0TWpaYUZ3MHlOREF4TURNeE9ERTRNekphTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXg0SGtuVlVZQ05OcU5vd3YKOUhPTEU0aEttMWlMVG1Pd0NxdDFOM2I3K2J2bEJCc09vN1VWY2E3bG94N0hzZkd2Y3Z0WUZ0L3ZZVjNDYXYwbQphMHJ1UVJoQzVJeWU2ZmR6RDRtb0ZMT1hOaVY4aWpHZmhzTHk2Q0hsZ0NuSS9KdHlORm1RY3VQOGlSZ0RrUEpCCkVDOVdINlRpU1FrQ1JvVXJSbS84Z0xaUE9ZcnZzQTIzbjltYTF0OHJBSXdQL2lDOU5QZmFtV01yeEZibmdoY3cKY0VOTEx3WUVvSGZpTHRwQXRYQ05PU21BQ0kwSVh6VVhrUU85WVJndlgvQjMwVTMyamN3SzdVdjVBclc3Zy9acApuQ1A1YVVEOWdZZVp4dDhDM091czE0c2ZuWFFkQlo5MzBwRVZKM3JhOG5aYldtMTJnUWxFQmVSUWVraE5YVXBqCkpoN0JLUUlEQVFBQm8xWXdWREFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JRYytkSi9KaFZ3T0dVdXBlL2FVTzJBTWhERQpLakFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBUmc2UHRNUHNIREh0K3d6aEdEU000YnREcVhsazR6YS93dndXCmc5Ly9sV2pObUV4UHMwMEtoemZhc21EbjM5NnNnclNxcVU0aHZNRit5QXF6cFlBbG9UbEhiZjYvOHBNVkpiNUcKcWZFemc5TG5ucEcwa1FPMHRMMjVQeVkveDFmK1BPc2FZaEdxdmdRek81Z254OVpwMVZHMkxYVmg5S1FrK1RKTgp6SkxFTU9Odm1GNXpYVVBKdFN5NW5lRHA5dkFWQmxSa2tIa0hVaWE1OFlFNHRGUUJqR1VxL05ld0hiMmtVdlpvCnVmUUExVFZUWHNWRTdEL3JUaERtSk5GYWdaRThKSkZxNUs5YTYreXpZdk0xakROZmtjRGdhazdtUng3enlyRGYKbktPUVpOYW1tZW9VUnA3clQ5d2VrRUxiZXlLNUEweXVzODNxOTF1Q0FEZ0V1OUdvUXc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\n    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcFFJQkFBS0NBUUVBeDRIa25WVVlDTk5xTm93djlIT0xFNGhLbTFpTFRtT3dDcXQxTjNiNytidmxCQnNPCm83VVZjYTdsb3g3SHNmR3ZjdnRZRnQvdllWM0NhdjBtYTBydVFSaEM1SXllNmZkekQ0bW9GTE9YTmlWOGlqR2YKaHNMeTZDSGxnQ25JL0p0eU5GbVFjdVA4aVJnRGtQSkJFQzlXSDZUaVNRa0NSb1VyUm0vOGdMWlBPWXJ2c0EyMwpuOW1hMXQ4ckFJd1AvaUM5TlBmYW1XTXJ4RmJuZ2hjd2NFTkxMd1lFb0hmaUx0cEF0WENOT1NtQUNJMElYelVYCmtRTzlZUmd2WC9CMzBVMzJqY3dLN1V2NUFyVzdnL1pwbkNQNWFVRDlnWWVaeHQ4QzNPdXMxNHNmblhRZEJaOTMKMHBFVkozcmE4blpiV20xMmdRbEVCZVJRZWtoTlhVcGpKaDdCS1FJREFRQUJBb0lCQUJKaGYwU1hrRzFQdlJ0bApjdzJjajVXdkd1Q1JHZFNSRHFrTS92R3JQcS9WaGRZSkFDSkpEcjY0bEdPZzlGa0tvVldBbnE4TTFxc3J6anU1Ck13N3ppbHZvOWxERU8rZm1hbTFtQzF4TTU0T1BsSmZPMXBtOTRFOU93Q3c4clUzSXJJN3lLWUxNU25uL0FtVWEKVExCSERESkNLSzc5NjMyL3l5cmtLbWxaWXBjMGNoZWNoenVmdE4zbTc5bXM3UlpzcFBsT3N2MTNMY3ZBdXFhOQpPK3o5bnc0NmRHWFJra1ZwakFvbWpwNEk1dlN4bFNVUjdvdGxySlRmOFJmVmVlUllBWWl5Mm1oalRzVGZ4cmJjCkZwdVpyeHhqVkdNeXBVbXVMYm50MUtYbE9YbFN3cWtiMnVhTDBPMjZFaEg3UnhId2IwRnBsZ0xwbkVPZ2gvdlcKMG55akVOa0NnWUVBMzZkS1hKUEt6QlVHOTV5MUcrNzMrQTgxbXVTcmRFRXhzN1VHdkxqVjNPa3NIUGY1NlM5OApuS2cySjVYdSsyQWhiZC96cXMxb1FPN3lLcU1vbmNweUlqVUE5RG4xWE9KSS9YdXhHcjlZemZoTzU4c29zaERuCjVrenh4d3JZMW5RbXJScXY5V240dlR5TEo0czlIdE9PMjN0SHhsK1p3WHFjODk3UG96OXZ5Zk1DZ1lFQTVGeVoKcjFRQ2s0Qk9LYkovYVVaMU1uT3pUK1VoRUsydzJENWJZajByb0hxSHk2bnZWMnM3Ly92Uno0WG8wVDcrNXNrOApzVTdWWnlPRktVdE1rY201azdQRGFQd3d2ZDRzL2pJMSs0VmJOVnY3ZHQzWGpMWG5NZTB2b2xBNGk0aWFoSWRjCjVXOENYRzVwdXpQSHBrMFBPbHgzZlBNM3J4V0RWNXpqSHJudUUzTUNnWUVBM2krZzFWWFJ5MnM4VDdOenpQdGIKaHlqODlSTWxMY295cVRnM0tEZHI1eG9TUS9rcVlqbFZ6My9neFBUVHhSRWNSTDZPb09tTkg2MENFYytqWXhhaQp5azdqMHJ6ZGY5Z2g4UWozeWYyOEtHcjlZSk5ZcTRYV0M5bjIrK2xQdjhVR1EwUlcrRFM5OHFsNkNOL3Y2WGI4CjNoaWNGbndWRUx4UnZvaGt1T1lsbFhjQ2dZRUFvbzY0Wi9KcGt3NDJsY0FXcXA0Wk56emRXL1pEUDFnbEZ3bnMKaTFYNEJGaTA2ZW1pRXB5bkxXWFl5TjBPQ2tYSnRnZHlTTlZSWEFZUStJQTlsVm4vM0lDT2plRlg0UkNTL3JCSApkVEJNNlFMOVVuUkF5RTJFc2ltaFN1M0lFcXUvTXJBWkZNbWM2S2RBWko1TGRMcE9LTUZCM1pSVkF6RlJPY0RZCmZEcm1tcmtDZ1lFQW84U051bTkzWHFLazlVMlkvcG1Bek1FeG01ajRJbnZIUG5wSW5OMGNubUNxREIyR0FxMDEKTE1tZ2gySmNNam9USGtuN3BjeDd6NGJQZXpYR0tXSC9za2owSUVVYVBiZG9jZk1zY1pYVVQ3aDdFR2w4N3dUagptVjlzdTdPRHZqWThoSGcxdXlNTk1kVjF2NjVta0Y2ajJCa2FSMUVNSXdreC9mREFIL3ltUG5vPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo="
 }
 
-TASK [alpine_kubeadm_init : Delete with rm -rf /home/p/.kube/ipv4.control1.pvamos.net on ansible host] ***********************************************
-Monday 02 January 2023  23:36:07 +0000 (0:00:00.029)       0:03:25.319 ********
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_init : Delete with rm -rf /home/p/.kube/ipv4.control1.pvamos.net on ansible host] ***********************************************************************************************************
+Tuesday 03 January 2023  18:19:08 +0000 (0:00:00.029)       0:07:47.640 *******
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-PLAY [Alpine linux kubeadm join controlplane] ********************************************************************************************************
+PLAY [Alpine linux kubeadm join controlplane] ********************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:36:07 +0000 (0:00:00.279)       0:03:25.598 ********
-ok: [ipv4.control3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:09 +0000 (0:00:00.282)       0:07:47.923 *******
+ok: [control3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Test connection with ping] ***************************************************************************************
-Monday 02 January 2023  23:36:10 +0000 (0:00:02.903)       0:03:28.502 ********
-ok: [ipv4.control3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
+TASK [alpine_kubeadm_join_control : Test connection with ping] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:11 +0000 (0:00:02.770)       0:07:50.693 *******
+ok: [control3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Set host variables for c1.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:36:11 +0000 (0:00:01.329)       0:03:29.831 ********
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Set host variables for c1.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:12 +0000 (0:00:00.956)       0:07:51.650 *******
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Set host variables for c2.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:36:11 +0000 (0:00:00.096)       0:03:29.928 ********
-skipping: [ipv4.control3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
+TASK [alpine_kubeadm_join_control : Set host variables for c2.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:12 +0000 (0:00:00.096)       0:07:51.747 *******
+skipping: [control3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Set host variables for c3.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.108)       0:03:30.036 ********
-skipping: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Set host variables for c3.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.108)       0:07:51.855 *******
+skipping: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Get kubeadm join command with tokens from local file] ************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.108)       0:03:30.144 ********
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Get kubeadm join command with tokens from local file] ************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.108)       0:07:51.964 *******
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Get kubeadm join token from local file] **************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.203 ********
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Get kubeadm join token from local file] **************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.058)       0:07:52.023 *******
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.059)       0:03:30.262 ********
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.058)       0:07:52.081 *******
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.321 ********
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_kubeadm_join_control : Get kubeadm join cacert from local file] *************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.059)       0:07:52.141 *******
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_control : Print kubeadm join command with tokens] **************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.058)       0:03:30.379 ********
-ok: [ipv4.control2.pvamos.net] => {
-    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_join_control : Print kubeadm join command with tokens] **************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.058)       0:07:52.200 *******
+ok: [control2.frankfurt.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
-ok: [ipv4.control3.pvamos.net] => {
-    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
-}
-
-TASK [alpine_kubeadm_join_control : Print kubeadm token] *********************************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.054)       0:03:30.433 ********
-ok: [ipv4.control2.pvamos.net] => {
-    "msg": "334wu9.jdjpmgsyjil4z2ln"
-}
-ok: [ipv4.control3.pvamos.net] => {
-    "msg": "334wu9.jdjpmgsyjil4z2ln"
+ok: [control3.frankfurt.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
 
-TASK [alpine_kubeadm_join_control : Print kubeadm join cacert] ***************************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.486 ********
-ok: [ipv4.control2.pvamos.net] => {
-    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_join_control : Print kubeadm token] *********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.053)       0:07:52.254 *******
+ok: [control2.frankfurt.pvamos.net] => {
+    "msg": "op64od.wavr37ecgrie5afm"
 }
-ok: [ipv4.control3.pvamos.net] => {
-    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
-}
-
-TASK [alpine_kubeadm_join_control : Print kubeadm join certkey] **************************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.540 ********
-ok: [ipv4.control2.pvamos.net] => {
-    "msg": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
-}
-ok: [ipv4.control3.pvamos.net] => {
-    "msg": "fb9bcdc350af6f85d9f7706cb5704f81ae0935a1f90ef12bb075c8a6f6ad323b"
+ok: [control3.frankfurt.pvamos.net] => {
+    "msg": "op64od.wavr37ecgrie5afm"
 }
 
-TASK [alpine_kubeadm_join_control : Create /root/kubeadm-config.yaml] ********************************************************************************
-Monday 02 January 2023  23:36:12 +0000 (0:00:00.053)       0:03:30.593 ********
-changed: [ipv4.control3.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
+TASK [alpine_kubeadm_join_control : Print kubeadm join cacert] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.053)       0:07:52.308 *******
+ok: [control2.frankfurt.pvamos.net] => {
+    "msg": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
+}
+ok: [control3.frankfurt.pvamos.net] => {
+    "msg": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
+}
 
-TASK [alpine_kubeadm_join_control : Execute kubeadm join] ********************************************************************************************
-Monday 02 January 2023  23:36:15 +0000 (0:00:02.469)       0:03:33.062 ********
-changed: [ipv4.control3.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
+TASK [alpine_kubeadm_join_control : Print kubeadm join certkey] **************************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.053)       0:07:52.361 *******
+ok: [control2.frankfurt.pvamos.net] => {
+    "msg": "216f17dbeb6b3de1f3677ee8b64c379741a359ac9c8b127ea5d4e3e2e5ab0055"
+}
+ok: [control3.frankfurt.pvamos.net] => {
+    "msg": "216f17dbeb6b3de1f3677ee8b64c379741a359ac9c8b127ea5d4e3e2e5ab0055"
+}
 
-TASK [alpine_kubeadm_join_control : Print kubeadm join output] ***************************************************************************************
-Monday 02 January 2023  23:38:26 +0000 (0:02:11.698)       0:05:44.761 ********
-ok: [ipv4.control2.pvamos.net] => {
+TASK [alpine_kubeadm_join_control : Create /root/kubeadm-config.yaml] ********************************************************************************************************************************************
+Tuesday 03 January 2023  18:19:13 +0000 (0:00:00.053)       0:07:52.415 *******
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Execute kubeadm join for 2nd and 3rd controlplane nodes] *********************************************************************************************************************
+Tuesday 03 January 2023  18:19:15 +0000 (0:00:02.082)       0:07:54.497 *******
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+
+TASK [alpine_kubeadm_join_control : Print kubeadm join output for 2nd and 3rd controlplane nodes] ****************************************************************************************************************
+Tuesday 03 January 2023  18:26:28 +0000 (0:07:13.066)       0:15:07.564 *******
+ok: [control2.frankfurt.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
         "[preflight] Reading configuration from the cluster...",
@@ -733,14 +734,14 @@ ok: [ipv4.control2.pvamos.net] => {
         "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
         "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
         "[certs] Generating \"apiserver\" certificate and key",
-        "[certs] apiserver serving cert is signed for DNS names [control2.vamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.87 141.95.37.233]",
-        "[certs] Generating \"etcd/peer\" certificate and key",
-        "[certs] etcd/peer serving cert is signed for DNS names [control2.vamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
-        "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
-        "[certs] Generating \"etcd/server\" certificate and key",
-        "[certs] etcd/server serving cert is signed for DNS names [control2.vamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
-        "[certs] Generating \"apiserver-etcd-client\" certificate and key",
+        "[certs] apiserver serving cert is signed for DNS names [control2.frankfurt.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.116.87 141.95.37.233]",
         "[certs] Generating \"front-proxy-client\" certificate and key",
+        "[certs] Generating \"apiserver-etcd-client\" certificate and key",
+        "[certs] Generating \"etcd/server\" certificate and key",
+        "[certs] etcd/server serving cert is signed for DNS names [control2.frankfurt.pvamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/peer\" certificate and key",
+        "[certs] etcd/peer serving cert is signed for DNS names [control2.frankfurt.pvamos.net localhost] and IPs [51.195.116.87 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
         "[certs] Valid certificates and keys now exist in \"/etc/kubernetes/pki\"",
         "[certs] Using the existing \"sa\" key",
         "[kubeconfig] Generating kubeconfig files",
@@ -761,8 +762,8 @@ ok: [ipv4.control2.pvamos.net] => {
         "[etcd] Creating static Pod manifest for \"etcd\"",
         "[etcd] Waiting for the new etcd member to join the cluster. This can take up to 40s",
         "The 'update-status' phase is deprecated and will be removed in a future release. Currently it performs no operation",
-        "[mark-control-plane] Marking the node control2.vamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
-        "[mark-control-plane] Marking the node control2.vamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
+        "[mark-control-plane] Marking the node control2.frankfurt.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
+        "[mark-control-plane] Marking the node control2.frankfurt.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
         "",
         "This node has joined the cluster and a new control plane instance was created:",
         "",
@@ -781,7 +782,7 @@ ok: [ipv4.control2.pvamos.net] => {
         "Run 'kubectl get nodes' to see this node join the cluster."
     ]
 }
-ok: [ipv4.control3.pvamos.net] => {
+ok: [control3.frankfurt.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
         "[preflight] Reading configuration from the cluster...",
@@ -792,16 +793,16 @@ ok: [ipv4.control3.pvamos.net] => {
         "[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'",
         "[download-certs] Downloading the certificates in Secret \"kubeadm-certs\" in the \"kube-system\" Namespace",
         "[certs] Using certificateDir folder \"/etc/kubernetes/pki\"",
-        "[certs] Generating \"apiserver\" certificate and key",
-        "[certs] apiserver serving cert is signed for DNS names [control3.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.117.170 141.95.37.233]",
         "[certs] Generating \"apiserver-kubelet-client\" certificate and key",
+        "[certs] Generating \"apiserver\" certificate and key",
+        "[certs] apiserver serving cert is signed for DNS names [control3.frankfurt.pvamos.net kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 51.195.117.170 141.95.37.233]",
         "[certs] Generating \"front-proxy-client\" certificate and key",
-        "[certs] Generating \"etcd/server\" certificate and key",
-        "[certs] etcd/server serving cert is signed for DNS names [control3.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/peer\" certificate and key",
+        "[certs] etcd/peer serving cert is signed for DNS names [control3.frankfurt.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
         "[certs] Generating \"etcd/healthcheck-client\" certificate and key",
         "[certs] Generating \"apiserver-etcd-client\" certificate and key",
-        "[certs] Generating \"etcd/peer\" certificate and key",
-        "[certs] etcd/peer serving cert is signed for DNS names [control3.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
+        "[certs] Generating \"etcd/server\" certificate and key",
+        "[certs] etcd/server serving cert is signed for DNS names [control3.frankfurt.pvamos.net localhost] and IPs [51.195.117.170 127.0.0.1 ::1]",
         "[certs] Valid certificates and keys now exist in \"/etc/kubernetes/pki\"",
         "[certs] Using the existing \"sa\" key",
         "[kubeconfig] Generating kubeconfig files",
@@ -822,8 +823,8 @@ ok: [ipv4.control3.pvamos.net] => {
         "[etcd] Creating static Pod manifest for \"etcd\"",
         "[etcd] Waiting for the new etcd member to join the cluster. This can take up to 40s",
         "The 'update-status' phase is deprecated and will be removed in a future release. Currently it performs no operation",
-        "[mark-control-plane] Marking the node control3.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
-        "[mark-control-plane] Marking the node control3.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
+        "[mark-control-plane] Marking the node control3.frankfurt.pvamos.net as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]",
+        "[mark-control-plane] Marking the node control3.frankfurt.pvamos.net as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]",
         "",
         "This node has joined the cluster and a new control plane instance was created:",
         "",
@@ -843,107 +844,107 @@ ok: [ipv4.control3.pvamos.net] => {
     ]
 }
 
-PLAY [Alpine linux kubeadm join workers] *************************************************************************************************************
+PLAY [Alpine linux kubeadm join workers] *************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:38:26 +0000 (0:00:00.119)       0:05:44.881 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:28 +0000 (0:00:00.146)       0:15:07.711 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Test connection with ping] ***************************************************************************************
-Monday 02 January 2023  23:38:29 +0000 (0:00:02.210)       0:05:47.091 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Test connection with ping] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:32 +0000 (0:00:03.481)       0:15:11.192 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Set host variables for w1.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:01.001)       0:05:48.092 ********
-skipping: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Set host variables for w1.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:33 +0000 (0:00:01.105)       0:15:12.298 *******
+skipping: [worker2.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Set host variables for w2.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.164)       0:05:48.256 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker2.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Set host variables for w2.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:33 +0000 (0:00:00.160)       0:15:12.458 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [worker2.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Set host variables for w3.pvamos.net] ****************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.159)       0:05:48.416 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Set host variables for w3.pvamos.net] ****************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:33 +0000 (0:00:00.157)       0:15:12.616 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Get kubeadm join command with tokens from local file] ************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.157)       0:05:48.573 ********
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Get kubeadm join command with tokens from local file] ************************************************************************************************************************
+Tuesday 03 January 2023  18:26:33 +0000 (0:00:00.157)       0:15:12.773 *******
+ok: [worker1.frankfurt.pvamos.net]
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Get kubeadm join token from local file] **************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.086)       0:05:48.660 ********
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Get kubeadm join token from local file] **************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.089)       0:15:12.863 *******
+ok: [worker1.frankfurt.pvamos.net]
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Get kubeadm join cacert from local file] *************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.087)       0:05:48.748 ********
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Get kubeadm join cacert from local file] *************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.086)       0:15:12.949 *******
+ok: [worker1.frankfurt.pvamos.net]
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Print kubeadm join command with tokens] **************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.086)       0:05:48.834 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_join_workers : Print kubeadm join command with tokens] **************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.087)       0:15:13.036 *******
+ok: [worker1.frankfurt.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
-ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+ok: [worker2.frankfurt.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
-ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "kubeadm join 141.95.37.233:6443 --token 334wu9.jdjpmgsyjil4z2ln --discovery-token-ca-cert-hash sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
-}
-
-TASK [alpine_kubeadm_join_workers : Print kubeadm token] *********************************************************************************************
-Monday 02 January 2023  23:38:30 +0000 (0:00:00.080)       0:05:48.915 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "334wu9.jdjpmgsyjil4z2ln"
-}
-ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "334wu9.jdjpmgsyjil4z2ln"
-}
-ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "334wu9.jdjpmgsyjil4z2ln"
+ok: [worker3.frankfurt.pvamos.net] => {
+    "msg": "kubeadm join 141.95.37.233:6443 --token op64od.wavr37ecgrie5afm --discovery-token-ca-cert-hash sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
 }
 
-TASK [alpine_kubeadm_join_workers : Print kubeadm join cacert] ***************************************************************************************
-Monday 02 January 2023  23:38:31 +0000 (0:00:00.079)       0:05:48.994 ********
-ok: [ipv4.worker1.pvamos.net] => {
-    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+TASK [alpine_kubeadm_join_workers : Print kubeadm token] *********************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.078)       0:15:13.115 *******
+ok: [worker1.frankfurt.pvamos.net] => {
+    "msg": "op64od.wavr37ecgrie5afm"
 }
-ok: [ipv4.worker2.pvamos.net] => {
-    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+ok: [worker2.frankfurt.pvamos.net] => {
+    "msg": "op64od.wavr37ecgrie5afm"
 }
-ok: [ipv4.worker3.pvamos.net] => {
-    "msg": "sha256:4d47ad093fa029d45d92afb271a18ee1f031ad93d734293f5944c8a0a2003aae"
+ok: [worker3.frankfurt.pvamos.net] => {
+    "msg": "op64od.wavr37ecgrie5afm"
 }
 
-TASK [alpine_kubeadm_join_workers : Create /root/kubeadm-config.yaml] ********************************************************************************
-Monday 02 January 2023  23:38:31 +0000 (0:00:00.079)       0:05:49.073 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Print kubeadm join cacert] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.079)       0:15:13.195 *******
+ok: [worker1.frankfurt.pvamos.net] => {
+    "msg": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
+}
+ok: [worker2.frankfurt.pvamos.net] => {
+    "msg": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
+}
+ok: [worker3.frankfurt.pvamos.net] => {
+    "msg": "sha256:64791e8a18071aad617370fb5360c2cb1e120a0b1a2cac33d3830ba45864bcb2"
+}
 
-TASK [alpine_kubeadm_join_workers : Execute kubeadm join] ********************************************************************************************
-Monday 02 January 2023  23:38:33 +0000 (0:00:01.940)       0:05:51.014 ********
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
+TASK [alpine_kubeadm_join_workers : Create /root/kubeadm-config.yaml] ********************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:34 +0000 (0:00:00.081)       0:15:13.276 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_join_workers : Print kubeadm join output] ***************************************************************************************
-Monday 02 January 2023  23:38:59 +0000 (0:00:26.234)       0:06:17.248 ********
-ok: [ipv4.worker1.pvamos.net] => {
+TASK [alpine_kubeadm_join_workers : Execute kubeadm join for worker nodes] ***************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:37 +0000 (0:00:03.233)       0:15:16.510 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+
+TASK [alpine_kubeadm_join_workers : Print kubeadm join output for worker nodes] **********************************************************************************************************************************
+Tuesday 03 January 2023  18:26:55 +0000 (0:00:18.060)       0:15:34.570 *******
+ok: [worker1.frankfurt.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
         "[preflight] Reading configuration from the cluster...",
@@ -960,7 +961,7 @@ ok: [ipv4.worker1.pvamos.net] => {
         "Run 'kubectl get nodes' on the control-plane to see this node join the cluster."
     ]
 }
-ok: [ipv4.worker2.pvamos.net] => {
+ok: [worker2.frankfurt.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
         "[preflight] Reading configuration from the cluster...",
@@ -977,7 +978,7 @@ ok: [ipv4.worker2.pvamos.net] => {
         "Run 'kubectl get nodes' on the control-plane to see this node join the cluster."
     ]
 }
-ok: [ipv4.worker3.pvamos.net] => {
+ok: [worker3.frankfurt.pvamos.net] => {
     "kubeadm_join_output.stdout_lines": [
         "[preflight] Running pre-flight checks",
         "[preflight] Reading configuration from the cluster...",
@@ -995,41 +996,41 @@ ok: [ipv4.worker3.pvamos.net] => {
     ]
 }
 
-PLAY [Alpine linux after kubeadm join] ***************************************************************************************************************
+PLAY [Alpine linux after kubeadm join] ***************************************************************************************************************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************************************************
-Monday 02 January 2023  23:38:59 +0000 (0:00:00.173)       0:06:17.422 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
+TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:55 +0000 (0:00:00.198)       0:15:34.768 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Test connection with ping] ******************************************************************************************
-Monday 02 January 2023  23:39:03 +0000 (0:00:03.884)       0:06:21.307 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_afterjoin : Test connection with ping] ******************************************************************************************************************************************************
+Tuesday 03 January 2023  18:26:59 +0000 (0:00:03.755)       0:15:38.524 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Wait until port 6443 is listening on controlplane] ******************************************************************
-Monday 02 January 2023  23:39:05 +0000 (0:00:01.679)       0:06:22.987 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
+TASK [alpine_kubeadm_afterjoin : Wait until port 6443 is listening on controlplane] ******************************************************************************************************************************
+Tuesday 03 January 2023  18:27:01 +0000 (0:00:02.031)       0:15:40.556 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Print port 6443 check output] ***************************************************************************************
-Monday 02 January 2023  23:39:06 +0000 (0:00:01.377)       0:06:24.364 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_kubeadm_afterjoin : Print port 6443 check output] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:03 +0000 (0:00:01.708)       0:15:42.264 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "port_6443_check": {
         "attempts": 1,
         "changed": false,
@@ -1043,117 +1044,118 @@ ok: [ipv4.control1.pvamos.net] => {
         "state": "started"
     }
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully)] *******************************
-Monday 02 January 2023  23:39:06 +0000 (0:00:00.144)       0:06:24.509 ********
+TASK [alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully)] *******************************************************************************************
+Tuesday 03 January 2023  18:27:03 +0000 (0:00:00.146)       0:15:42.410 *******
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
-ok: [ipv4.worker1.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Get kubectl get no] *************************************************************************************************
-Monday 02 January 2023  23:39:16 +0000 (0:00:10.027)       0:06:34.537 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_afterjoin : Get kubectl get no] *************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:13 +0000 (0:00:10.027)       0:15:52.438 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_afterjoin : Print kubectl get no output] ****************************************************************************************
-Monday 02 January 2023  23:39:17 +0000 (0:00:00.586)       0:06:35.123 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_kubeadm_afterjoin : Print kubectl get no output] ****************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:14 +0000 (0:00:00.554)       0:15:52.992 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "kubectl_getno_output.stdout_lines": [
-        "NAME                  STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
-        "control1.pvamos.net   NotReady   control-plane   3m16s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "control2.vamos.net    NotReady   control-plane   53s     v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "control3.pvamos.net   NotReady   control-plane   102s    v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker1.pvamos.net    NotReady   <none>          27s     v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker2.pvamos.net    NotReady   <none>          17s     v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker3.pvamos.net    NotReady   <none>          29s     v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
+        "NAME                            STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
+        "control1.frankfurt.pvamos.net   NotReady   control-plane   8m14s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control2.frankfurt.pvamos.net   NotReady   control-plane   48s     v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control3.frankfurt.pvamos.net   NotReady   control-plane   6m23s   v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker1.frankfurt.pvamos.net    NotReady   <none>          17s     v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker2.frankfurt.pvamos.net    NotReady   <none>          20s     v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker3.frankfurt.pvamos.net    NotReady   <none>          20s     v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_kubeadm_afterjoin : Get kubectl get pod] ************************************************************************************************
-Monday 02 January 2023  23:39:17 +0000 (0:00:00.146)       0:06:35.270 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_kubeadm_afterjoin : Get kubectl get pod] ************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:14 +0000 (0:00:00.149)       0:15:53.142 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_kubeadm_afterjoin : Print kubectl get po output] ****************************************************************************************
-Monday 02 January 2023  23:39:17 +0000 (0:00:00.614)       0:06:35.885 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_kubeadm_afterjoin : Print kubectl get po output] ****************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:14 +0000 (0:00:00.584)       0:15:53.726 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE     NAME                                          READY   STATUS         RESTARTS      AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "kube-system   coredns-565d847f94-ptpxx                      0/1     Pending        0             3m4s    <none>           <none>                <none>           <none>",
-        "kube-system   coredns-565d847f94-rzzjv                      0/1     Pending        0             3m4s    <none>           <none>                <none>           <none>",
-        "kube-system   etcd-control1.pvamos.net                      1/1     Running        0             3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   etcd-control2.vamos.net                       1/1     Running        0             43s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system   etcd-control3.pvamos.net                      1/1     Running        0             92s     51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system   kube-apiserver-control1.pvamos.net            1/1     Running        0             3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-apiserver-control2.vamos.net             1/1     Running        1 (61s ago)   31s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system   kube-apiserver-control3.pvamos.net            1/1     Running        0             83s     51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system   kube-controller-manager-control1.pvamos.net   1/1     Running        1 (92s ago)   3m16s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-controller-manager-control2.vamos.net    1/1     Running        0             10s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system   kube-controller-manager-control3.pvamos.net   1/1     Running        0             15s     51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system   kube-proxy-6kmxm                              1/1     Running        0             55s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system   kube-proxy-7874w                              0/1     ErrImagePull   0             19s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system   kube-proxy-8dvbg                              1/1     Running        0             3m5s    51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-proxy-c7dbw                              1/1     Running        0             103s    51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system   kube-proxy-n27x4                              1/1     Running        0             29s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system   kube-proxy-tp76r                              1/1     Running        0             30s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system   kube-scheduler-control1.pvamos.net            1/1     Running        1 (93s ago)   3m15s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system   kube-scheduler-control3.pvamos.net            1/1     Running        0             88s     51.195.117.170   control3.pvamos.net   <none>           <none>"
+        "NAMESPACE     NAME                                                    READY   STATUS              RESTARTS        AGE     IP               NODE                            NOMINATED NODE   READINESS GATES",
+        "kube-system   coredns-565d847f94-q5pr6                                0/1     Pending             0               7m58s   <none>           <none>                          <none>           <none>",
+        "kube-system   coredns-565d847f94-rhmbv                                0/1     Pending             0               7m58s   <none>           <none>                          <none>           <none>",
+        "kube-system   etcd-control1.frankfurt.pvamos.net                      1/1     Running             0               8m10s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   etcd-control2.frankfurt.pvamos.net                      1/1     Running             0               39s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   etcd-control3.frankfurt.pvamos.net                      1/1     Running             0               6m24s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-apiserver-control1.frankfurt.pvamos.net            1/1     Running             0               8m13s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-apiserver-control2.frankfurt.pvamos.net            1/1     Running             0               23s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-apiserver-control3.frankfurt.pvamos.net            1/1     Running             1 (6m9s ago)    6m9s    51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-controller-manager-control1.frankfurt.pvamos.net   1/1     Running             1 (6m13s ago)   8m14s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-controller-manager-control2.frankfurt.pvamos.net   1/1     Running             0               40s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-controller-manager-control3.frankfurt.pvamos.net   1/1     Running             0               5m      51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-crk48                                        1/1     Running             0               22s     51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system   kube-proxy-gc4jk                                        1/1     Running             0               6m25s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-kqjj6                                        1/1     Running             0               7m59s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-proxy-qcdtj                                        0/1     ContainerCreating   0               20s     51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system   kube-proxy-x2vvr                                        1/1     Running             0               22s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system   kube-proxy-zms2h                                        1/1     Running             0               50s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-scheduler-control1.frankfurt.pvamos.net            1/1     Running             1 (6m13s ago)   8m10s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-scheduler-control2.frankfurt.pvamos.net            1/1     Running             0               31s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system   kube-scheduler-control3.frankfurt.pvamos.net            1/1     Running             0               6m9s    51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Test connection with ping] *****************************************************************************************************
-Monday 02 January 2023  23:39:18 +0000 (0:00:00.178)       0:06:36.064 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
+TASK [alpine_calico : Test connection with ping] *****************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:15 +0000 (0:00:00.179)       0:15:53.906 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Download tigera-operator.yaml to ansible host] *********************************************************************************
-Monday 02 January 2023  23:39:19 +0000 (0:00:01.679)       0:06:37.743 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-ok: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : Download tigera-operator.yaml to ansible host] *********************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:16 +0000 (0:00:01.900)       0:15:55.807 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : kubectl create -f tigera-operator.yaml] ****************************************************************************************
-Monday 02 January 2023  23:39:20 +0000 (0:00:01.209)       0:06:38.952 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : kubectl create -f tigera-operator.yaml] ****************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:18 +0000 (0:00:01.526)       0:15:57.333 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print 'kubectl create -f tigera-operator.yaml' output] *************************************************************************
-Monday 02 January 2023  23:39:31 +0000 (0:00:10.560)       0:06:49.513 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_calico : Print 'kubectl create -f tigera-operator.yaml' output] *************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:34 +0000 (0:00:15.917)       0:16:13.251 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "kubectl_create_operator.stdout_lines": [
         "namespace/tigera-operator created",
         "customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created",
@@ -1183,278 +1185,278 @@ ok: [ipv4.control1.pvamos.net] => {
         "deployment.apps/tigera-operator created"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************
-Monday 02 January 2023  23:39:31 +0000 (0:00:00.149)       0:06:49.662 ********
+TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:34 +0000 (0:00:00.149)       0:16:13.401 *******
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
-ok: [ipv4.worker1.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_calico : kubectl create -f custom-resources.yaml] ***************************************************************************************
-Monday 02 January 2023  23:39:41 +0000 (0:00:10.027)       0:06:59.690 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : kubectl create -f custom-resources.yaml] ***************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:44 +0000 (0:00:10.027)       0:16:23.428 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print 'kubectl create -f custom-resources.yaml' output] ************************************************************************
-Monday 02 January 2023  23:39:45 +0000 (0:00:03.309)       0:07:02.999 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_calico : Print 'kubectl create -f custom-resources.yaml' output] ************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:46 +0000 (0:00:02.338)       0:16:25.766 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "kubectl_create_custom.stdout_lines": [
         "installation.operator.tigera.io/default created",
         "apiserver.operator.tigera.io/default created"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************
-Monday 02 January 2023  23:39:45 +0000 (0:00:00.145)       0:07:03.144 ********
+TASK [alpine_calico : Pause for 10 seconds] **********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:47 +0000 (0:00:00.149)       0:16:25.916 *******
 Pausing for 10 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
-ok: [ipv4.worker1.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************
-Monday 02 January 2023  23:39:55 +0000 (0:00:10.027)       0:07:13.172 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:57 +0000 (0:00:10.027)       0:16:35.944 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************
-Monday 02 January 2023  23:39:55 +0000 (0:00:00.619)       0:07:13.792 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:58 +0000 (0:00:00.936)       0:16:36.880 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE         NAME                                          READY   STATUS              RESTARTS        AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "calico-system     calico-node-8fdbf                             0/1     Init:0/2            0               9s      51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-9cbkn                             0/1     Init:0/2            0               9s      51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-b6f7m                             0/1     Init:0/2            0               9s      51.195.116.87    control2.vamos.net    <none>           <none>",
-        "calico-system     calico-node-b9gdt                             0/1     Init:1/2            0               8s      51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-dqr4t                             0/1     Init:0/2            0               8s      51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-wq4vs                             0/1     Init:1/2            0               8s      51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-9bcw8                 0/1     ContainerCreating   0               3s      51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-jmn9q                 0/1     ContainerCreating   0               9s      51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-lhqjj                 0/1     ContainerCreating   0               3s      51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-ptpxx                      0/1     Pending             0               3m42s   <none>           <none>                <none>           <none>",
-        "kube-system       coredns-565d847f94-rzzjv                      0/1     Pending             0               3m42s   <none>           <none>                <none>           <none>",
-        "kube-system       etcd-control1.pvamos.net                      1/1     Running             0               3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       etcd-control2.vamos.net                       1/1     Running             0               81s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       etcd-control3.pvamos.net                      1/1     Running             0               2m10s   51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running             0               3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control2.vamos.net             1/1     Running             1 (99s ago)     69s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-apiserver-control3.pvamos.net            1/1     Running             0               2m1s    51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running             1 (2m10s ago)   3m54s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control2.vamos.net    1/1     Running             0               48s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-controller-manager-control3.pvamos.net   1/1     Running             0               53s     51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-6kmxm                              1/1     Running             0               93s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-proxy-7874w                              1/1     Running             0               57s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-8dvbg                              1/1     Running             0               3m43s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-c7dbw                              1/1     Running             0               2m21s   51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-n27x4                              1/1     Running             0               67s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-tp76r                              1/1     Running             0               68s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running             1 (2m11s ago)   3m53s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-scheduler-control2.vamos.net             1/1     Running             0               28s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control3.pvamos.net            1/1     Running             0               2m6s    51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "tigera-operator   tigera-operator-55dd57cddb-c245q              1/1     Running             0               24s     51.195.119.241   worker3.pvamos.net    <none>           <none>"
+        "NAMESPACE         NAME                                                    READY   STATUS              RESTARTS        AGE     IP               NODE                            NOMINATED NODE   READINESS GATES",
+        "calico-system     calico-node-7h7ck                                       0/1     Init:0/2            0               9s      51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-bnw8q                                       0/1     Init:0/2            0               9s      51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-ck4kl                                       0/1     Init:1/2            0               9s      51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-hhz54                                       0/1     Init:0/2            0               9s      51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-lhwxx                                       0/1     Init:0/2            0               9s      51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-z9zlx                                       0/1     Init:1/2            0               9s      51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-b22c7                           0/1     ContainerCreating   0               3s      51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-bsqbs                           0/1     ContainerCreating   0               3s      51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-n6vzv                           0/1     ContainerCreating   0               9s      51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       coredns-565d847f94-q5pr6                                0/1     Pending             0               8m41s   <none>           <none>                          <none>           <none>",
+        "kube-system       coredns-565d847f94-rhmbv                                0/1     Pending             0               8m41s   <none>           <none>                          <none>           <none>",
+        "kube-system       etcd-control1.frankfurt.pvamos.net                      1/1     Running             0               8m53s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control2.frankfurt.pvamos.net                      1/1     Running             0               82s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control3.frankfurt.pvamos.net                      1/1     Running             0               7m7s    51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control1.frankfurt.pvamos.net            1/1     Running             0               8m56s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control2.frankfurt.pvamos.net            1/1     Running             0               66s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control3.frankfurt.pvamos.net            1/1     Running             1 (6m52s ago)   6m52s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control1.frankfurt.pvamos.net   1/1     Running             1 (6m56s ago)   8m57s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control2.frankfurt.pvamos.net   1/1     Running             0               83s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control3.frankfurt.pvamos.net   1/1     Running             0               5m43s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-crk48                                        1/1     Running             0               65s     51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-gc4jk                                        1/1     Running             0               7m8s    51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-kqjj6                                        1/1     Running             0               8m42s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-qcdtj                                        1/1     Running             0               63s     51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-x2vvr                                        1/1     Running             0               65s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-zms2h                                        1/1     Running             0               93s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control1.frankfurt.pvamos.net            1/1     Running             1 (6m56s ago)   8m53s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control2.frankfurt.pvamos.net            1/1     Running             0               74s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control3.frankfurt.pvamos.net            1/1     Running             0               6m52s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "tigera-operator   tigera-operator-55dd57cddb-h5lgk                        1/1     Running             0               23s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico] *****************************************************************************
-Monday 02 January 2023  23:39:55 +0000 (0:00:00.149)       0:07:13.941 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
+TASK [alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico] *****************************************************************************************************************************************
+Tuesday 03 January 2023  18:27:58 +0000 (0:00:00.151)       0:16:37.032 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_calico : ln -s /opt/cni/bin/calico-ipam /usr/libexec/cni/calico-ipam] *******************************************************************
-Monday 02 January 2023  23:39:59 +0000 (0:00:03.623)       0:07:17.565 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_calico : ln -s /opt/cni/bin/calico-ipam /usr/libexec/cni/calico-ipam] *******************************************************************************************************************************
+Tuesday 03 January 2023  18:28:02 +0000 (0:00:03.796)       0:16:40.828 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_calico : ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel] ***************************************************************************
-Monday 02 January 2023  23:40:02 +0000 (0:00:02.469)       0:07:20.035 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_calico : ln -s /opt/cni/bin/flannel /usr/libexec/cni/flannel] ***************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:05 +0000 (0:00:03.448)       0:16:44.277 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_calico : service crio restart] **********************************************************************************************************
-Monday 02 January 2023  23:40:04 +0000 (0:00:02.752)       0:07:22.787 ********
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
+TASK [alpine_calico : service crio restart] **********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:08 +0000 (0:00:02.547)       0:16:46.824 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_calico : service kubelet restart] *******************************************************************************************************
-Monday 02 January 2023  23:40:09 +0000 (0:00:04.646)       0:07:27.434 ********
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
+TASK [alpine_calico : service kubelet restart] *******************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:12 +0000 (0:00:04.200)       0:16:51.025 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Pause for 30 seconds] **********************************************************************************************************
-Monday 02 January 2023  23:40:12 +0000 (0:00:02.639)       0:07:30.074 ********
+TASK [alpine_calico : Pause for 30 seconds] **********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:14 +0000 (0:00:02.324)       0:16:53.350 *******
 Pausing for 30 seconds
 (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
-ok: [ipv4.worker1.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get no] ************************************************************************************************************
-Monday 02 January 2023  23:40:42 +0000 (0:00:30.027)       0:08:00.102 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : Get kubectl get no] ************************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:44 +0000 (0:00:30.027)       0:17:23.377 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get no output] ***************************************************************************************************
-Monday 02 January 2023  23:40:42 +0000 (0:00:00.606)       0:08:00.708 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_calico : Print kubectl get no output] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:45 +0000 (0:00:00.538)       0:17:23.915 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "kubectl_getno_output.stdout_lines": [
-        "NAME                  STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
-        "control1.pvamos.net   Ready      control-plane   4m41s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "control2.vamos.net    NotReady   control-plane   2m18s   v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "control3.pvamos.net   Ready      control-plane   3m7s    v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker1.pvamos.net    Ready      <none>          112s    v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker2.pvamos.net    Ready      <none>          102s    v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
-        "worker3.pvamos.net    Ready      <none>          114s    v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
+        "NAME                            STATUS     ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME",
+        "control1.frankfurt.pvamos.net   NotReady   control-plane   9m47s   v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control2.frankfurt.pvamos.net   NotReady   control-plane   2m21s   v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "control3.frankfurt.pvamos.net   Ready      control-plane   7m56s   v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker1.frankfurt.pvamos.net    NotReady   <none>          110s    v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker2.frankfurt.pvamos.net    Ready      <none>          113s    v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1",
+        "worker3.frankfurt.pvamos.net    Ready      <none>          113s    v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************
-Monday 02 January 2023  23:40:42 +0000 (0:00:00.148)       0:08:00.857 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_calico : Get kubectl get pod] ***********************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:45 +0000 (0:00:00.149)       0:17:24.065 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************
-Monday 02 January 2023  23:40:43 +0000 (0:00:00.662)       0:08:01.519 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_calico : Print kubectl get po output] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:45 +0000 (0:00:00.679)       0:17:24.744 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "get_pods.stdout_lines": [
-        "NAMESPACE         NAME                                          READY   STATUS            RESTARTS        AGE     IP               NODE                  NOMINATED NODE   READINESS GATES",
-        "calico-system     calico-node-8fdbf                             0/1     PodInitializing   0               57s     51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-9cbkn                             0/1     PodInitializing   0               57s     51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "calico-system     calico-node-b6f7m                             0/1     PodInitializing   0               57s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "calico-system     calico-node-b9gdt                             1/1     Running           0               56s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-dqr4t                             1/1     Running           0               56s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-node-wq4vs                             1/1     Running           0               56s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-9bcw8                 1/1     Running           0               51s     51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-jmn9q                 1/1     Running           0               57s     51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "calico-system     calico-typha-69bf4756d4-lhqjj                 1/1     Running           0               51s     51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-ptpxx                      1/1     Running           0               4m30s   10.244.159.66    worker2.pvamos.net    <none>           <none>",
-        "kube-system       coredns-565d847f94-rzzjv                      1/1     Running           0               4m30s   10.244.159.65    worker2.pvamos.net    <none>           <none>",
-        "kube-system       etcd-control1.pvamos.net                      1/1     Running           0               4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       etcd-control2.vamos.net                       1/1     Running           0               2m9s    51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       etcd-control3.pvamos.net                      1/1     Running           0               2m58s   51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control1.pvamos.net            1/1     Running           0               4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-apiserver-control2.vamos.net             1/1     Running           1 (2m27s ago)   117s    51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-apiserver-control3.pvamos.net            1/1     Running           0               2m49s   51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control1.pvamos.net   1/1     Running           1 (2m58s ago)   4m42s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-controller-manager-control2.vamos.net    1/1     Running           0               96s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-controller-manager-control3.pvamos.net   1/1     Running           0               101s    51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-6kmxm                              1/1     Running           0               2m21s   51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-proxy-7874w                              1/1     Running           0               105s    51.195.118.45    worker2.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-8dvbg                              1/1     Running           0               4m31s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-c7dbw                              1/1     Running           0               3m9s    51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "kube-system       kube-proxy-n27x4                              1/1     Running           0               115s    51.195.116.254   worker1.pvamos.net    <none>           <none>",
-        "kube-system       kube-proxy-tp76r                              1/1     Running           0               116s    51.195.119.241   worker3.pvamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control1.pvamos.net            1/1     Running           1 (2m59s ago)   4m41s   51.195.116.80    control1.pvamos.net   <none>           <none>",
-        "kube-system       kube-scheduler-control2.vamos.net             1/1     Running           0               76s     51.195.116.87    control2.vamos.net    <none>           <none>",
-        "kube-system       kube-scheduler-control3.pvamos.net            1/1     Running           0               2m54s   51.195.117.170   control3.pvamos.net   <none>           <none>",
-        "tigera-operator   tigera-operator-55dd57cddb-c245q              1/1     Running           0               72s     51.195.119.241   worker3.pvamos.net    <none>           <none>"
+        "NAMESPACE         NAME                                                    READY   STATUS            RESTARTS        AGE     IP               NODE                            NOMINATED NODE   READINESS GATES",
+        "calico-system     calico-node-7h7ck                                       0/1     PodInitializing   0               57s     51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-bnw8q                                       0/1     PodInitializing   0               57s     51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-ck4kl                                       1/1     Running           0               57s     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-hhz54                                       0/1     PodInitializing   0               57s     51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-node-lhwxx                                       0/1     Init:1/2          0               57s     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "calico-system     calico-node-z9zlx                                       0/1     Running           0               57s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-b22c7                           1/1     Running           0               51s     51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-bsqbs                           1/1     Running           0               51s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "calico-system     calico-typha-57444d8bb7-n6vzv                           1/1     Running           0               57s     51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       coredns-565d847f94-q5pr6                                1/1     Running           0               9m29s   10.244.23.65     control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       coredns-565d847f94-rhmbv                                1/1     Running           0               9m29s   10.244.23.66     control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control1.frankfurt.pvamos.net                      1/1     Running           0               9m41s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control2.frankfurt.pvamos.net                      1/1     Running           0               2m10s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       etcd-control3.frankfurt.pvamos.net                      1/1     Running           0               7m55s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control1.frankfurt.pvamos.net            1/1     Running           0               9m44s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control2.frankfurt.pvamos.net            1/1     Running           0               114s    51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-apiserver-control3.frankfurt.pvamos.net            1/1     Running           1 (7m40s ago)   7m40s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control1.frankfurt.pvamos.net   1/1     Running           1 (7m44s ago)   9m45s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control2.frankfurt.pvamos.net   1/1     Running           0               2m11s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-controller-manager-control3.frankfurt.pvamos.net   1/1     Running           0               6m31s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-crk48                                        1/1     Running           0               113s    51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-gc4jk                                        1/1     Running           0               7m56s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-kqjj6                                        1/1     Running           0               9m30s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-proxy-qcdtj                                        1/1     Running           0               111s    51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-x2vvr                                        1/1     Running           0               113s    51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>",
+        "kube-system       kube-proxy-zms2h                                        1/1     Running           0               2m21s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control1.frankfurt.pvamos.net            1/1     Running           1 (7m44s ago)   9m41s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control2.frankfurt.pvamos.net            1/1     Running           0               2m2s    51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>",
+        "kube-system       kube-scheduler-control3.frankfurt.pvamos.net            1/1     Running           0               7m40s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>",
+        "tigera-operator   tigera-operator-55dd57cddb-h5lgk                        1/1     Running           0               71s     51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-TASK [alpine_longhorn : Test connection with ping] ***************************************************************************************************
-Monday 02 January 2023  23:40:43 +0000 (0:00:00.179)       0:08:01.699 ********
-ok: [ipv4.worker2.pvamos.net]
-ok: [ipv4.worker3.pvamos.net]
-ok: [ipv4.worker1.pvamos.net]
-ok: [ipv4.control1.pvamos.net]
-ok: [ipv4.control3.pvamos.net]
-ok: [ipv4.control2.pvamos.net]
+TASK [alpine_longhorn : Test connection with ping] ***************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:46 +0000 (0:00:00.178)       0:17:24.923 *******
+ok: [worker2.frankfurt.pvamos.net]
+ok: [worker3.frankfurt.pvamos.net]
+ok: [control3.frankfurt.pvamos.net]
+ok: [worker1.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net]
+ok: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_longhorn : Install open-iscsi package] **************************************************************************************************
-Monday 02 January 2023  23:40:45 +0000 (0:00:02.136)       0:08:03.835 ********
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net]
-changed: [ipv4.control2.pvamos.net]
+TASK [alpine_longhorn : Install open-iscsi package] **************************************************************************************************************************************************************
+Tuesday 03 January 2023  18:28:48 +0000 (0:00:02.486)       0:17:27.409 *******
+changed: [worker2.frankfurt.pvamos.net]
+changed: [control3.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net]
+changed: [control2.frankfurt.pvamos.net]
 
-TASK [alpine_longhorn : Set local.d script to 'mount --make-rshared /' on workers] *******************************************************************
-Monday 02 January 2023  23:40:56 +0000 (0:00:10.190)       0:08:14.026 ********
-skipping: [ipv4.control1.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
+TASK [alpine_longhorn : Set local.d script to 'mount --make-rshared /' on workers] *******************************************************************************************************************************
+Tuesday 03 January 2023  18:28:59 +0000 (0:00:11.187)       0:17:38.596 *******
+skipping: [control1.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_longhorn : Execute /bin/mount --make-rshared / on workers] ******************************************************************************
-Monday 02 January 2023  23:40:58 +0000 (0:00:01.992)       0:08:16.018 ********
-skipping: [ipv4.control1.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.worker2.pvamos.net]
-changed: [ipv4.worker1.pvamos.net]
-changed: [ipv4.worker3.pvamos.net]
+TASK [alpine_longhorn : Execute /bin/mount --make-rshared / on workers] ******************************************************************************************************************************************
+Tuesday 03 January 2023  18:29:04 +0000 (0:00:04.974)       0:17:43.570 *******
+skipping: [control1.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [worker2.frankfurt.pvamos.net]
+changed: [worker3.frankfurt.pvamos.net]
+changed: [worker1.frankfurt.pvamos.net]
 
-TASK [alpine_longhorn : Execute kubectl apply -f longhorn.yaml] **************************************************************************************
-Monday 02 January 2023  23:40:59 +0000 (0:00:01.118)       0:08:17.137 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
-changed: [ipv4.control1.pvamos.net -> 127.0.0.1]
+TASK [alpine_longhorn : Execute kubectl apply -f longhorn.yaml] **************************************************************************************************************************************************
+Tuesday 03 January 2023  18:29:06 +0000 (0:00:01.830)       0:17:45.401 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
+changed: [control1.frankfurt.pvamos.net -> 127.0.0.1]
 
-TASK [alpine_longhorn : Print kubectl apply -f longhorn.yaml output] *********************************************************************************
-Monday 02 January 2023  23:41:25 +0000 (0:00:26.491)       0:08:43.628 ********
-skipping: [ipv4.worker1.pvamos.net]
-skipping: [ipv4.worker2.pvamos.net]
-skipping: [ipv4.worker3.pvamos.net]
-ok: [ipv4.control1.pvamos.net] => {
+TASK [alpine_longhorn : Print kubectl apply -f longhorn.yaml output] *********************************************************************************************************************************************
+Tuesday 03 January 2023  18:29:31 +0000 (0:00:24.793)       0:18:10.194 *******
+skipping: [worker1.frankfurt.pvamos.net]
+skipping: [worker2.frankfurt.pvamos.net]
+skipping: [worker3.frankfurt.pvamos.net]
+ok: [control1.frankfurt.pvamos.net] => {
     "kubectl_apply_longhorn.stdout_lines": [
         "namespace/longhorn-system created",
         "serviceaccount/longhorn-service-account created",
@@ -1499,41 +1501,134 @@ ok: [ipv4.control1.pvamos.net] => {
         "deployment.apps/longhorn-admission-webhook created"
     ]
 }
-skipping: [ipv4.control2.pvamos.net]
-skipping: [ipv4.control3.pvamos.net]
+skipping: [control2.frankfurt.pvamos.net]
+skipping: [control3.frankfurt.pvamos.net]
 
-PLAY RECAP *******************************************************************************************************************************************
-ipv4.control1.pvamos.net   : ok=83   changed=43   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
-ipv4.control2.pvamos.net   : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
-ipv4.control3.pvamos.net   : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
-ipv4.worker1.pvamos.net    : ok=58   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
-ipv4.worker2.pvamos.net    : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
-ipv4.worker3.pvamos.net    : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+PLAY RECAP *******************************************************************************************************************************************************************************************************
+control1.frankfurt.pvamos.net : ok=83   changed=43   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+control2.frankfurt.pvamos.net : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
+control3.frankfurt.pvamos.net : ok=54   changed=27   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0
+worker1.frankfurt.pvamos.net : ok=58   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+worker2.frankfurt.pvamos.net : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
+worker3.frankfurt.pvamos.net : ok=54   changed=29   unreachable=0    failed=0    skipped=21   rescued=0    ignored=0
 
-Monday 02 January 2023  23:41:25 +0000 (0:00:00.301)       0:08:43.930 ********
+Tuesday 03 January 2023  18:29:31 +0000 (0:00:00.294)       0:18:10.488 *******
 ===============================================================================
-alpine_kubeadm_join_control : Execute kubeadm join ------------------------------------------------------------------------------------------ 131.70s
-alpine_kubeadm_init : Execute kubeadm init --------------------------------------------------------------------------------------------------- 78.90s
-alpine_calico : Pause for 30 seconds --------------------------------------------------------------------------------------------------------- 30.03s
-alpine_longhorn : Execute kubectl apply -f longhorn.yaml ------------------------------------------------------------------------------------- 26.49s
-alpine_kubeadm_join_workers : Execute kubeadm join ------------------------------------------------------------------------------------------- 26.23s
-alpine_apkrepo : Reboot the host after apk upgrade ------------------------------------------------------------------------------------------- 25.20s
-alpine_apkrepo : Upgrade all installed apk packages to the latest versions ------------------------------------------------------------------- 16.12s
-alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion ------------- 15.01s
-alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen ---- 14.13s
-alpine_calico : kubectl create -f tigera-operator.yaml --------------------------------------------------------------------------------------- 10.56s
-alpine_longhorn : Install open-iscsi package ------------------------------------------------------------------------------------------------- 10.19s
-alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully) ------------------------------ 10.03s
-alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------- 10.03s
-alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------- 10.03s
-alpine_calico : service crio restart ---------------------------------------------------------------------------------------------------------- 4.65s
-Gathering Facts ------------------------------------------------------------------------------------------------------------------------------- 3.88s
-Gathering Facts ------------------------------------------------------------------------------------------------------------------------------- 3.84s
-alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico ----------------------------------------------------------------------------- 3.62s
-alpine_apkrepo : Set /etc/apk/repositories to edge/main, edge/community and edge/testing ------------------------------------------------------ 3.39s
-alpine_calico : kubectl create -f custom-resources.yaml --------------------------------------------------------------------------------------- 3.31s
+alpine_kubeadm_join_control : Execute kubeadm join for 2nd and 3rd controlplane nodes ------------------------------------------------------------------------------------------------------------------- 433.07s
+alpine_crio : Install packages cri-o, cri-o-doc, cri-o-bash-completion, cri-o-openrc, cni-plugins, cni-plugins-doc, ip6tables and uuidgen --------------------------------------------------------------- 147.01s
+alpine_kubeadm_init : Execute kubeadm init -------------------------------------------------------------------------------------------------------------------------------------------------------------- 129.47s
+alpine_apkrepo : Upgrade all installed apk packages to the latest versions ------------------------------------------------------------------------------------------------------------------------------- 62.26s
+alpine_apkrepo : Reboot the host after apk upgrade ------------------------------------------------------------------------------------------------------------------------------------------------------- 32.70s
+alpine_kubelet : Install packages kubelet, kubelet-openrc, kubeadm, kubeadm-bash-completion, kubectl and kubectl-bash-completion ------------------------------------------------------------------------- 32.00s
+alpine_calico : Pause for 30 seconds --------------------------------------------------------------------------------------------------------------------------------------------------------------------- 30.03s
+alpine_longhorn : Execute kubectl apply -f longhorn.yaml ------------------------------------------------------------------------------------------------------------------------------------------------- 24.79s
+alpine_kubeadm_join_workers : Execute kubeadm join for worker nodes -------------------------------------------------------------------------------------------------------------------------------------- 18.06s
+alpine_calico : kubectl create -f tigera-operator.yaml --------------------------------------------------------------------------------------------------------------------------------------------------- 15.92s
+alpine_longhorn : Install open-iscsi package ------------------------------------------------------------------------------------------------------------------------------------------------------------- 11.19s
+alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------------------------------------------------------------------- 10.03s
+alpine_calico : Pause for 10 seconds --------------------------------------------------------------------------------------------------------------------------------------------------------------------- 10.03s
+alpine_kubeadm_afterjoin : Pause for 10 seconds after API port starts listening (to let API server start fully) ------------------------------------------------------------------------------------------ 10.03s
+alpine_longhorn : Set local.d script to 'mount --make-rshared /' on workers ------------------------------------------------------------------------------------------------------------------------------- 4.97s
+Gathering Facts ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 4.51s
+alpine_kernelparams : Set net forwarding kernel params ---------------------------------------------------------------------------------------------------------------------------------------------------- 4.27s
+alpine_calico : service crio restart ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- 4.20s
+alpine_calico : ln -s /opt/cni/bin/calico /usr/libexec/cni/calico ----------------------------------------------------------------------------------------------------------------------------------------- 3.80s
+Gathering Facts ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 3.76s
 
-real    8m44.650s
-user    0m46.980s
-sys     0m23.757s
+real    18m11.198s
+user    1m12.597s
+sys     0m31.595s
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ kubectl get nodes -owide
+NAME                            STATUS   ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+control1.frankfurt.pvamos.net   Ready    control-plane   17m     v1.25.0   51.195.116.80    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+control2.frankfurt.pvamos.net   Ready    control-plane   9m44s   v1.25.0   51.195.116.87    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+control3.frankfurt.pvamos.net   Ready    control-plane   15m     v1.25.0   51.195.117.170   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+worker1.frankfurt.pvamos.net    Ready    <none>          9m13s   v1.25.0   51.195.116.254   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+worker2.frankfurt.pvamos.net    Ready    <none>          9m16s   v1.25.0   51.195.118.45    <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+worker3.frankfurt.pvamos.net    Ready    <none>          9m16s   v1.25.0   51.195.119.241   <none>        Alpine Linux v3.17   6.1.2-0-virt     cri-o://1.24.1
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ kubectl get node control1.frankfurt.pvamos.net -o go-template --template='{{range .status.addresses}}{{printf "%s: %s\n" .type .address}}{{end}}'
+InternalIP: 51.195.116.80
+InternalIP: 2001:41d0:701:1100::5901
+Hostname: control1.frankfurt.pvamos.net
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ kubectl get node worker1.frankfurt.pvamos.net -o go-template --template='{{range .status.addresses}}{{printf "%s: %s\n" .type .address}}{{end}}'
+InternalIP: 51.195.116.254
+InternalIP: 2001:41d0:701:1100::5fa8
+Hostname: worker1.frankfurt.pvamos.net
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ 
+[p@ansible alpine-k8s]$ kubectl get pods -A -owide
+NAMESPACE         NAME                                                    READY   STATUS    RESTARTS        AGE     IP               NODE                            NOMINATED NODE   READINESS GATES
+calico-system     calico-node-7h7ck                                       1/1     Running   1 (6m30s ago)   8m13s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+calico-system     calico-node-bnw8q                                       1/1     Running   0               8m13s   51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>
+calico-system     calico-node-ck4kl                                       1/1     Running   0               8m13s   51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+calico-system     calico-node-hhz54                                       1/1     Running   0               8m13s   51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>
+calico-system     calico-node-lhwxx                                       1/1     Running   0               8m13s   51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+calico-system     calico-node-z9zlx                                       1/1     Running   0               8m13s   51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>
+calico-system     calico-typha-57444d8bb7-b22c7                           1/1     Running   0               8m7s    51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>
+calico-system     calico-typha-57444d8bb7-bsqbs                           1/1     Running   0               8m7s    51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>
+calico-system     calico-typha-57444d8bb7-n6vzv                           1/1     Running   0               8m13s   51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>
+kube-system       coredns-565d847f94-q5pr6                                1/1     Running   0               16m     10.244.23.65     control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       coredns-565d847f94-rhmbv                                1/1     Running   0               16m     10.244.23.66     control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       etcd-control1.frankfurt.pvamos.net                      1/1     Running   0               16m     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+kube-system       etcd-control2.frankfurt.pvamos.net                      1/1     Running   0               9m26s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+kube-system       etcd-control3.frankfurt.pvamos.net                      1/1     Running   0               15m     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-apiserver-control1.frankfurt.pvamos.net            1/1     Running   0               17m     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-apiserver-control2.frankfurt.pvamos.net            1/1     Running   0               9m10s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-apiserver-control3.frankfurt.pvamos.net            1/1     Running   1 (14m ago)     14m     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-controller-manager-control1.frankfurt.pvamos.net   1/1     Running   1 (15m ago)     17m     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-controller-manager-control2.frankfurt.pvamos.net   1/1     Running   0               9m27s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-controller-manager-control3.frankfurt.pvamos.net   1/1     Running   0               13m     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-proxy-crk48                                        1/1     Running   0               9m9s    51.195.119.241   worker3.frankfurt.pvamos.net    <none>           <none>
+kube-system       kube-proxy-gc4jk                                        1/1     Running   0               15m     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-proxy-kqjj6                                        1/1     Running   0               16m     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-proxy-qcdtj                                        1/1     Running   0               9m7s    51.195.116.254   worker1.frankfurt.pvamos.net    <none>           <none>
+kube-system       kube-proxy-x2vvr                                        1/1     Running   0               9m9s    51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>
+kube-system       kube-proxy-zms2h                                        1/1     Running   0               9m37s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-scheduler-control1.frankfurt.pvamos.net            1/1     Running   1 (15m ago)     16m     51.195.116.80    control1.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-scheduler-control2.frankfurt.pvamos.net            1/1     Running   0               9m18s   51.195.116.87    control2.frankfurt.pvamos.net   <none>           <none>
+kube-system       kube-scheduler-control3.frankfurt.pvamos.net            1/1     Running   0               14m     51.195.117.170   control3.frankfurt.pvamos.net   <none>           <none>
+longhorn-system   csi-attacher-66f9979b99-7w7sm                           1/1     Running   0               5m32s   10.244.87.137    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-attacher-66f9979b99-gsxlw                           1/1     Running   0               5m32s   10.244.240.136   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-attacher-66f9979b99-wtjk4                           1/1     Running   0               5m32s   10.244.168.74    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-provisioner-64dcbd65b4-2vpv2                        1/1     Running   0               5m32s   10.244.87.136    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-provisioner-64dcbd65b4-45c45                        1/1     Running   0               5m32s   10.244.168.75    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-provisioner-64dcbd65b4-frfqm                        1/1     Running   0               5m32s   10.244.240.138   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-resizer-ccdb95b5c-f6slv                             1/1     Running   0               5m31s   10.244.87.140    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-resizer-ccdb95b5c-sw7rv                             1/1     Running   0               5m31s   10.244.240.137   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-resizer-ccdb95b5c-ttxnm                             1/1     Running   0               5m31s   10.244.168.73    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-snapshotter-546b79649b-7q679                        1/1     Running   0               5m31s   10.244.87.138    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-snapshotter-546b79649b-bjgzf                        1/1     Running   0               5m31s   10.244.168.76    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   csi-snapshotter-546b79649b-dr7lg                        1/1     Running   0               5m31s   10.244.240.139   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   engine-image-ei-fc06c6fb-7xxhk                          1/1     Running   0               5m41s   10.244.240.132   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   engine-image-ei-fc06c6fb-9p2pm                          1/1     Running   0               5m41s   10.244.87.135    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   engine-image-ei-fc06c6fb-rwpdb                          1/1     Running   0               5m41s   10.244.168.72    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-e-4080ef99f3335d2815269fb81fcbf459     1/1     Running   0               5m41s   10.244.87.134    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-e-96ffff261e0b1235ad56bd5a5b6474d6     1/1     Running   0               5m41s   10.244.168.70    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-e-c2dac33e70c79d60f88e502d3d28a98e     1/1     Running   0               5m38s   10.244.240.134   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-r-4080ef99f3335d2815269fb81fcbf459     1/1     Running   0               5m41s   10.244.87.133    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-r-96ffff261e0b1235ad56bd5a5b6474d6     1/1     Running   0               5m41s   10.244.168.71    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   instance-manager-r-c2dac33e70c79d60f88e502d3d28a98e     1/1     Running   0               5m38s   10.244.240.135   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-admission-webhook-6489cc5747-x6pdh             1/1     Running   0               6m30s   10.244.168.69    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-admission-webhook-6489cc5747-z6wn6             1/1     Running   0               6m30s   10.244.87.132    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-conversion-webhook-58b5f48bbd-88tpc            1/1     Running   0               6m31s   10.244.240.131   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-conversion-webhook-58b5f48bbd-g7b96            1/1     Running   0               6m31s   10.244.168.68    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-csi-plugin-5x7f8                               3/3     Running   0               5m31s   10.244.87.139    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-csi-plugin-xzdpj                               3/3     Running   0               5m31s   10.244.168.77    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-csi-plugin-zxs4x                               3/3     Running   0               5m31s   10.244.240.140   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-driver-deployer-7fdddb9f99-62vd9               1/1     Running   0               6m32s   10.244.240.129   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-manager-ftc9x                                  1/1     Running   0               6m33s   10.244.168.65    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-manager-k4jw4                                  1/1     Running   0               6m32s   10.244.240.130   worker2.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-manager-qts4n                                  1/1     Running   0               6m32s   10.244.87.131    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-recovery-backend-d67444cf5-gbcr7               1/1     Running   0               6m32s   10.244.87.129    worker3.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-recovery-backend-d67444cf5-jcslr               1/1     Running   0               6m32s   10.244.168.66    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-ui-6768fbbc6c-gnf2d                            1/1     Running   0               6m31s   10.244.168.67    worker1.frankfurt.pvamos.net    <none>           <none>
+longhorn-system   longhorn-ui-6768fbbc6c-st9w6                            1/1     Running   0               6m31s   10.244.87.130    worker3.frankfurt.pvamos.net    <none>           <none>
+tigera-operator   tigera-operator-55dd57cddb-h5lgk                        1/1     Running   0               8m27s   51.195.118.45    worker2.frankfurt.pvamos.net    <none>           <none>
 [p@ansible alpine-k8s]$
+

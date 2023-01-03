@@ -81,15 +81,13 @@
     src: templates/kubeadm-config.yaml.control.j2
     dest: /root/kubeadm-config.yaml
 
-- name: Execute kubeadm join
+- name: Execute kubeadm join for 2nd and 3rd controlplane nodes
   ansible.builtin.command: kubeadm join --ignore-preflight-errors=NumCPU --config=/root/kubeadm-config.yaml
   environment:
     PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
-  args:
-    executable: /bin/bash
   register: kubeadm_join_output
 
-- name: Print kubeadm join output
+- name: Print kubeadm join output for 2nd and 3rd controlplane nodes
   ansible.builtin.debug:
     var: kubeadm_join_output.stdout_lines
 

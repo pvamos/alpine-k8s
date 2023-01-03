@@ -1,20 +1,20 @@
 [controlplane]
-ipv4.control1.pvamos.net
-ipv4.control2.pvamos.net
-ipv4.control3.pvamos.net
+control1.frankfurt.pvamos.net
+control2.frankfurt.pvamos.net
+control3.frankfurt.pvamos.net
 
 [control1]
-ipv4.control1.pvamos.net
+control1.frankfurt.pvamos.net
 
 [control23]
-ipv4.control2.pvamos.net
-ipv4.control3.pvamos.net
+control2.frankfurt.pvamos.net
+control3.frankfurt.pvamos.net
 
 [workers]
-ipv4.worker1.pvamos.net
-ipv4.worker2.pvamos.net
-ipv4.worker3.pvamos.net
+worker1.frankfurt.pvamos.net
+worker2.frankfurt.pvamos.net
+worker3.frankfurt.pvamos.net
 
 [haproxy]
-#ipv4.lb1.pvamos.net
-#ipv4.lb2.pvamos.net
+#lb1.frankfurt.pvamos.net
+#lb2.frankfurt.pvamos.net

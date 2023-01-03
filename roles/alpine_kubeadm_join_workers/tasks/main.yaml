@@ -73,21 +73,14 @@
     src: templates/kubeadm-config.yaml.worker.j2
     dest: /root/kubeadm-config.yaml
 
-- name: Execute kubeadm join
+- name: Execute kubeadm join for worker nodes
   ansible.builtin.command: kubeadm join --config=/root/kubeadm-config.yaml
   environment:
     PATH: '/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin'
-  args:
-    executable: /bin/bash
   register: kubeadm_join_output
 
-- name: Print kubeadm join output
+- name: Print kubeadm join output for worker nodes
   ansible.builtin.debug:
     var: kubeadm_join_output.stdout_lines
-
-#- name: Reboot all nodes
-#  ansible.builtin.reboot:
-#    post_reboot_delay: 10
-#    reboot_timeout: 600
 
 
