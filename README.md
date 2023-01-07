@@ -3,7 +3,7 @@
 <https://github.com/pvamos/alpine-k8s>
 
 
-## Install IPv4/IPv6 dual-stack HA Kubernetes 1.25 cluster with Calico network and Longhorn storage, on Alpine linux 3.17, automated with Ansible and Kubeadm
+## Install IPv4/IPv6 dual-stack HA Kubernetes 1.25 cluster with CRI-O, Calico network and Longhorn storage, on Alpine linux 3.17, automated with Ansible and Kubeadm
 
 ***A simple "run only one playbook" solution deploying Highly Available IPv4/IPv6 dual-stack Kubernetes cluster on Alpine Linux, with Calico network and Longhorn storage, in a fully automated way using Ansible. The cluster has 3 controlplane nodes and any number of worker nodes.***
 
@@ -30,7 +30,7 @@
   - Longhorn is a distributed block storage system for Kubernetes. Longhorn is lightweight, reliable, and powerful. Once Longhorn is installed, it adds persistent volume support to the Kubernetes cluster. <https://longhorn.io>
 
 ### What is included:
-- Ansible roles, templates etc. and playbook to configure Alpine Linux and install Kubernetes, Calico networking and Longhorn storage.
+- Ansible roles, templates etc. and playbook to configure Alpine Linux and install CRI-O container runtime interface, Kubernetes, Calico networking and Longhorn storage.
 - Full output of a successful deployment run in `lastrun.log` at <https://github.com/pvamos/alpine-k8s/blob/main/lastrun.log>
 
 ## Requirements
@@ -93,7 +93,7 @@ loadbalancer_ipv4: 141.95.37.233
 ...
 ```
 
-Both HAProxy hosts are configured the similarly, forwarding requests to the API servers on the 3 controlplane nodes:
+Both HAProxy hosts are configured similarly, forwarding requests to the API servers on the 3 controlplane nodes:
 
 ```
 defaults
